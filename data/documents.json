@@ -1,0 +1,86 @@
+[
+  {
+    "id": "doc_ke_001",
+    "title": "Knowledge & Experience (K&E) - General Information",
+    "jurisdiction": "CH",
+    "topic": "K&E",
+    "text": "All order givers who are expected to place orders must initially complete a Knowledge & Experience (K&E) form. This includes account holders, authorised signatories for legal entities, and Power of Attorney holders who are expected to place orders. The purpose is to assess understanding of instrument categories and their associated risks."
+  },
+  {
+    "id": "doc_cip_001",
+    "title": "Client Investment Profile (CIP)",
+    "jurisdiction": "CH",
+    "topic": "CIP",
+    "text": "The Client Investment Profile captures a client's financial situation, investment goals, risk ability and risk tolerance. The CIP must be completed before recommending investment strategies. Recommended investment strategies must be aligned with the overall investment strategy reflected in the CIP."
+  },
+  {
+    "id": "doc_class_001",
+    "title": "Client Classification - Switzerland",
+    "jurisdiction": "CH",
+    "topic": "Client Classification",
+    "text": "For Switzerland, client classification distinguishes private, professional and institutional clients. The applicable classification determines the level of investor protection and product access. This document is scoped to Switzerland only and must not be used as authoritative guidance for another jurisdiction."
+  },
+  {
+    "id": "doc_alert_001",
+    "title": "Concentration Risk - Advisory Session",
+    "jurisdiction": "CH",
+    "topic": "Concentration Risk",
+    "text": "If a concentration risk alert is triggered during an Advisory Session, it must be resolved before proceeding with the transaction. The correct handling depends on the solicitation context and the specific alert scenario."
+  },
+  {
+    "id": "doc_alert_002",
+    "title": "Concentration Risk - Client Book Monitoring",
+    "jurisdiction": "CH",
+    "topic": "Concentration Risk",
+    "text": "For overnight Client Book monitoring alerts, the Relationship Manager or Investment Adviser must inform the client within five business days. This is distinct from an Advisory Session alert, which must be resolved before entering the trade."
+  },
+  {
+    "id": "doc_cpr_001",
+    "title": "Consolidated Product Risk (CPR) - Active Solicitation",
+    "jurisdiction": "CH",
+    "topic": "CPR",
+    "text": "If a CPR alert remains visible during active solicitation, the investment is considered unsuitable and the Relationship Manager must not proceed with the transaction. The alert must be resolved. Client acceptance of risk is not sufficient to override the suitability control in this context."
+  },
+  {
+    "id": "doc_dtm_001",
+    "title": "Distributor Target Market (DTM) - Advisory Service Models",
+    "jurisdiction": "CH",
+    "topic": "DTM",
+    "text": "Distributor Target Market rules apply to Advisory Service Models. This source does not state that DTM applies to the Trade Basic Service Model. Do not infer applicability to Trade Basic without an authoritative source."
+  },
+  {
+    "id": "doc_kid_001",
+    "title": "Key Information Documents (KIDs)",
+    "jurisdiction": "CH",
+    "topic": "KID",
+    "text": "Where a Key Information Document is required, the transaction cannot proceed unless the required document is delivered before the trade. Clients cannot waive mandatory documentation requirements."
+  },
+  {
+    "id": "doc_own_001",
+    "title": "OWN - One Way Notification",
+    "jurisdiction": "CH",
+    "topic": "OWN",
+    "text": "In this knowledge base, OWN refers to One Way Notification. Acronyms must be interpreted using the dedicated source page rather than guessed from general language."
+  },
+  {
+    "id": "doc_exec_001",
+    "title": "Execution-only and Appropriateness",
+    "jurisdiction": "CH",
+    "topic": "Execution-only",
+    "text": "Execution-only transactions involve minimal advisory checking compared with full suitability. Appropriateness focuses on knowledge and experience. The required process depends on client classification, product type and the applicable regulatory context."
+  },
+  {
+    "id": "doc_cross_001",
+    "title": "Cross-border Scope Handling",
+    "jurisdiction": "GLOBAL",
+    "topic": "Cross-border",
+    "text": "A source scoped to one jurisdiction must not be extended to another jurisdiction without authoritative evidence. If the available source only covers Switzerland and the user asks about Monaco, the system should state the scope limitation and escalate or seek a jurisdiction-specific source."
+  },
+  {
+    "id": "doc_support_001",
+    "title": "Suitability Support Model",
+    "jurisdiction": "GLOBAL",
+    "topic": "Support Model",
+    "text": "Routine operational suitability questions can be supported by Business Front Support. Complex cases and consistency topics can be handled by BRM Suitability Leads. Edge cases, policy interpretation, risk mitigation and compliance approval may require Legal, Compliance or other Suitability Experts."
+  }
+]

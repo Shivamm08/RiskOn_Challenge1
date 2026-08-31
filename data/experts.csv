@@ -1,0 +1,9 @@
+expert_id,name,function,lod,region,expertise,mandate,jurisdiction,historical_success,avg_response_minutes
+E01,Alex Meyer,Business Front Support,1LoD,Global,Wealth Navigator; routine operations; suitability queries,Routine operational support,Global,0.92,18
+E02,Sofia Keller,BRM Suitability Lead,1LoD,Switzerland,CPR; concentration risk; suitability alerts; advisory consistency,Complex suitability cases and consistency,CH,0.9,35
+E03,Daniel Rossi,Compliance,2LoD,Switzerland,FIDLEG; client classification; suitability; policy interpretation,Swiss regulatory and compliance matters,CH,0.95,50
+E04,Maya Laurent,Legal,2LoD,Europe,MiFID; cross-border; policy interpretation; legal edge cases,EU and cross-border legal interpretation,EU,0.91,70
+E05,Omar Haddad,Compliance,2LoD,Emerging Markets,cross-border; client classification; structured products,Emerging Markets cross-border compliance,EM,0.89,45
+E06,Emma Fischer,Suitability Expert,2LoD,Global,K&E; CIP; suitability framework; product eligibility,Deep suitability expertise and edge cases,Global,0.94,40
+E07,Jonas Weber,BRM Suitability Lead,1LoD,Europe,client classification; alerts; suitability processes,European suitability process consistency,EU,0.87,30
+E08,Nina Baumann,Compliance,2LoD,Global,KID; disclosure; appropriateness; execution-only,Disclosure and appropriateness controls,Global,0.93,55
