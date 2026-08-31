@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RiskON MVP
 
 Minimal runnable prototype for **AI that knows the answer — or knows who knows**.
@@ -22,3 +23,6 @@ Replace synthetic JSON with JB HTML + Excel metadata ingestion, then upgrade ret
 
 ## Confidence note
 The MVP confidence score is a transparent heuristic, not a calibrated probability. A stronger version can fit logistic regression on real evaluation outcomes using retrieval relevance, faithfulness, completeness and answerability signals.
+=======
+# RiskOn_Challenge1
+>>>>>>> fde338b86a8e6df599f48bf64a102b0e200453cc
