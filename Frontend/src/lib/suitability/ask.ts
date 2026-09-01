@@ -106,6 +106,23 @@ function unknownEscalation(question: string, context: QueryContext): AskResponse
         role: "Suitability Champion",
         team: `Front Office — ${context.bookingCentre ?? "Switzerland"}`,
       },
+      experts: [
+        {
+          name: "Nina Aebi",
+          role: "Suitability Champion",
+          team: `Front Office — ${context.bookingCentre ?? "Switzerland"}`,
+        },
+        {
+          name: "Daniel Frei",
+          role: "Business Front Support Officer",
+          team: "Business Front Support",
+        },
+        {
+          name: "Sonia Egger",
+          role: "BRM Suitability Lead",
+          team: "BRM Suitability Leads",
+        },
+      ],
       reason:
         "No wiki guidance was retrieved for this question, so it cannot be answered from the connected knowledge sources. The Suitability Champion is the first human tier and will either resolve it directly or escalate to Business Front Support.",
       fallback_contact: { name: "Daniel Frei", role: "Business Front Support Officer" },

@@ -59,6 +59,7 @@ class Escalation(BaseModel):
     required: bool = False
     tier: EscalationTier = "wiki"
     expert: Optional[Expert] = None
+    experts: list[Expert] = Field(default_factory=list)
     reason: str = ""
     fallback_contact: Optional[FallbackContact] = None
 

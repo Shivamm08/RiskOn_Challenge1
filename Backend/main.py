@@ -78,7 +78,7 @@ def ask(req: AskRequest) -> AskResponse:
 
     # --- No matching page at all: straight to escalation ---
     if not matches:
-        routing = router.route(topic_tags=[], low_confidence=True, no_source_at_all=True)
+        routing = router.route(topic_tags=[], low_confidence=True, no_source_at_all=True, region=req.context.booking_centre)
         reasoning.append("No wiki page was retrieved above the relevance threshold for this question.")
         reasoning.append(f"Escalating to {routing.expert_role} ({routing.tier}).")
         response = AskResponse(
@@ -91,6 +91,10 @@ def ask(req: AskRequest) -> AskResponse:
                 required=True,
                 tier=routing.tier,
                 expert=Expert(name=routing.expert_name, role=routing.expert_role, team=routing.expert_team),
+                experts=[
+                    Expert(name=entry["name"], role=entry["role"], team=entry["team"])
+                    for entry in routing.experts
+                ],
                 reason=routing.reason,
                 fallback_contact=FallbackContact(name=routing.fallback_name, role=routing.fallback_role),
             ),
@@ -156,7 +160,12 @@ def ask(req: AskRequest) -> AskResponse:
         return response
 
     # --- Not confident enough: escalate, but show what was checked ---
-    routing = router.route(topic_tags=top_page.topic_tags, low_confidence=True, no_source_at_all=False)
+    routing = router.route(
+        topic_tags=top_page.topic_tags,
+        low_confidence=True,
+        no_source_at_all=False,
+        region=req.context.booking_centre,
+    )
     reasoning.append(f"Relevance {top_score:.2f} is below the answer threshold ({ANSWER_CONFIDENCE_THRESHOLD}) — escalating rather than guessing.")
     reasoning.append(f"Routed to {routing.expert_role} ({routing.tier}).")
     response = AskResponse(
@@ -170,6 +179,10 @@ def ask(req: AskRequest) -> AskResponse:
             required=True,
             tier=routing.tier,
             expert=Expert(name=routing.expert_name, role=routing.expert_role, team=routing.expert_team),
+            experts=[
+                Expert(name=entry["name"], role=entry["role"], team=entry["team"])
+                for entry in routing.experts
+            ],
             reason=routing.reason,
             fallback_contact=FallbackContact(name=routing.fallback_name, role=routing.fallback_role),
         ),

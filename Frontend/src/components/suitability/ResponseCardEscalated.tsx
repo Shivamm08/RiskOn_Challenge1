@@ -42,13 +42,17 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
       ? `${exchange.question.slice(0, 57).trimEnd()}…`
       : exchange.question;
 
-  const mailto = `mailto:${expertEmail(escalation.expert.name)}?subject=${encodeURIComponent(
+  const experts = escalation.experts?.length ? escalation.experts : [escalation.expert];
+  const primaryExpert = experts[0] ?? escalation.expert;
+  const alternativeExperts = experts.slice(1, 4);
+
+  const mailto = `mailto:${expertEmail(primaryExpert.name)}?subject=${encodeURIComponent(
     `Suitability question — ${shortQuestion}`,
   )}&body=${encodeURIComponent(
     [
-      `Dear ${firstName(escalation.expert.name)},`,
+      `Dear ${firstName(primaryExpert.name)},`,
       "",
-      `The Suitability Copilot could not confidently answer a client-related question and is routing it to you as ${escalation.expert.role}. ${escalation.reason}`,
+      `The Suitability Copilot could not confidently answer a client-related question and is routing it to you as ${primaryExpert.role}. ${escalation.reason}`,
       "",
       exchange.question,
       "",
@@ -82,15 +86,32 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
               <User className="size-4" />
             </span>
             <div className="min-w-0">
-              <p className="text-sm font-medium">{escalation.expert.name}</p>
-              <p className="text-xs text-muted-foreground">{escalation.expert.role}</p>
-              <p className="text-xs text-muted-foreground">{escalation.expert.team}</p>
+              <p className="text-sm font-medium">{primaryExpert.name}</p>
+              <p className="text-xs text-muted-foreground">{primaryExpert.role}</p>
+              <p className="text-xs text-muted-foreground">{primaryExpert.team}</p>
             </div>
           </div>
           <p className="mt-3 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
             {escalation.reason}
           </p>
         </div>
+
+        {alternativeExperts.length > 0 && (
+          <div className="rounded-sm border border-border bg-surface-2 p-3.5">
+            <p className="label-xs mb-2 text-muted-foreground">Other suitable contacts</p>
+            <div className="space-y-2">
+              {alternativeExperts.map((expert) => (
+                <div key={expert.name} className="flex items-center justify-between gap-3 rounded-sm border border-border bg-card px-2.5 py-2 text-xs">
+                  <div>
+                    <p className="font-medium">{expert.name}</p>
+                    <p className="text-muted-foreground">{expert.role}</p>
+                  </div>
+                  <span className="text-muted-foreground">{expert.team}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div>
           <p className="label-xs mb-2 text-muted-foreground">Escalation tier</p>
@@ -100,7 +121,7 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
         <p className="flex items-start gap-2 rounded-sm border border-warning/40 bg-warning-surface px-3 py-2 text-xs leading-relaxed">
           <LifeBuoy className="mt-0.5 size-3.5 shrink-0 text-warning" />
           <span>
-            If {escalation.expert.name} is unavailable, contact{" "}
+            If {primaryExpert.name} is unavailable, contact{" "}
             <span className="font-medium">{escalation.fallback_contact.name}</span> —{" "}
             {escalation.fallback_contact.role}.
           </span>
@@ -169,7 +190,7 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
           <div className="flex flex-wrap gap-2 border-t border-border pt-3">
             <Button size="sm" asChild>
               <a href={mailto}>
-                <BellRing className="size-3.5" /> Notify this expert
+                <BellRing className="size-3.5" /> Notify recommended expert
               </a>
             </Button>
 
