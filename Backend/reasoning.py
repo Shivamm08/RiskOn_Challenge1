@@ -97,6 +97,13 @@ def check_ambiguity(top_page: WikiPage, question: str) -> ReasoningResult:
         )
 
     rule = AMBIGUOUS_PAGES.get(top_page.id)
+    # Real export files use numeric Confluence IDs rather than synthetic names.
+    if not rule and "issuer_concentration" in top_page.topic_tags:
+        rule = AMBIGUOUS_PAGES["issuer_concentration_risk"]
+    if not rule and "k_and_e" in top_page.topic_tags and re.search(r"update|amend|change", q_lower):
+        rule = AMBIGUOUS_PAGES["k_and_e_update"]
+    if not rule and "alerts" in top_page.topic_tags and "overnight" in top_page.title.lower():
+        rule = AMBIGUOUS_PAGES["overnight_wn_alerts"]
     if rule and not any(kw in q_lower for kw in rule["resolves_if_any"]):
         return ReasoningResult(
             needs_clarification=True,

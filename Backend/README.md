@@ -18,8 +18,7 @@ uvicorn main:app --reload
 
 - API: http://localhost:8000
 - Interactive docs: http://localhost:8000/docs
-- Point the frontend's `askSuitability()` fetch call at this instead of the
-  mock data (see the comment already in `Frontend/src/lib/suitability/ask.ts`)
+- The frontend calls this API at `http://localhost:8000` by default.
 
 ## Real accuracy — not a guess
 
@@ -54,7 +53,7 @@ matrix worth showing in the pitch, not just a confidence number on the UI.
 
 | File | Role |
 |---|---|
-| `retrieval.py` | Loads `Dataset/wiki/*.html`, strips markup, TF-IDF + cosine similarity search. Swap for embeddings/a real vector store later — `retrieve()` is the only contract the rest of the app depends on. |
+| `retrieval.py` | Loads `pages/<page id>.html`, reconstructs titles, parses Confluence content, infers topic/scope metadata, and performs retrieval. |
 | `reasoning.py` | Ambiguity detection (4 pages encoded from the real eval set's documented "needs clarification" cases) and scope/jurisdiction checking. |
 | `escalation.py` | Picks tier + SME from `Dataset/synthetic_smes.json` based on topic-tag overlap, following the real 1&2LoD tier order. |
 | `audit.py` | SQLite logging — every request and its eventual SME resolution. |
@@ -69,10 +68,11 @@ against the real evaluation set — re-run `run_eval.py` after any dataset
 change to confirm it's still calibrated, especially once the real Wiki dump
 replaces the synthetic one on Day 1.
 
-## Swapping in the real Wiki dump on Day 1
+## Local real Wiki export
 
-1. Replace `Dataset/wiki/*.html` with the real files.
-2. Regenerate `Dataset/page_index.json` — the real dump won't have
-   `topic_tags`/`region_scope` metadata, so this needs inference logic
-   (exactly the kind of reasoning the challenge is scoring).
-3. Re-run `run_eval.py` against JB's real evaluation set for real pitch numbers.
+The API reads `../pages/*.html` by default; the confidential directory is
+gitignored. `GET /health` reports the loaded directory/page count, while
+`GET /wiki/{page_id}` serves source citations locally without requiring access
+to the internal JB website. Set `WIKI_DIR` or `WIKI_URL_BASE` to override these
+defaults. The historical evaluation source IDs must be remapped before they can
+be used as real-corpus accuracy evidence.
