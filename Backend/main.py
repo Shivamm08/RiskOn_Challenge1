@@ -9,6 +9,10 @@ import uuid
 
 sys.path.insert(0, os.path.dirname(__file__))
 
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -19,6 +23,7 @@ from models import (
 from retrieval import get_retriever
 from reasoning import check_ambiguity, check_scope
 from escalation import get_router
+from llm_client import answer_with_context, is_insufficient_evidence
 import audit
 
 app = FastAPI(title="RiskON Suitability Copilot API")
@@ -141,12 +146,48 @@ def ask(req: AskRequest) -> AskResponse:
             )
             for p, s in matches[:2] if s > 0
         ]
-        answer = retriever.excerpt(top_page, question)
+        history = [
+            {"role": turn.role, "content": turn.content}
+            for turn in req.conversation
+        ]
+        retrieved_pages = [p for p, _ in matches[:5]]
+        answer = answer_with_context(question, retrieved_pages, conversation_history=history)
+        if is_insufficient_evidence(answer):
+            routing = router.route(
+                topic_tags=top_page.topic_tags,
+                low_confidence=True,
+                no_source_at_all=False,
+                region=req.context.booking_centre,
+            )
+            reasoning.append("The retrieved sources were not strong enough to support a grounded answer, so the request was escalated.")
+            reasoning.append(f"Routed to {routing.expert_role} ({routing.tier}).")
+            response = AskResponse(
+                request_id=request_id,
+                status="escalated",
+                confidence=Confidence(answer_confidence=round(top_score, 2), routing_confidence=routing.routing_confidence),
+                sources=sources,
+                scope_flags=scope.scope_flags,
+                escalation=Escalation(
+                    required=True,
+                    tier=routing.tier,
+                    expert=Expert(name=routing.expert_name, role=routing.expert_role, team=routing.expert_team),
+                    experts=[
+                        Expert(name=entry["name"], role=entry["role"], team=entry["team"])
+                        for entry in routing.experts
+                    ],
+                    reason=routing.reason,
+                    fallback_contact=FallbackContact(name=routing.fallback_name, role=routing.fallback_role),
+                ),
+                reasoning=reasoning,
+            )
+            audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
+            return response
+
         if scope.scope_note:
             answer = f"{answer} {scope.scope_note}"
 
         confidence_score = min(0.97, 0.55 + top_score)
-        reasoning.append(f"Relevance {top_score:.2f} is above the answer threshold ({ANSWER_CONFIDENCE_THRESHOLD}) — answering.")
+        reasoning.append(f"Relevance {top_score:.2f} is above the answer threshold ({ANSWER_CONFIDENCE_THRESHOLD}) — answering with grounded source support.")
         response = AskResponse(
             request_id=request_id,
             status="answered",
