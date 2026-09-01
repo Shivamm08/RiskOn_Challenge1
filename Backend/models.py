@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field, ConfigDict
 BookingCentre = Literal["CH", "Monaco", "Germany", "EEA", "Other"]
 ClientCategory = Literal["Private/Retail", "Professional", "Institutional"]
 ServiceModel = Literal["Advisory", "Execution-only", "Portfolio Management"]
-ResponseStatus = Literal["answered", "escalated", "clarification_needed"]
+ResponseStatus = Literal["answered", "escalated", "clarification_needed", "out_of_scope"]
 ChatRole = Literal["user", "assistant"]
 EscalationTier = Literal[
     "wiki", "suitability_champion", "business_front_support",

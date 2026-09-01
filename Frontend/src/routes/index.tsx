@@ -9,6 +9,7 @@ import { MessageBubble } from "@/components/suitability/MessageBubble";
 import { ResponseCardAnswered } from "@/components/suitability/ResponseCardAnswered";
 import { ResponseCardClarification } from "@/components/suitability/ResponseCardClarification";
 import { ResponseCardEscalated } from "@/components/suitability/ResponseCardEscalated";
+import { ResponseCardOutOfScope } from "@/components/suitability/ResponseCardOutOfScope";
 import { CitationPanel } from "@/components/suitability/SourceCitation";
 import { useSuitability } from "@/lib/suitability/store";
 import { useAuth } from "@/lib/auth";
@@ -41,6 +42,8 @@ function ResponseCard({ exchange }: { exchange: Exchange }) {
       return <ResponseCardEscalated exchange={exchange} />;
     case "clarification_needed":
       return <ResponseCardClarification exchange={exchange} />;
+    case "out_of_scope":
+      return <ResponseCardOutOfScope exchange={exchange} />;
   }
 }
 

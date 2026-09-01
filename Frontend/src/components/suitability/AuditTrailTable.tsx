@@ -12,12 +12,14 @@ const STATUS_STYLE: Record<ResponseStatus, string> = {
   answered: "border-success/40 bg-success-surface text-success-foreground",
   escalated: "border-danger/40 bg-danger-surface text-danger-foreground",
   clarification_needed: "border-info/40 bg-info-surface text-info-foreground",
+  out_of_scope: "border-border bg-muted text-muted-foreground",
 };
 
 const STATUS_LABEL: Record<ResponseStatus, string> = {
   answered: "Answered",
   escalated: "Escalated",
   clarification_needed: "Clarification",
+  out_of_scope: "Out of scope",
 };
 
 const FILTERS: ("all" | ResponseStatus)[] = [
@@ -25,6 +27,7 @@ const FILTERS: ("all" | ResponseStatus)[] = [
   "answered",
   "escalated",
   "clarification_needed",
+  "out_of_scope",
 ];
 
 function tierLabel(tier: string) {

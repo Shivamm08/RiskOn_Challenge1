@@ -13,7 +13,7 @@ export type ChatMessage = {
   content: string;
 };
 
-export type ResponseStatus = "answered" | "escalated" | "clarification_needed";
+export type ResponseStatus = "answered" | "escalated" | "clarification_needed" | "out_of_scope";
 
 export type EscalationTier =
   | "wiki"

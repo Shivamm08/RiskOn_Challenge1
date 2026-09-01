@@ -1,0 +1,10 @@
+.venv
+__pycache__
+Frontend/package-lock.json
+Backend/audit_log.db
+Backend/.venv/
+Frontend/node_modules/
+Backend/audit_log.db
+Backend/eval_results.json
+Frontend/.env.local
+.env

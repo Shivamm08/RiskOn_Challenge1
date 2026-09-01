@@ -77,11 +77,29 @@ def ask(req: AskRequest) -> AskResponse:
     # Downstream checks need the context resolved by the rewriter too. Keep the
     # original wording alongside it so jurisdiction/scope details cannot be lost.
     contextual_question = f"{question} {retrieval_query}".strip()
-    matches = retriever.retrieve(retrieval_query, top_k=3)
     if rewrite.used_llm:
-        reasoning.append(f'Rewrote the follow-up for retrieval as: "{rewrite.query}".')
+        reasoning.append(f'Prepared the retrieval query as: "{rewrite.query}".')
     elif rewrite.fallback_reason not in {"no_history", "disabled"}:
         reasoning.append("Query rewriting was unavailable; used the original question safely.")
+
+    if not rewrite.needs_retrieval:
+        reasoning.append("The request is outside the Suitability Copilot's wealth-management scope.")
+        response = AskResponse(
+            request_id=request_id,
+            status="out_of_scope",
+            answer=(
+                "This request is outside my scope. I can help with wealth-management "
+                "suitability, compliance, client classification, products, and related policies."
+            ),
+            confidence=Confidence(answer_confidence=0.0, routing_confidence=0.0),
+            sources=[],
+            scope_flags=["out_of_scope"],
+            reasoning=reasoning,
+        )
+        audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
+        return response
+
+    matches = retriever.retrieve(retrieval_query, top_k=3)
     reasoning.append(
         f"Searched the Suitability Wiki for: \"{rewrite.query}\"."
         if matches else f"Searched the Suitability Wiki for: \"{rewrite.query}\" — no page scored above zero relevance."
