@@ -10,7 +10,7 @@ import { SourceChip } from "./SourceCitation";
 import { useSuitability } from "@/lib/suitability/store";
 import type { Exchange } from "@/lib/suitability/types";
 
-import { CURRENT_RM } from "@/lib/suitability/seed";
+import { useAuth } from "@/lib/auth";
 
 function expertEmail(name: string) {
   const parts = name.replace(/\./g, "").trim().split(/\s+/);
@@ -31,6 +31,7 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
   const { response, resolution } = exchange;
   const escalation = response.escalation;
   const { resolveExchange } = useSuitability();
+  const { user } = useAuth();
   const [resolving, setResolving] = useState(false);
   const [note, setNote] = useState("");
 
@@ -52,7 +53,7 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
       exchange.question,
       "",
       "Kind regards,",
-      CURRENT_RM,
+      user?.name ?? "",
     ].join("\n"),
   )}`;
 

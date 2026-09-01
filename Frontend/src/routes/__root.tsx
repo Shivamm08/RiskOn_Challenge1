@@ -13,6 +13,9 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "../components/ui/sonner";
 import { SuitabilityProvider } from "../lib/suitability/store";
+import { AuthProvider, useAuth } from "../lib/auth";
+import { ThemeProvider } from "../lib/theme";
+import { LoginScreen } from "../components/suitability/LoginScreen";
 
 
 function NotFoundComponent() {
@@ -108,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -120,16 +123,31 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function AuthGate() {
+  const { user, ready } = useAuth();
+
+  if (!ready) return <div className="min-h-screen bg-background" />;
+  if (!user) return <LoginScreen />;
+
+  return (
+    <SuitabilityProvider>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+    </SuitabilityProvider>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SuitabilityProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-        <Toaster />
-      </SuitabilityProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <AuthGate />
+          <Toaster />
+        </AuthProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

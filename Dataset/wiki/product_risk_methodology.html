@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Methodology - How is the product risk calculated?</title></head>
+<body>
+<div class="page-metadata">
+  <span class="space">Suitability Wiki</span> &gt; <span class="title">Methodology - How is the product risk calculated?</span>
+</div>
+<h1>Methodology - How is the product risk calculated?</h1>
+
+<p>Product risk for an individual instrument is derived from a combination
+of quantitative and qualitative factors, aggregated into a single risk score
+on a defined scale.</p>
+<h2>How is the product risk calculated?</h2>
+<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" style="border:1px solid #ccc">
+  <rect x="20" y="20" width="200" height="50" fill="#F2E9D8" stroke="#B8860B"/>
+  <text x="120" y="50" text-anchor="middle" font-size="13">Market Risk Score (0-100)</text>
+  <rect x="20" y="90" width="200" height="50" fill="#F2E9D8" stroke="#B8860B"/>
+  <text x="120" y="120" text-anchor="middle" font-size="13">Liquidity Risk Score (0-100)</text>
+  <rect x="20" y="160" width="200" height="50" fill="#F2E9D8" stroke="#B8860B"/>
+  <text x="120" y="190" text-anchor="middle" font-size="13">Credit Risk Score (0-100)</text>
+  <rect x="280" y="90" width="200" height="60" fill="#E7EEF9" stroke="#3A5FA0"/>
+  <text x="380" y="115" text-anchor="middle" font-size="12">Weighted Aggregation</text>
+  <text x="380" y="133" text-anchor="middle" font-size="11">(40% / 30% / 30%)</text>
+  <rect x="560" y="90" width="200" height="60" fill="#E4F5E9" stroke="#2E7D46"/>
+  <text x="660" y="115" text-anchor="middle" font-size="12">Final Product Risk Class</text>
+  <text x="660" y="133" text-anchor="middle" font-size="11">(1 = lowest, 7 = highest)</text>
+  <line x1="220" y1="45" x2="280" y2="105" stroke="black" marker-end="url(#a3)"/>
+  <line x1="220" y1="115" x2="280" y2="115" stroke="black" marker-end="url(#a3)"/>
+  <line x1="220" y1="185" x2="280" y2="130" stroke="black" marker-end="url(#a3)"/>
+  <line x1="480" y1="120" x2="560" y2="120" stroke="black" marker-end="url(#a3)"/>
+  <defs><marker id="a3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0 0,8 4,0 8"/></marker></defs>
+</svg>
+<p>The three component scores (Market Risk, Liquidity Risk, Credit Risk) are
+each scored 0-100 by the product risk engine, then combined using a weighted
+aggregation (40% Market / 30% Liquidity / 30% Credit) into a single Product
+Risk Class from 1 (lowest) to 7 (highest). This final class is what is
+compared against the client's risk tolerance during suitability checks and
+what feeds the Consolidated Product Risk (CPR) calculation at the portfolio
+level.</p>
+
+</body>
+</html>

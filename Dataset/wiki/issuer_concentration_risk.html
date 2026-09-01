@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Issuer Concentration Risk</title></head>
+<body>
+<div class="page-metadata">
+  <span class="space">Suitability Wiki</span> &gt; <span class="title">Issuer Concentration Risk</span>
+</div>
+<h1>Issuer Concentration Risk</h1>
+
+<p>Issuer Concentration Risk is triggered when a client's exposure to a
+single issuer exceeds the defined threshold relative to the portfolio's
+total value.</p>
+<h2>Resolution depends on where the alert was triggered</h2>
+<p><b>This page covers two distinct scenarios with different correct
+answers — do not conflate them:</b></p>
+<ul>
+<li><b>Triggered in an Advisory Session:</b> the alert must be resolved
+<i>before</i> the trade can be entered. Resolution requires either
+diversifying the proposed trade, obtaining documented client acceptance
+where permitted (only for non-hard-block variants), or advising against the
+transaction.
+<ul>
+<li>If the session is <b>actively solicited</b>: the RM must advise against the transaction if the alert cannot be resolved — this is not overridable by client acceptance.</li>
+<li>If <b>reverse solicited</b>: same rule — advise against if unresolved.</li>
+<li>If <b>unsolicited</b>: since no advice is given, the alert is informational; the client may proceed on an execution-only basis subject to standard appropriateness checks.</li>
+</ul>
+</li>
+<li><b>Triggered in Client Book (overnight monitoring):</b> this is a
+monitoring alert, not a pre-trade block. The RM/IA must inform the client
+within 5 business days and document the communication. No trade is being
+blocked — this is a portfolio-review and disclosure obligation.</li>
+</ul>
+<p>If the question does not specify which scenario applies (Advisory Session
+vs. Client Book) or which solicitation type, do not provide a single answer
+— ask for clarification first.</p>
+
+</body>
+</html>

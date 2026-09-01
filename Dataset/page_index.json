@@ -1,0 +1,331 @@
+[
+  {
+    "id": "suitability_framework",
+    "title": "Suitability Framework",
+    "topic_tags": [
+      "overview",
+      "cip",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "suitability_framework.html"
+  },
+  {
+    "id": "suitability_appropriateness_importance",
+    "title": "Why are Suitability and Appropriateness checks important?",
+    "topic_tags": [
+      "overview",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "suitability_appropriateness_importance.html"
+  },
+  {
+    "id": "k_and_e_general",
+    "title": "Knowledge and Experience (K&E) - general information",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "k_and_e_general.html"
+  },
+  {
+    "id": "k_and_e_update",
+    "title": "How to update the K&E-levels of an order giver (WN/DiAS, CLM, CRM-systems)",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "k_and_e_update.html"
+  },
+  {
+    "id": "client_classification_global",
+    "title": "Global Client Classification Logic (MiFID vs. FIDLEG)",
+    "topic_tags": [
+      "client_classification",
+      "mifid_scope",
+      "finsa_scope",
+      "cross_border"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "filename": "client_classification_global.html"
+  },
+  {
+    "id": "client_classification_monaco",
+    "title": "Client Classification Logic - Monaco",
+    "topic_tags": [
+      "client_classification",
+      "cross_border"
+    ],
+    "region_scope": [
+      "Monaco"
+    ],
+    "filename": "client_classification_monaco.html"
+  },
+  {
+    "id": "client_professionalization",
+    "title": "How to professionalize a client (Elected Professional)",
+    "topic_tags": [
+      "client_classification"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "client_professionalization.html"
+  },
+  {
+    "id": "client_classification_responsible_ch",
+    "title": "Local Client Classification Responsible - Switzerland",
+    "topic_tags": [
+      "client_classification"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "filename": "client_classification_responsible_ch.html"
+  },
+  {
+    "id": "issuer_concentration_risk",
+    "title": "Issuer Concentration Risk",
+    "topic_tags": [
+      "cpr_alerts",
+      "concentration_risk"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "issuer_concentration_risk.html"
+  },
+  {
+    "id": "saa_alert",
+    "title": "Strategic Asset Allocation (SAA)",
+    "topic_tags": [
+      "cpr_alerts",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "saa_alert.html"
+  },
+  {
+    "id": "overnight_wn_alerts",
+    "title": "Overnight Wealth Navigator alerts / Best practices for handling",
+    "topic_tags": [
+      "cpr_alerts",
+      "concentration_risk",
+      "monitoring"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "overnight_wn_alerts.html"
+  },
+  {
+    "id": "alerts_config_advisory_location",
+    "title": "Alerts Configuration per Advisory Location",
+    "topic_tags": [
+      "cpr_alerts"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "alerts_config_advisory_location.html"
+  },
+  {
+    "id": "cpr_handling",
+    "title": "Consolidated Product Risk (CPR) - handling and escalation requirements",
+    "topic_tags": [
+      "cpr_alerts"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "cpr_handling.html"
+  },
+  {
+    "id": "suitable_advice_solicitation",
+    "title": "What is a suitable recommendation?",
+    "topic_tags": [
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "suitable_advice_solicitation.html"
+  },
+  {
+    "id": "solicitation_types",
+    "title": "Solicitation Types and their Impact",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "solicitation_types.html"
+  },
+  {
+    "id": "own_one_way_notification",
+    "title": "OWN - One Way Notification",
+    "topic_tags": [
+      "own",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "own_one_way_notification.html"
+  },
+  {
+    "id": "pe_order_placement",
+    "title": "Private Equity (PE) order placement process",
+    "topic_tags": [
+      "structured_products",
+      "execution_only"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "pe_order_placement.html"
+  },
+  {
+    "id": "product_risk_methodology",
+    "title": "Methodology - How is the product risk calculated?",
+    "topic_tags": [
+      "k_and_e",
+      "cpr_alerts"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "product_risk_methodology.html"
+  },
+  {
+    "id": "digital_assets_eligibility",
+    "title": "Digital Asset advice - eligibility",
+    "topic_tags": [
+      "structured_products",
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "digital_assets_eligibility.html"
+  },
+  {
+    "id": "post_trade_cost_disclosure",
+    "title": "Post-trade cost disclosure and delivery mode",
+    "topic_tags": [
+      "mifid_scope",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "post_trade_cost_disclosure.html"
+  },
+  {
+    "id": "phone_recording_germany",
+    "title": "Phone call recording requirements - Germany (Full MiFID)",
+    "topic_tags": [
+      "mifid_scope",
+      "cross_border"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "filename": "phone_recording_germany.html"
+  },
+  {
+    "id": "pir_portfolio_analysis_report",
+    "title": "Portfolio Analysis Report (PIR) - preparation and consequences",
+    "topic_tags": [
+      "suitability_appropriateness",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "pir_portfolio_analysis_report.html"
+  },
+  {
+    "id": "account_opening_documentation",
+    "title": "Account opening - documentation guide",
+    "topic_tags": [
+      "overview",
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "account_opening_documentation.html"
+  }
+]

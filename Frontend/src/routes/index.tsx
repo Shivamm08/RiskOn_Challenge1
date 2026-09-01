@@ -11,7 +11,7 @@ import { ResponseCardClarification } from "@/components/suitability/ResponseCard
 import { ResponseCardEscalated } from "@/components/suitability/ResponseCardEscalated";
 import { CitationPanel } from "@/components/suitability/SourceCitation";
 import { useSuitability } from "@/lib/suitability/store";
-import { CURRENT_RM } from "@/lib/suitability/seed";
+import { useAuth } from "@/lib/auth";
 import type { Exchange } from "@/lib/suitability/types";
 
 const title = "Suitability Copilot — Julius Baer Internal";
@@ -45,7 +45,8 @@ function ResponseCard({ exchange }: { exchange: Exchange }) {
 }
 
 function CopilotPage() {
-  const { thread, pendingQuestion, activeCitation, context } = useSuitability();
+  const { thread, pendingQuestion, activeCitation, context, viewingDemo } = useSuitability();
+  const { user } = useAuth();
   const hash = useRouterState({ select: (s) => s.location.hash });
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -72,7 +73,18 @@ function CopilotPage() {
                   Every answer is traceable to an exact wiki excerpt. Where the wiki does not cover
                   the question, the Copilot routes to a named expert instead of guessing.
                 </p>
+                {viewingDemo && (
+                  <p className="mt-2 text-xs text-gold">
+                    Showing the curated demo scenarios — asking a question starts a new chat.
+                  </p>
+                )}
               </header>
+
+              {!viewingDemo && thread.length === 0 && !pendingQuestion && (
+                <p className="rounded-md border border-dashed border-border px-4 py-6 text-center text-sm text-muted-foreground">
+                  New chat — ask your first suitability question below.
+                </p>
+              )}
 
               {thread.map((exchange) => (
                 <div key={exchange.id} id={exchange.id} className="space-y-3 scroll-mt-6">
@@ -108,7 +120,7 @@ function CopilotPage() {
               <ContextBar />
               <ChatInput />
               <p className="text-[11px] text-muted-foreground">
-                Signed in as {CURRENT_RM}. All questions and answers are recorded in the audit
+                Signed in as {user?.name}. All questions and answers are recorded in the audit
                 trail.
               </p>
             </div>

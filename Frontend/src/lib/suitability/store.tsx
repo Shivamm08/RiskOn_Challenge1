@@ -8,12 +8,15 @@ import {
 } from "react";
 
 import { askSuitability } from "./ask";
-import { CURRENT_RM, SEED_AUDIT, SEED_EXCHANGES } from "./seed";
+import { SEED_AUDIT, SEED_EXCHANGES } from "./seed";
 import type { Exchange, QueryContext, SourceRef } from "./types";
+import { useAuth } from "@/lib/auth";
 
 type ActiveCitation = { source: SourceRef; exchangeId: string } | null;
 
 export type KnowledgeSource = { name: string; ref: string; connected: boolean };
+
+export type Chat = { id: string; title: string; exchanges: Exchange[] };
 
 const DEFAULT_SOURCES: KnowledgeSource[] = [
   { name: "Suitability Wiki", ref: "internal://suitability-wiki", connected: true },
@@ -24,10 +27,31 @@ const DEFAULT_SOURCES: KnowledgeSource[] = [
   },
 ];
 
+const NEW_CHAT_TITLE = "New chat";
+
+function chatTitle(question: string) {
+  const q = question.trim();
+  return q.length > 44 ? `${q.slice(0, 41).trimEnd()}…` : q;
+}
+
+function newChat(): Chat {
+  return {
+    id: `chat_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+    title: NEW_CHAT_TITLE,
+    exchanges: [],
+  };
+}
+
 type Store = {
+  /** Exchanges currently rendered in the Copilot view. */
   thread: Exchange[];
   demoExchanges: Exchange[];
-  liveExchanges: Exchange[];
+  chats: Chat[];
+  activeChatId: string | null;
+  viewingDemo: boolean;
+  startNewChat: () => void;
+  selectChat: (id: string) => void;
+  showDemo: () => void;
   auditRecords: Exchange[];
   context: QueryContext;
   setContext: (next: QueryContext) => void;
@@ -44,49 +68,84 @@ type Store = {
 const StoreContext = createContext<Store | null>(null);
 
 export function SuitabilityProvider({ children }: { children: ReactNode }) {
-  const [thread, setThread] = useState<Exchange[]>(SEED_EXCHANGES);
+  const { user } = useAuth();
+  const [demo, setDemo] = useState<Exchange[]>(SEED_EXCHANGES);
   const [extraAudit, setExtraAudit] = useState<Exchange[]>(SEED_AUDIT);
-  const [liveIds, setLiveIds] = useState<string[]>([]);
+  const [chats, setChats] = useState<Chat[]>([]);
+  const [activeChatId, setActiveChatId] = useState<string | null>(null);
   const [context, setContext] = useState<QueryContext>({});
   const [pendingQuestion, setPendingQuestion] = useState<string | null>(null);
   const [activeCitation, setActiveCitation] = useState<ActiveCitation>(null);
   const [knowledgeSources, setKnowledgeSources] =
     useState<KnowledgeSource[]>(DEFAULT_SOURCES);
 
+  const startNewChat = useCallback(() => {
+    const chat = newChat();
+    setChats((prev) => [...prev, chat]);
+    setActiveChatId(chat.id);
+    setActiveCitation(null);
+  }, []);
+
+  const selectChat = useCallback((id: string) => {
+    setActiveChatId(id);
+    setActiveCitation(null);
+  }, []);
+
+  const showDemo = useCallback(() => {
+    setActiveChatId(null);
+  }, []);
 
   const ask = useCallback(
     async (question: string) => {
       const trimmed = question.trim();
       if (!trimmed) return;
+
+      // Asking while the demo scenario is showing starts a fresh live chat.
+      let chatId = activeChatId;
+      if (!chatId) {
+        const chat = newChat();
+        chatId = chat.id;
+        setChats((prev) => [...prev, chat]);
+        setActiveChatId(chat.id);
+      }
+
       setPendingQuestion(trimmed);
       const currentContext = context;
       try {
         const response = await askSuitability(trimmed, currentContext);
-        setThread((prev) => [
-          ...prev,
-          {
-            id: response.request_id,
-            question: trimmed,
-            askedAt: new Date().toISOString(),
-            askedBy: CURRENT_RM,
-            context: currentContext,
-            response,
-          },
-        ]);
-        setLiveIds((prev) => [...prev, response.request_id]);
+        const exchange: Exchange = {
+          id: response.request_id,
+          question: trimmed,
+          askedAt: new Date().toISOString(),
+          askedBy: user?.name ?? "Unknown user",
+          context: currentContext,
+          response,
+        };
+        setChats((prev) =>
+          prev.map((c) =>
+            c.id === chatId
+              ? {
+                  ...c,
+                  title: c.exchanges.length === 0 ? chatTitle(trimmed) : c.title,
+                  exchanges: [...c.exchanges, exchange],
+                }
+              : c,
+          ),
+        );
       } finally {
         setPendingQuestion(null);
       }
     },
-    [context],
+    [activeChatId, context, user],
   );
 
   const resolveExchange = useCallback((id: string, note: string, resolvedBy: string) => {
     const resolution = { resolvedBy, note, resolvedAt: new Date().toISOString() };
     const apply = (list: Exchange[]) =>
       list.map((e) => (e.id === id ? { ...e, resolution } : e));
-    setThread(apply);
+    setDemo(apply);
     setExtraAudit(apply);
+    setChats((prev) => prev.map((c) => ({ ...c, exchanges: apply(c.exchanges) })));
   }, []);
 
   const addKnowledgeSource = useCallback((source: KnowledgeSource) => {
@@ -95,26 +154,27 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
 
   const auditRecords = useMemo(
     () =>
-      [...thread, ...extraAudit].sort(
+      [...chats.flatMap((c) => c.exchanges), ...demo, ...extraAudit].sort(
         (a, b) => new Date(b.askedAt).getTime() - new Date(a.askedAt).getTime(),
       ),
-    [thread, extraAudit],
+    [chats, demo, extraAudit],
   );
 
-  const demoExchanges = useMemo(
-    () => thread.filter((e) => !liveIds.includes(e.id)),
-    [thread, liveIds],
-  );
-  const liveExchanges = useMemo(
-    () => thread.filter((e) => liveIds.includes(e.id)),
-    [thread, liveIds],
-  );
+  const thread = useMemo(() => {
+    if (!activeChatId) return demo;
+    return chats.find((c) => c.id === activeChatId)?.exchanges ?? [];
+  }, [activeChatId, chats, demo]);
 
   const value = useMemo<Store>(
     () => ({
       thread,
-      demoExchanges,
-      liveExchanges,
+      demoExchanges: demo,
+      chats,
+      activeChatId,
+      viewingDemo: activeChatId === null,
+      startNewChat,
+      selectChat,
+      showDemo,
       auditRecords,
       context,
       setContext,
@@ -129,8 +189,12 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
     }),
     [
       thread,
-      demoExchanges,
-      liveExchanges,
+      demo,
+      chats,
+      activeChatId,
+      startNewChat,
+      selectChat,
+      showDemo,
       auditRecords,
       context,
       pendingQuestion,
@@ -141,7 +205,6 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
       addKnowledgeSource,
     ],
   );
-
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
 }

@@ -4,12 +4,16 @@ import {
   ChevronDown,
   Circle,
   FlaskConical,
+  LogOut,
+  MessageSquare,
   MessagesSquare,
+  Plus,
   ScrollText,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { AddSourceDialog } from "./AddSourceDialog";
+import { useAuth } from "@/lib/auth";
 import { useSuitability } from "@/lib/suitability/store";
 import type { Exchange } from "@/lib/suitability/types";
 import { cn } from "@/lib/utils";
@@ -25,43 +29,49 @@ function Section({
   count,
   open,
   onToggle,
+  action,
   children,
 }: {
   title: string;
   count: number;
   open: boolean;
   onToggle: () => void;
+  action?: ReactNode;
   children: ReactNode;
 }) {
   return (
     <div className="border-b border-border py-2">
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        className="flex w-full items-center justify-between rounded-sm px-2.5 py-1.5 text-left transition-colors hover:bg-surface-2"
-      >
-        <span className="label-xs text-gold">
-          {title} <span className="text-muted-foreground">({count})</span>
-        </span>
-        <ChevronDown
-          className={cn(
-            "size-3.5 text-muted-foreground transition-transform",
-            open && "rotate-180",
-          )}
-        />
-      </button>
+      <div className="flex items-center gap-1">
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={open}
+          className="flex min-w-0 flex-1 items-center justify-between rounded-sm px-2.5 py-1.5 text-left transition-colors hover:bg-surface-2"
+        >
+          <span className="label-xs text-gold">
+            {title} <span className="text-muted-foreground">({count})</span>
+          </span>
+          <ChevronDown
+            className={cn(
+              "size-3.5 text-muted-foreground transition-transform",
+              open && "rotate-180",
+            )}
+          />
+        </button>
+        {action}
+      </div>
       {open && <div className="pt-1">{children}</div>}
     </div>
   );
 }
 
-function ExchangeLink({ exchange, demo }: { exchange: Exchange; demo?: boolean }) {
+function ExchangeLink({ exchange, onSelect }: { exchange: Exchange; onSelect: () => void }) {
   return (
     <li>
       <Link
         to="/"
         hash={exchange.id}
+        onClick={onSelect}
         className="flex items-start gap-2 rounded-sm px-2.5 py-2 text-left text-xs leading-snug text-muted-foreground transition-colors hover:bg-surface-2 hover:text-foreground"
       >
         <span
@@ -72,11 +82,9 @@ function ExchangeLink({ exchange, demo }: { exchange: Exchange; demo?: boolean }
         />
         <span className="min-w-0">
           <span className="line-clamp-2">{exchange.question}</span>
-          {demo && (
-            <span className="mt-1 inline-flex items-center gap-1 rounded-sm border border-gold/50 px-1 py-px text-[10px] uppercase tracking-wide text-gold">
-              <FlaskConical className="size-2.5" /> Demo
-            </span>
-          )}
+          <span className="mt-1 inline-flex items-center gap-1 rounded-sm border border-gold/50 px-1 py-px text-[10px] uppercase tracking-wide text-gold">
+            <FlaskConical className="size-2.5" /> Demo
+          </span>
         </span>
       </Link>
     </li>
@@ -84,12 +92,21 @@ function ExchangeLink({ exchange, demo }: { exchange: Exchange; demo?: boolean }
 }
 
 export function AppSidebar() {
-  const { demoExchanges, liveExchanges, knowledgeSources } = useSuitability();
+  const {
+    demoExchanges,
+    chats,
+    activeChatId,
+    startNewChat,
+    selectChat,
+    showDemo,
+    knowledgeSources,
+  } = useSuitability();
+  const { user, signOut } = useAuth();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [demoOpen, setDemoOpen] = useState(true);
   const [chatsOpen, setChatsOpen] = useState(true);
 
-  const chats = [...liveExchanges].reverse();
+  const orderedChats = [...chats].reverse();
 
   return (
     <aside className="flex h-full w-72 shrink-0 flex-col border-r border-border bg-surface">
@@ -128,7 +145,7 @@ export function AppSidebar() {
         >
           <ul className="space-y-0.5">
             {demoExchanges.map((exchange) => (
-              <ExchangeLink key={exchange.id} exchange={exchange} demo />
+              <ExchangeLink key={exchange.id} exchange={exchange} onSelect={showDemo} />
             ))}
           </ul>
         </Section>
@@ -138,15 +155,43 @@ export function AppSidebar() {
           count={chats.length}
           open={chatsOpen}
           onToggle={() => setChatsOpen((v) => !v)}
+          action={
+            <button
+              type="button"
+              onClick={() => {
+                setChatsOpen(true);
+                startNewChat();
+              }}
+              aria-label="New chat"
+              title="New chat"
+              className="mr-1 rounded-sm border border-border p-1 text-gold transition-colors hover:border-gold"
+            >
+              <Plus className="size-3.5" />
+            </button>
+          }
         >
-          {chats.length === 0 ? (
+          {orderedChats.length === 0 ? (
             <p className="px-2.5 py-2 text-xs text-muted-foreground">
-              Questions you ask this session appear here.
+              No chats yet. Press + to start one.
             </p>
           ) : (
             <ul className="space-y-0.5">
-              {chats.map((exchange) => (
-                <ExchangeLink key={exchange.id} exchange={exchange} />
+              {orderedChats.map((chat) => (
+                <li key={chat.id}>
+                  <Link
+                    to="/"
+                    onClick={() => selectChat(chat.id)}
+                    className={cn(
+                      "flex items-start gap-2 rounded-sm px-2.5 py-2 text-left text-xs leading-snug transition-colors hover:bg-surface-2 hover:text-foreground",
+                      chat.id === activeChatId
+                        ? "bg-surface-2 text-foreground"
+                        : "text-muted-foreground",
+                    )}
+                  >
+                    <MessageSquare className="mt-0.5 size-3.5 shrink-0" />
+                    <span className="line-clamp-2 min-w-0">{chat.title}</span>
+                  </Link>
+                </li>
               ))}
             </ul>
           )}
@@ -173,8 +218,19 @@ export function AppSidebar() {
         <AddSourceDialog />
       </div>
 
-      <div className="border-t border-border px-4 py-3">
-        <span className="text-xs text-muted-foreground">A. Brunner · RM, Zurich</span>
+      <div className="flex items-center justify-between gap-2 border-t border-border px-4 py-3">
+        <span className="min-w-0 text-xs text-muted-foreground">
+          <span className="line-clamp-1">
+            {user ? `${user.name}${user.role ? ` · ${user.role}` : ""}` : "Not signed in"}
+          </span>
+        </span>
+        <button
+          type="button"
+          onClick={signOut}
+          className="flex shrink-0 items-center gap-1 rounded-sm border border-border px-2 py-1 text-[11px] text-gold transition-colors hover:border-gold"
+        >
+          <LogOut className="size-3" /> Log out
+        </button>
       </div>
     </aside>
   );
