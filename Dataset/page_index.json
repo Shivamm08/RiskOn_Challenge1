@@ -327,5 +327,38 @@
       "EEA"
     ],
     "filename": "account_opening_documentation.html"
+  },
+  {
+    "id": "prohibited_activities",
+    "title": "Prohibited Activities and Relationships",
+    "topic_tags": [
+      "overview",
+      "client_classification"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "prohibited_activities.html"
+  },
+  {
+    "id": "glossary_abbreviations",
+    "title": "Glossary - Common Abbreviations",
+    "topic_tags": [
+      "overview",
+      "cpr_alerts",
+      "k_and_e",
+      "mifid_scope",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "filename": "glossary_abbreviations.html"
   }
 ]

@@ -1,0 +1,388 @@
+[
+  {
+    "id": "sme_001",
+    "name": "Anna Fischer",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "Monaco"
+    ],
+    "topic_tags": [
+      "cross_border",
+      "client_classification",
+      "monitoring"
+    ],
+    "seniority_years": 18,
+    "avg_response_time_hours": 1.5,
+    "historical_resolutions": 54,
+    "bio": ""
+  },
+  {
+    "id": "sme_002",
+    "name": "Lena Baumann",
+    "role": "Suitability Champion",
+    "tier": "suitability_champion",
+    "team": "Front Office",
+    "region_coverage": [
+      "CH"
+    ],
+    "topic_tags": [
+      "mifid_scope",
+      "structured_products"
+    ],
+    "seniority_years": 8,
+    "avg_response_time_hours": 5.7,
+    "historical_resolutions": 35,
+    "bio": ""
+  },
+  {
+    "id": "sme_003",
+    "name": "Anna Huber",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "Germany",
+      "Monaco"
+    ],
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "own"
+    ],
+    "seniority_years": 11,
+    "avg_response_time_hours": 1.7,
+    "historical_resolutions": 48,
+    "bio": ""
+  },
+  {
+    "id": "sme_004",
+    "name": "Felix Moser",
+    "role": "Suitability Champion",
+    "tier": "suitability_champion",
+    "team": "Front Office",
+    "region_coverage": [
+      "CH",
+      "Germany"
+    ],
+    "topic_tags": [
+      "execution_only",
+      "client_classification"
+    ],
+    "seniority_years": 13,
+    "avg_response_time_hours": 1.4,
+    "historical_resolutions": 37,
+    "bio": ""
+  },
+  {
+    "id": "sme_005",
+    "name": "Leon Brunner",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "CH"
+    ],
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "own"
+    ],
+    "seniority_years": 10,
+    "avg_response_time_hours": 11.8,
+    "historical_resolutions": 29,
+    "bio": ""
+  },
+  {
+    "id": "sme_006",
+    "name": "Nina Fischer",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "Germany",
+      "CH"
+    ],
+    "topic_tags": [
+      "solicitation_type",
+      "suitability_appropriateness",
+      "client_classification"
+    ],
+    "seniority_years": 9,
+    "avg_response_time_hours": 8.6,
+    "historical_resolutions": 9,
+    "bio": ""
+  },
+  {
+    "id": "sme_007",
+    "name": "Lukas Marti",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "Monaco"
+    ],
+    "topic_tags": [
+      "execution_only",
+      "own",
+      "cross_border"
+    ],
+    "seniority_years": 18,
+    "avg_response_time_hours": 3.0,
+    "historical_resolutions": 41,
+    "bio": ""
+  },
+  {
+    "id": "sme_008",
+    "name": "Marco Steiner",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "Germany"
+    ],
+    "topic_tags": [
+      "own",
+      "concentration_risk",
+      "cip"
+    ],
+    "seniority_years": 7,
+    "avg_response_time_hours": 11.0,
+    "historical_resolutions": 72,
+    "bio": ""
+  },
+  {
+    "id": "sme_009",
+    "name": "Clara Baumann",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "EEA",
+      "Germany"
+    ],
+    "topic_tags": [
+      "execution_only",
+      "cross_border",
+      "kid_requirements"
+    ],
+    "seniority_years": 5,
+    "avg_response_time_hours": 3.3,
+    "historical_resolutions": 71,
+    "bio": ""
+  },
+  {
+    "id": "sme_010",
+    "name": "Sara Wyss",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "Germany",
+      "CH"
+    ],
+    "topic_tags": [
+      "cross_border",
+      "kid_requirements",
+      "cip"
+    ],
+    "seniority_years": 2,
+    "avg_response_time_hours": 10.4,
+    "historical_resolutions": 19,
+    "bio": ""
+  },
+  {
+    "id": "sme_011",
+    "name": "Tobias Moser",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "EEA"
+    ],
+    "topic_tags": [
+      "own",
+      "execution_only",
+      "concentration_risk"
+    ],
+    "seniority_years": 9,
+    "avg_response_time_hours": 11.7,
+    "historical_resolutions": 1,
+    "bio": ""
+  },
+  {
+    "id": "sme_012",
+    "name": "David Marti",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "Germany",
+      "CH"
+    ],
+    "topic_tags": [
+      "saa",
+      "structured_products",
+      "k_and_e"
+    ],
+    "seniority_years": 15,
+    "avg_response_time_hours": 0.5,
+    "historical_resolutions": 33,
+    "bio": ""
+  },
+  {
+    "id": "sme_013",
+    "name": "Lukas Suter",
+    "role": "Suitability Expert",
+    "tier": "suitability_expert",
+    "team": "Legal / Compliance / GPS",
+    "region_coverage": [
+      "Germany"
+    ],
+    "topic_tags": [
+      "suitability_appropriateness",
+      "mifid_scope"
+    ],
+    "seniority_years": 5,
+    "avg_response_time_hours": 4.8,
+    "historical_resolutions": 20,
+    "bio": ""
+  },
+  {
+    "id": "sme_014",
+    "name": "Julia Keller",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "EEA",
+      "CH"
+    ],
+    "topic_tags": [
+      "client_classification",
+      "solicitation_type",
+      "execution_only"
+    ],
+    "seniority_years": 10,
+    "avg_response_time_hours": 3.3,
+    "historical_resolutions": 30,
+    "bio": ""
+  },
+  {
+    "id": "sme_015",
+    "name": "Lena Meier",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "CH",
+      "Germany"
+    ],
+    "topic_tags": [
+      "cross_border",
+      "suitability_appropriateness",
+      "monitoring"
+    ],
+    "seniority_years": 16,
+    "avg_response_time_hours": 11.4,
+    "historical_resolutions": 21,
+    "bio": ""
+  },
+  {
+    "id": "sme_016",
+    "name": "Leon Wyss",
+    "role": "Suitability Champion",
+    "tier": "suitability_champion",
+    "team": "Front Office",
+    "region_coverage": [
+      "Monaco"
+    ],
+    "topic_tags": [
+      "saa",
+      "own"
+    ],
+    "seniority_years": 12,
+    "avg_response_time_hours": 5.5,
+    "historical_resolutions": 66,
+    "bio": ""
+  },
+  {
+    "id": "sme_017",
+    "name": "Noah Steiner",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "Germany"
+    ],
+    "topic_tags": [
+      "overview",
+      "cpr_alerts",
+      "saa"
+    ],
+    "seniority_years": 8,
+    "avg_response_time_hours": 0.6,
+    "historical_resolutions": 80,
+    "bio": ""
+  },
+  {
+    "id": "sme_018",
+    "name": "Lena Frei",
+    "role": "Suitability Champion",
+    "tier": "suitability_champion",
+    "team": "Front Office",
+    "region_coverage": [
+      "CH",
+      "Germany"
+    ],
+    "topic_tags": [
+      "cpr_alerts",
+      "concentration_risk"
+    ],
+    "seniority_years": 16,
+    "avg_response_time_hours": 3.0,
+    "historical_resolutions": 16,
+    "bio": ""
+  },
+  {
+    "id": "sme_019",
+    "name": "Sara Kunz",
+    "role": "BRM Suitability Lead",
+    "tier": "brm_suitability_lead",
+    "team": "BRM Suitability Leads",
+    "region_coverage": [
+      "Monaco",
+      "EEA"
+    ],
+    "topic_tags": [
+      "structured_products",
+      "mifid_scope",
+      "cip",
+      "finsa_scope"
+    ],
+    "seniority_years": 4,
+    "avg_response_time_hours": 8.1,
+    "historical_resolutions": 45,
+    "bio": ""
+  },
+  {
+    "id": "sme_020",
+    "name": "Laura Frei",
+    "role": "Business Front Support",
+    "tier": "business_front_support",
+    "team": "Business Front Support",
+    "region_coverage": [
+      "CH"
+    ],
+    "topic_tags": [
+      "own",
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "seniority_years": 4,
+    "avg_response_time_hours": 3.4,
+    "historical_resolutions": 24,
+    "bio": ""
+  }
+]

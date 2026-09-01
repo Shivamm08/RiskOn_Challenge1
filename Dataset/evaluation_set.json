@@ -211,8 +211,8 @@
     "expected_source_ids": [
       "post_trade_cost_disclosure"
     ],
-    "expected_behavior": "clarify",
-    "clarify_reason": "Depends on client classification (Retail/Professional) and domicile (FinSA-only vs MiFID add-on vs Full MiFID) \u2014 different disclosure obligations apply."
+    "expected_behavior": "answer",
+    "notes": "Listed under JB's own \"queries that work well\" \u2014 the wiki page covers all classification/domicile scenarios in one structured answer, so this should answer directly rather than ask for clarification."
   },
   {
     "id": "q26",

@@ -686,6 +686,62 @@ can be considered fully onboarded.</p>
 """)
 
 # ---------------------------------------------------------------------------
+# 24. Prohibited Activities and Relationships (mirrors JB's own demo example)
+# ---------------------------------------------------------------------------
+add_page(
+    "prohibited_activities", "Prohibited Activities and Relationships",
+    ["overview", "client_classification"], ["CH", "Monaco", "Germany", "EEA"],
+    """
+<h2>Can I open a numbered account?</h2>
+<p><b>No, you cannot open a numbered account.</b> The opening of numbered
+(and anonymous) accounts is explicitly prohibited at Julius Baer.</p>
+<p>For the full list of prohibited activities and relationships, refer to
+Section 1 "Prohibited activities and relationships" of the
+<b>JBG-2003-00 Private Banking Client Acceptance Policy</b>.</p>
+<h2>Other prohibited activities (high level)</h2>
+<ul>
+<li>Numbered or anonymous accounts of any kind.</li>
+<li>Relationships that cannot satisfy standard KYC / client identification requirements.</li>
+<li>Shell entities without a verifiable underlying beneficial owner.</li>
+</ul>
+<p>For edge cases not covered here, escalate to the Business Front Support
+or your BRM Suitability Lead rather than making a case-by-case judgment call.</p>
+""")
+
+# ---------------------------------------------------------------------------
+# 25. Glossary — Common Abbreviations (official terms slide)
+# ---------------------------------------------------------------------------
+add_page(
+    "glossary_abbreviations", "Glossary - Common Abbreviations",
+    ["overview", "cpr_alerts", "k_and_e", "mifid_scope", "solicitation_type"],
+    ["CH", "Monaco", "Germany", "EEA"],
+    """
+<p>Common abbreviations used throughout the Suitability Wiki and related tools:</p>
+<table border="1" cellpadding="6">
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>BMO</td><td>Business Model Offering</td></tr>
+<tr><td>BMO Rule Engine</td><td>Automated regulatory checks, e.g. onshore/cross-border product distribution and tax rules</td></tr>
+<tr><td>K&amp;E</td><td>Knowledge &amp; Experience</td></tr>
+<tr><td>CIP</td><td>Client Investment Profile</td></tr>
+<tr><td>CPR</td><td>Consolidated Product Risk</td></tr>
+<tr><td>PRR</td><td>Product Risk Rating</td></tr>
+<tr><td>PIR</td><td>Personal Investment Recommendation (also used for the Portfolio Analysis/Investment Report)</td></tr>
+<tr><td>FISR</td><td>Financial Instrument Solicitation Rules — a hard-block alert in actively solicited scenarios</td></tr>
+<tr><td>DTM</td><td>JB Distributor Target Market</td></tr>
+<tr><td>AH</td><td>Account Holder</td></tr>
+<tr><td>PoA / POA</td><td>Power of Attorney</td></tr>
+<tr><td>RM</td><td>Relationship Manager</td></tr>
+<tr><td>RMA</td><td>Relationship Manager Assistant</td></tr>
+<tr><td>IA</td><td>Investment Adviser</td></tr>
+<tr><td>KID</td><td>Key Information Document</td></tr>
+<tr><td>MiFID</td><td>Markets in Financial Instruments Directive (EU regulation)</td></tr>
+<tr><td>FinSA</td><td>Financial Services Act (Swiss regulation)</td></tr>
+<tr><td>1LoD / 2LoD</td><td>1st / 2nd Line of Defense</td></tr>
+<tr><td>SME</td><td>Subject Matter Expert</td></tr>
+</table>
+""")
+
+# ---------------------------------------------------------------------------
 # Write page index (mirrors the real 5_Summary of pages.xlsx structure)
 # ---------------------------------------------------------------------------
 with open("page_index.json", "w") as f:
