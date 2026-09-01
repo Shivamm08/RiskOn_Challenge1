@@ -8,6 +8,11 @@ export type QueryContext = {
   serviceModel?: ServiceModel;
 };
 
+export type ChatMessage = {
+  role: "user" | "assistant";
+  content: string;
+};
+
 export type ResponseStatus = "answered" | "escalated" | "clarification_needed";
 
 export type EscalationTier =

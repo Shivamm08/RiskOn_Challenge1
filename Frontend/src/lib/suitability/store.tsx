@@ -9,7 +9,7 @@ import {
 
 import { askSuitability } from "./ask";
 import { SEED_AUDIT, SEED_EXCHANGES } from "./seed";
-import type { Exchange, QueryContext, SourceFileType, SourceRef } from "./types";
+import type { ChatMessage, Exchange, QueryContext, SourceFileType, SourceRef } from "./types";
 import { useAuth } from "@/lib/auth";
 
 type ActiveCitation = { source: SourceRef; exchangeId: string } | null;
@@ -146,8 +146,19 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
 
       setPendingQuestion(trimmed);
       const currentContext = context;
+      const activeExchanges = chats.find((chat) => chat.id === chatId)?.exchanges ?? [];
+      const history: ChatMessage[] = activeExchanges.slice(-3).flatMap((exchange) => {
+        const assistantContent =
+          exchange.response.answer ?? exchange.response.clarification_question;
+        return [
+          { role: "user" as const, content: exchange.question },
+          ...(assistantContent
+            ? [{ role: "assistant" as const, content: assistantContent }]
+            : []),
+        ];
+      });
       try {
-        const response = await askSuitability(trimmed, currentContext);
+        const response = await askSuitability(trimmed, currentContext, history);
         const exchange: Exchange = {
           id: response.request_id,
           question: trimmed,
@@ -171,7 +182,7 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
         setPendingQuestion(null);
       }
     },
-    [activeChatId, context, user],
+    [activeChatId, chats, context, user],
   );
 
   const resolveExchange = useCallback((id: string, note: string, resolvedBy: string) => {

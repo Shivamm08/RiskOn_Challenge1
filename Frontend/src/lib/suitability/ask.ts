@@ -1,5 +1,5 @@
 import { SEED_EXCHANGES } from "./seed";
-import type { AskResponse, QueryContext } from "./types";
+import type { AskResponse, ChatMessage, QueryContext } from "./types";
 
 const STOP = new Set([
   "the",
@@ -118,13 +118,31 @@ function unknownEscalation(question: string, context: QueryContext): AskResponse
  * Single entry point for answering a question.
  *
  * Backend swap: replace the body with
- *   const res = await fetch("/ask", { method: "POST", body: JSON.stringify({ question, context }) });
+ *   const res = await fetch("/ask", {
+ *     method: "POST",
+ *     headers: { "Content-Type": "application/json" },
+ *     body: JSON.stringify({ question, context, history }),
+ *   });
  *   return (await res.json()) as AskResponse;
  */
 export async function askSuitability(
   question: string,
   context: QueryContext,
+  history: ChatMessage[] = [],
 ): Promise<AskResponse> {
+  const apiUrl = import.meta.env["VITE_API_URL"] as string | undefined;
+  if (apiUrl) {
+    const response = await fetch(`${apiUrl.replace(/\/$/, "")}/ask`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, context, history }),
+    });
+    if (!response.ok) {
+      throw new Error(`Suitability API returned ${response.status}`);
+    }
+    return (await response.json()) as AskResponse;
+  }
+
   await new Promise((r) => setTimeout(r, 550));
 
   const trimmed = question.trim();

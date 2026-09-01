@@ -16,6 +16,20 @@ pip install -r requirements.txt --break-system-packages
 uvicorn main:app --reload
 ```
 
+To enable conversation-aware query rewriting, set `OPENAI_API_KEY`. Optional:
+
+```bash
+export QUERY_REWRITE_MODEL=gpt-4.1-mini
+export QUERY_REWRITE_ENABLED=true
+```
+
+`POST /ask` accepts an optional `history` array of `{role, content}` messages.
+Only the latest six messages are sent to the rewriter. Missing credentials or
+provider errors automatically fall back to the original question.
+
+Set `VITE_API_URL=http://localhost:8000` when starting the frontend to use the
+backend. Without it, the existing standalone mock behavior is preserved.
+
 - API: http://localhost:8000
 - Interactive docs: http://localhost:8000/docs
 - Point the frontend's `askSuitability()` fetch call at this instead of the

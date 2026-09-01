@@ -12,6 +12,7 @@ BookingCentre = Literal["CH", "Monaco", "Germany", "EEA", "Other"]
 ClientCategory = Literal["Private/Retail", "Professional", "Institutional"]
 ServiceModel = Literal["Advisory", "Execution-only", "Portfolio Management"]
 ResponseStatus = Literal["answered", "escalated", "clarification_needed"]
+ChatRole = Literal["user", "assistant"]
 EscalationTier = Literal[
     "wiki", "suitability_champion", "business_front_support",
     "brm_suitability_lead", "suitability_expert",
@@ -27,9 +28,15 @@ class QueryContext(BaseModel):
     service_model: Optional[ServiceModel] = Field(default=None, alias="serviceModel")
 
 
+class ChatMessage(BaseModel):
+    role: ChatRole
+    content: str = Field(min_length=1, max_length=2_000)
+
+
 class AskRequest(BaseModel):
     question: str
     context: QueryContext = QueryContext()
+    history: list[ChatMessage] = Field(default_factory=list, max_length=20)
 
 
 class Confidence(BaseModel):

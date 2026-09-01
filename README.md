@@ -15,7 +15,7 @@ instead of guessing.
 | Backend | Built and tested. FastAPI, retrieval + reasoning + escalation, SQLite audit log |
 | Dataset | Built and verified against the real evaluation set and official challenge materials |
 | Real Wiki data | Not yet available — arrives Day 1 of the event via secure transfer. Everything currently runs on a synthetic stand-in, structured to swap in with no code changes |
-
+v
 ## Repo structure
 
 ```
@@ -28,23 +28,39 @@ Each folder has its own README with full detail — this file is the map, not th
 
 ## Quickstart
 
+Start the backend and frontend in separate terminals.
+
 ```bash
 # Terminal 1 — backend
-cd backend
-pip install -r requirements.txt --break-system-packages
-uvicorn main:app --reload
-# → http://localhost:8000  (docs at /docs)
+cd Backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
+# Keep this key on the backend only.
+export OPENAI_API_KEY="your-openai-api-key"
+export QUERY_REWRITE_MODEL="gpt-4.1-mini"
+
+uvicorn main:app --reload
+# API:  http://localhost:8000
+# Docs: http://localhost:8000/docs
+```
+
+```bash
 # Terminal 2 — frontend
 cd Frontend
 npm install
+
+# Connect the UI to the backend instead of the seeded mock responses.
+export VITE_API_URL="http://localhost:8000"
+
 npm run dev
-# → http://localhost:5173
+# UI: http://localhost:5173
 ```
 
-Wire them together: uncomment the real `fetch("/ask")` call already sketched in
-`Frontend/src/lib/suitability/ask.ts` and point it at `http://localhost:8000/ask`.
-Until that's done, the frontend runs standalone against seeded mock data.
+Set the environment variables before starting each process. If either value
+changes, stop and restart the corresponding process. Never expose
+`OPENAI_API_KEY` through a `VITE_*` variable.
 
 ## How it decides answer vs. escalate
 

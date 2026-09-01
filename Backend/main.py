@@ -17,6 +17,7 @@ from models import (
     FallbackContact, FeedbackRequest, FeedbackResponse,
 )
 from retrieval import get_retriever
+from query_rewriter import get_query_rewriter
 from reasoning import check_ambiguity, check_scope
 from escalation import get_router
 import audit
@@ -55,6 +56,7 @@ def health():
 def ask(req: AskRequest) -> AskResponse:
     request_id = str(uuid.uuid4())
     retriever = get_retriever()
+    query_rewriter = get_query_rewriter()
     router = get_router()
 
     reasoning: list[str] = []
@@ -70,10 +72,19 @@ def ask(req: AskRequest) -> AskResponse:
         audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
         return response
 
-    matches = retriever.retrieve(question, top_k=3)
+    rewrite = query_rewriter.rewrite(question, req.history)
+    retrieval_query = " ".join([rewrite.query, *rewrite.keywords]).strip()
+    # Downstream checks need the context resolved by the rewriter too. Keep the
+    # original wording alongside it so jurisdiction/scope details cannot be lost.
+    contextual_question = f"{question} {retrieval_query}".strip()
+    matches = retriever.retrieve(retrieval_query, top_k=3)
+    if rewrite.used_llm:
+        reasoning.append(f'Rewrote the follow-up for retrieval as: "{rewrite.query}".')
+    elif rewrite.fallback_reason not in {"no_history", "disabled"}:
+        reasoning.append("Query rewriting was unavailable; used the original question safely.")
     reasoning.append(
-        f"Searched the Suitability Wiki for: \"{question}\"."
-        if matches else f"Searched the Suitability Wiki for: \"{question}\" — no page scored above zero relevance."
+        f"Searched the Suitability Wiki for: \"{rewrite.query}\"."
+        if matches else f"Searched the Suitability Wiki for: \"{rewrite.query}\" — no page scored above zero relevance."
     )
 
     # --- No matching page at all: straight to escalation ---
@@ -103,7 +114,7 @@ def ask(req: AskRequest) -> AskResponse:
     reasoning.append(f"Top match: \"{top_page.title}\" (relevance {top_score:.2f}).")
 
     # --- Ambiguity check: does this need clarification before we can answer? ---
-    ambiguity = check_ambiguity(top_page, question)
+    ambiguity = check_ambiguity(top_page, contextual_question)
     if ambiguity.needs_clarification:
         reasoning.append(
             "This page has multiple correct answers depending on context that wasn't "
@@ -113,7 +124,7 @@ def ask(req: AskRequest) -> AskResponse:
             request_id=request_id,
             status="clarification_needed",
             confidence=Confidence(answer_confidence=0.3, routing_confidence=0.0),
-            sources=[SourceRef(page_title=top_page.title, excerpt=retriever.excerpt(top_page, question),
+            sources=[SourceRef(page_title=top_page.title, excerpt=retriever.excerpt(top_page, retrieval_query),
                                 url=_page_url(top_page.id), fileType="link")],
             clarification_question=ambiguity.clarify_question,
             quick_replies=ambiguity.quick_replies,
@@ -123,7 +134,7 @@ def ask(req: AskRequest) -> AskResponse:
         return response
 
     # --- Scope check: does the top page actually cover the jurisdiction asked about? ---
-    scope = check_scope(top_page, question)
+    scope = check_scope(top_page, contextual_question)
     reasoning.append(scope.scope_note if scope.scope_note else "No scope/jurisdiction mismatch detected.")
 
     # --- Confidence gate: answer only if genuinely confident ---
@@ -131,13 +142,13 @@ def ask(req: AskRequest) -> AskResponse:
         sources = [
             SourceRef(
                 page_title=p.title,
-                excerpt=retriever.excerpt(p, question),
+                excerpt=retriever.excerpt(p, retrieval_query),
                 url=_page_url(p.id),
                 fileType="link",
             )
             for p, s in matches[:2] if s > 0
         ]
-        answer = retriever.excerpt(top_page, question)
+        answer = retriever.excerpt(top_page, retrieval_query)
         if scope.scope_note:
             answer = f"{answer} {scope.scope_note}"
 
@@ -163,7 +174,7 @@ def ask(req: AskRequest) -> AskResponse:
         request_id=request_id,
         status="escalated",
         confidence=Confidence(answer_confidence=round(top_score, 2), routing_confidence=routing.routing_confidence),
-        sources=[SourceRef(page_title=top_page.title, excerpt=retriever.excerpt(top_page, question),
+        sources=[SourceRef(page_title=top_page.title, excerpt=retriever.excerpt(top_page, retrieval_query),
                             url=_page_url(top_page.id), fileType="link")],
         scope_flags=scope.scope_flags,
         escalation=Escalation(
