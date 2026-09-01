@@ -11,11 +11,11 @@ export type QueryContext = {
 export type ResponseStatus = "answered" | "escalated" | "clarification_needed";
 
 export type EscalationTier =
-  | "wiki"
   | "suitability_champion"
   | "business_front_support"
-  | "brm_suitability_lead"
-  | "suitability_expert";
+  | "expert"
+  | "senior_expert"
+  | "brm_suitability_lead";
 
 export type SourceFileType = "link" | "excel" | "csv" | "doc" | "pdf";
 
@@ -60,12 +60,13 @@ export type Exchange = {
   resolution?: { resolvedBy: string; note: string; resolvedAt: string };
 };
 
+/** Simplified 5-tier escalation ladder, low → high. */
 export const TIER_LADDER: { tier: EscalationTier; label: string }[] = [
-  { tier: "wiki", label: "Wiki" },
   { tier: "suitability_champion", label: "Suitability Champion" },
   { tier: "business_front_support", label: "Business Front Support" },
+  { tier: "expert", label: "Expert" },
+  { tier: "senior_expert", label: "Senior Expert" },
   { tier: "brm_suitability_lead", label: "BRM Suitability Lead" },
-  { tier: "suitability_expert", label: "Suitability Expert" },
 ];
 
 export const BOOKING_CENTRES: BookingCentre[] = ["CH", "Monaco", "Germany", "EEA", "Other"];

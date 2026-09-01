@@ -1,25 +1,21 @@
 [
   {
-    "id": "suitability_framework",
-    "title": "Suitability Framework",
+    "id": "301586818",
+    "title": "Welcome to the Suitability Wiki",
+    "filename": "301586818.html",
     "topic_tags": [
-      "overview",
+      "k_and_e",
       "cip",
-      "solicitation_type"
-    ],
-    "region_scope": [
-      "CH",
-      "Monaco",
-      "Germany",
-      "EEA"
-    ],
-    "filename": "suitability_framework.html"
-  },
-  {
-    "id": "suitability_appropriateness_importance",
-    "title": "Why are Suitability and Appropriateness checks important?",
-    "topic_tags": [
-      "overview",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "kid_requirements",
       "suitability_appropriateness"
     ],
     "region_scope": [
@@ -28,13 +24,18 @@
       "Germany",
       "EEA"
     ],
-    "filename": "suitability_appropriateness_importance.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/301586818/Welcome+to+the+Suitability+Wiki",
+    "text_length": 3440
   },
   {
-    "id": "k_and_e_general",
-    "title": "Knowledge and Experience (K&E) - general information",
+    "id": "301588423",
+    "title": "CIP - Client Investment Profile - general information",
+    "filename": "301588423.html",
     "topic_tags": [
-      "k_and_e"
+      "k_and_e",
+      "cip",
+      "execution_only",
+      "suitability_appropriateness"
     ],
     "region_scope": [
       "CH",
@@ -42,53 +43,72 @@
       "Germany",
       "EEA"
     ],
-    "filename": "k_and_e_general.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/301588423/CIP+-+Client+Investment+Profile+-+general+information",
+    "text_length": 3293
   },
   {
-    "id": "k_and_e_update",
-    "title": "How to update the K&E-levels of an order giver (WN/DiAS, CLM, CRM-systems)",
+    "id": "301590910",
+    "title": "CIP & K&E FAQ",
+    "filename": "301590910.html",
     "topic_tags": [
-      "k_and_e"
-    ],
-    "region_scope": [
-      "CH",
-      "Monaco",
-      "Germany",
-      "EEA"
-    ],
-    "filename": "k_and_e_update.html"
-  },
-  {
-    "id": "client_classification_global",
-    "title": "Global Client Classification Logic (MiFID vs. FIDLEG)",
-    "topic_tags": [
-      "client_classification",
-      "mifid_scope",
+      "k_and_e",
+      "cip",
       "finsa_scope",
-      "cross_border"
+      "mifid_scope",
+      "execution_only",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/301590910/CIP+K+E+FAQ",
+    "text_length": 15279
+  },
+  {
+    "id": "301595973",
+    "title": "Non Critical Alerts",
+    "filename": "301595973.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/301595973/Non+Critical+Alerts",
+    "text_length": 105
+  },
+  {
+    "id": "301595995",
+    "title": "Fall-back scenarios BC CH/GUE",
+    "filename": "301595995.html",
+    "topic_tags": [
+      "suitability_appropriateness"
     ],
     "region_scope": [
       "CH"
     ],
-    "filename": "client_classification_global.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/301595995/Fall-back+scenarios+BC+CH+GUE",
+    "text_length": 922
   },
   {
-    "id": "client_classification_monaco",
-    "title": "Client Classification Logic - Monaco",
+    "id": "303095580",
+    "title": "Suitability Framework",
+    "filename": "303095580.html",
     "topic_tags": [
+      "k_and_e",
+      "cip",
       "client_classification",
-      "cross_border"
-    ],
-    "region_scope": [
-      "Monaco"
-    ],
-    "filename": "client_classification_monaco.html"
-  },
-  {
-    "id": "client_professionalization",
-    "title": "How to professionalize a client (Elected Professional)",
-    "topic_tags": [
-      "client_classification"
+      "cpr_alerts",
+      "solicitation_type",
+      "own",
+      "execution_only",
+      "suitability_appropriateness"
     ],
     "region_scope": [
       "CH",
@@ -96,25 +116,236 @@
       "Germany",
       "EEA"
     ],
-    "filename": "client_professionalization.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303095580/Suitability+Framework",
+    "text_length": 4229
   },
   {
-    "id": "client_classification_responsible_ch",
-    "title": "Local Client Classification Responsible - Switzerland",
+    "id": "303969015",
+    "title": "Forms - Client Investment Profile (CIP)",
+    "filename": "303969015.html",
     "topic_tags": [
-      "client_classification"
+      "cip",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303969015/Forms+-+Client+Investment+Profile+CIP",
+    "text_length": 2106
+  },
+  {
+    "id": "303969034",
+    "title": "CIP Renewal process",
+    "filename": "303969034.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303969034/CIP+Renewal+process",
+    "text_length": 8791
+  },
+  {
+    "id": "303969217",
+    "title": "Knowledge and Experience (K&E) - general information",
+    "filename": "303969217.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303969217/Knowledge+and+Experience+K+E+-+general+information",
+    "text_length": 4630
+  },
+  {
+    "id": "303969259",
+    "title": "Client Education Material",
+    "filename": "303969259.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303969259/Client+Education+Material",
+    "text_length": 2118
+  },
+  {
+    "id": "303982058",
+    "title": "MiFID II for RML Switzerland, Monaco & Guernsey",
+    "filename": "303982058.html",
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303982058/MiFID+II+for+RML+Switzerland+Monaco+Guernsey",
+    "text_length": 539
+  },
+  {
+    "id": "303983522",
+    "title": "Product Risk Rating",
+    "filename": "303983522.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/303983522/Product+Risk+Rating",
+    "text_length": 58
+  },
+  {
+    "id": "305482339",
+    "title": "How-to articles",
+    "filename": "305482339.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/305482339/How-to+articles",
+    "text_length": 439
+  },
+  {
+    "id": "305482340",
+    "title": "How to update the K&E-levels of an order giver (WN/DiAS, CLM, CRM-systems)",
+    "filename": "305482340.html",
+    "topic_tags": [
+      "k_and_e",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/305482340/How+to+update+the+K+E-levels+of+an+order+giver+WN+DiAS+CLM+CRM-systems",
+    "text_length": 4711
+  },
+  {
+    "id": "305488033",
+    "title": "Suitability Regulations - general information",
+    "filename": "305488033.html",
+    "topic_tags": [
+      "finsa_scope",
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/305488033/Suitability+Regulations+-+general+information",
+    "text_length": 489
+  },
+  {
+    "id": "305488040",
+    "title": "Suitability Elements",
+    "filename": "305488040.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/305488040/Suitability+Elements",
+    "text_length": 130
+  },
+  {
+    "id": "306811012",
+    "title": "Manufacturer Target Market (MTM)",
+    "filename": "306811012.html",
+    "topic_tags": [
+      "cip",
+      "client_classification",
+      "execution_only"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/306811012/Manufacturer+Target+Market+MTM",
+    "text_length": 10158
+  },
+  {
+    "id": "306814308",
+    "title": "Portfolio Quality Monitoring",
+    "filename": "306814308.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/306814308/Portfolio+Quality+Monitoring",
+    "text_length": 2216
+  },
+  {
+    "id": "306814381",
+    "title": "Bond Rating below client's threshold",
+    "filename": "306814381.html",
+    "topic_tags": [
+      "monitoring",
+      "solicitation_type"
     ],
     "region_scope": [
       "CH"
     ],
-    "filename": "client_classification_responsible_ch.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/306814381/Bond+Rating+below+client+s+threshold",
+    "text_length": 7006
   },
   {
-    "id": "issuer_concentration_risk",
-    "title": "Issuer Concentration Risk",
+    "id": "307692380",
+    "title": "Consolidated Product Risk (CPR)",
+    "filename": "307692380.html",
     "topic_tags": [
+      "cip",
       "cpr_alerts",
-      "concentration_risk"
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
     ],
     "region_scope": [
       "CH",
@@ -122,29 +353,35 @@
       "Germany",
       "EEA"
     ],
-    "filename": "issuer_concentration_risk.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/307692380/Consolidated+Product+Risk+CPR",
+    "text_length": 23357
   },
   {
-    "id": "saa_alert",
-    "title": "Strategic Asset Allocation (SAA)",
+    "id": "307692440",
+    "title": "Concentration Risk on Single Positions",
+    "filename": "307692440.html",
     "topic_tags": [
-      "cpr_alerts",
-      "saa"
-    ],
-    "region_scope": [
-      "CH",
-      "Monaco",
-      "Germany",
-      "EEA"
-    ],
-    "filename": "saa_alert.html"
-  },
-  {
-    "id": "overnight_wn_alerts",
-    "title": "Overnight Wealth Navigator alerts / Best practices for handling",
-    "topic_tags": [
-      "cpr_alerts",
       "concentration_risk",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/307692440/Concentration+Risk+on+Single+Positions",
+    "text_length": 10628
+  },
+  {
+    "id": "307692536",
+    "title": "Overall Investment Strategy (OIS)",
+    "filename": "307692536.html",
+    "topic_tags": [
+      "cip",
       "monitoring"
     ],
     "region_scope": [
@@ -153,13 +390,18 @@
       "Germany",
       "EEA"
     ],
-    "filename": "overnight_wn_alerts.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/307692536/Overall+Investment+Strategy+OIS",
+    "text_length": 5888
   },
   {
-    "id": "alerts_config_advisory_location",
-    "title": "Alerts Configuration per Advisory Location",
+    "id": "307692584",
+    "title": "Portfolio Analysis Report",
+    "filename": "307692584.html",
     "topic_tags": [
-      "cpr_alerts"
+      "cpr_alerts",
+      "concentration_risk",
+      "monitoring",
+      "own"
     ],
     "region_scope": [
       "CH",
@@ -167,13 +409,17 @@
       "Germany",
       "EEA"
     ],
-    "filename": "alerts_config_advisory_location.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/307692584/Portfolio+Analysis+Report",
+    "text_length": 7951
   },
   {
-    "id": "cpr_handling",
-    "title": "Consolidated Product Risk (CPR) - handling and escalation requirements",
+    "id": "308478441",
+    "title": "Negative View",
+    "filename": "308478441.html",
     "topic_tags": [
-      "cpr_alerts"
+      "monitoring",
+      "solicitation_type",
+      "own"
     ],
     "region_scope": [
       "CH",
@@ -181,11 +427,524 @@
       "Germany",
       "EEA"
     ],
-    "filename": "cpr_handling.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478441/Negative+View",
+    "text_length": 5233
   },
   {
-    "id": "suitable_advice_solicitation",
-    "title": "What is a suitable recommendation?",
+    "id": "308478491",
+    "title": "Strategic Asset Allocation (SAA)",
+    "filename": "308478491.html",
+    "topic_tags": [
+      "cip",
+      "saa",
+      "monitoring",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478491/Strategic+Asset+Allocation+SAA",
+    "text_length": 9994
+  },
+  {
+    "id": "308478510",
+    "title": "Issuer Concentration Risk",
+    "filename": "308478510.html",
+    "topic_tags": [
+      "cip",
+      "concentration_risk",
+      "monitoring",
+      "solicitation_type",
+      "own",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478510/Issuer+Concentration+Risk",
+    "text_length": 8762
+  },
+  {
+    "id": "308478592",
+    "title": "Bond Rating Drop",
+    "filename": "308478592.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478592/Bond+Rating+Drop",
+    "text_length": 1635
+  },
+  {
+    "id": "308478603",
+    "title": "Currency Exposure",
+    "filename": "308478603.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478603/Currency+Exposure",
+    "text_length": 836
+  },
+  {
+    "id": "308478660",
+    "title": "Solicitation",
+    "filename": "308478660.html",
+    "topic_tags": [
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478660/Solicitation",
+    "text_length": 6424
+  },
+  {
+    "id": "308478881",
+    "title": "Maturity",
+    "filename": "308478881.html",
+    "topic_tags": [
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478881/Maturity",
+    "text_length": 1044
+  },
+  {
+    "id": "308478927",
+    "title": "Tactical Asset Allocation Exposure",
+    "filename": "308478927.html",
+    "topic_tags": [
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308478927/Tactical+Asset+Allocation+Exposure",
+    "text_length": 1329
+  },
+  {
+    "id": "308479266",
+    "title": "Order Entry through OTMS with a advisory session",
+    "filename": "308479266.html",
+    "topic_tags": [
+      "mifid_scope",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308479266/Order+Entry+through+OTMS+with+a+advisory+session",
+    "text_length": 3231
+  },
+  {
+    "id": "308479318",
+    "title": "HOST TA10 Monitoring",
+    "filename": "308479318.html",
+    "topic_tags": [
+      "cip",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308479318/HOST+TA10+Monitoring",
+    "text_length": 4600
+  },
+  {
+    "id": "308479357",
+    "title": "Toolbox Orders - Multiple Orders",
+    "filename": "308479357.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308479357/Toolbox+Orders+-+Multiple+Orders",
+    "text_length": 2438
+  },
+  {
+    "id": "308479404",
+    "title": "Order Entry",
+    "filename": "308479404.html",
+    "topic_tags": [
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308479404/Order+Entry",
+    "text_length": 350
+  },
+  {
+    "id": "308479452",
+    "title": "Useful links and contacts",
+    "filename": "308479452.html",
+    "topic_tags": [
+      "cross_border",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/308479452/Useful+links+and+contacts",
+    "text_length": 643
+  },
+  {
+    "id": "309660779",
+    "title": "How to search information in the suitability wiki",
+    "filename": "309660779.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/309660779/How+to+search+information+in+the+suitability+wiki",
+    "text_length": 966
+  },
+  {
+    "id": "309672156",
+    "title": "Fall-back scenarios BC LUX/MCO",
+    "filename": "309672156.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "cpr_alerts",
+      "solicitation_type",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "Monaco"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/309672156/Fall-back+scenarios+BC+LUX+MCO",
+    "text_length": 4259
+  },
+  {
+    "id": "311431865",
+    "title": "Bank Julius Baer Europe",
+    "filename": "311431865.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/311431865/Bank+Julius+Baer+Europe",
+    "text_length": 93
+  },
+  {
+    "id": "315790968",
+    "title": "How to proceed if mandatory documents cannot be provided?",
+    "filename": "315790968.html",
+    "topic_tags": [
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/315790968/How+to+proceed+if+mandatory+documents+cannot+be+provided",
+    "text_length": 2533
+  },
+  {
+    "id": "315796253",
+    "title": "CIP renewal process (only at BJBE)",
+    "filename": "315796253.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/315796253/CIP+renewal+process+only+at+BJBE",
+    "text_length": 9634
+  },
+  {
+    "id": "315796255",
+    "title": "2021 MiFID II refresher trainings",
+    "filename": "315796255.html",
+    "topic_tags": [
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/315796255/2021+MiFID+II+refresher+trainings",
+    "text_length": 133
+  },
+  {
+    "id": "315796272",
+    "title": "01. May 2021 MiFID II refresher training Q&As",
+    "filename": "315796272.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/315796272/01.+May+2021+MiFID+II+refresher+training+Q+As",
+    "text_length": 19005
+  },
+  {
+    "id": "316934291",
+    "title": "Share Class Selection Logic (SCSL) Alert",
+    "filename": "316934291.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/316934291/Share+Class+Selection+Logic+SCSL+Alert",
+    "text_length": 4312
+  },
+  {
+    "id": "317654878",
+    "title": "MiFID2 policies and procedures",
+    "filename": "317654878.html",
+    "topic_tags": [
+      "cip",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/317654878/MiFID2+policies+and+procedures",
+    "text_length": 534
+  },
+  {
+    "id": "317663636",
+    "title": "02. June 2021 MiFID II refresher training Q&As",
+    "filename": "317663636.html",
+    "topic_tags": [
+      "mifid_scope",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/317663636/02.+June+2021+MiFID+II+refresher+training+Q+As",
+    "text_length": 5144
+  },
+  {
+    "id": "317680743",
+    "title": "Client categorization",
+    "filename": "317680743.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "own",
+      "structured_products",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/317680743/Client+categorization",
+    "text_length": 46213
+  },
+  {
+    "id": "323345132",
+    "title": "BJBE CIP consistency and quality checklist",
+    "filename": "323345132.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/323345132/BJBE+CIP+consistency+and+quality+checklist",
+    "text_length": 2109
+  },
+  {
+    "id": "325530521",
+    "title": "Overnight Alerts - resolution note examples",
+    "filename": "325530521.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "own",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/325530521/Overnight+Alerts+-+resolution+note+examples",
+    "text_length": 11593
+  },
+  {
+    "id": "328603353",
+    "title": "03. September 2021 MiFID II refresher training Q&As",
+    "filename": "328603353.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "cross_border",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/328603353/03.+September+2021+MiFID+II+refresher+training+Q+As",
+    "text_length": 8181
+  },
+  {
+    "id": "331257661",
+    "title": "Produkteinformationsblatt (PIB)",
+    "filename": "331257661.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "solicitation_type",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/331257661/Produkteinformationsblatt+PIB",
+    "text_length": 1899
+  },
+  {
+    "id": "338791415",
+    "title": "Restricted Instrument Offering",
+    "filename": "338791415.html",
+    "topic_tags": [
+      "monitoring",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/338791415/Restricted+Instrument+Offering",
+    "text_length": 2390
+  },
+  {
+    "id": "338797585",
+    "title": "04. January 2022 MiFID II refresher training Q&As",
+    "filename": "338797585.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "solicitation_type",
+      "own",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/338797585/04.+January+2022+MiFID+II+refresher+training+Q+As",
+    "text_length": 9109
+  },
+  {
+    "id": "340478909",
+    "title": "Where do I start my order?",
+    "filename": "340478909.html",
     "topic_tags": [
       "solicitation_type",
       "suitability_appropriateness"
@@ -196,13 +955,15 @@
       "Germany",
       "EEA"
     ],
-    "filename": "suitable_advice_solicitation.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/340478909/Where+do+I+start+my+order",
+    "text_length": 782
   },
   {
-    "id": "solicitation_types",
-    "title": "Solicitation Types and their Impact",
+    "id": "340479039",
+    "title": "How to execute an order\u00a0in Wealth Navigator",
+    "filename": "340479039.html",
     "topic_tags": [
-      "solicitation_type"
+      "overview"
     ],
     "region_scope": [
       "CH",
@@ -210,14 +971,15 @@
       "Germany",
       "EEA"
     ],
-    "filename": "solicitation_types.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/340479039/How+to+execute+an+order%C2%A0in+Wealth+Navigator",
+    "text_length": 313
   },
   {
-    "id": "own_one_way_notification",
-    "title": "OWN - One Way Notification",
+    "id": "340479746",
+    "title": "How to set and change a limit order",
+    "filename": "340479746.html",
     "topic_tags": [
-      "own",
-      "solicitation_type"
+      "overview"
     ],
     "region_scope": [
       "CH",
@@ -225,14 +987,15 @@
       "Germany",
       "EEA"
     ],
-    "filename": "own_one_way_notification.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/340479746/How+to+set+and+change+a+limit+order",
+    "text_length": 1522
   },
   {
-    "id": "pe_order_placement",
-    "title": "Private Equity (PE) order placement process",
+    "id": "340479974",
+    "title": "How to place block orders",
+    "filename": "340479974.html",
     "topic_tags": [
-      "structured_products",
-      "execution_only"
+      "structured_products"
     ],
     "region_scope": [
       "CH",
@@ -240,14 +1003,15 @@
       "Germany",
       "EEA"
     ],
-    "filename": "pe_order_placement.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/340479974/How+to+place+block+orders",
+    "text_length": 3342
   },
   {
-    "id": "product_risk_methodology",
-    "title": "Methodology - How is the product risk calculated?",
+    "id": "341475374",
+    "title": "Proposal Tool",
+    "filename": "341475374.html",
     "topic_tags": [
-      "k_and_e",
-      "cpr_alerts"
+      "overview"
     ],
     "region_scope": [
       "CH",
@@ -255,14 +1019,15 @@
       "Germany",
       "EEA"
     ],
-    "filename": "product_risk_methodology.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/341475374/Proposal+Tool",
+    "text_length": 138
   },
   {
-    "id": "digital_assets_eligibility",
-    "title": "Digital Asset advice - eligibility",
+    "id": "341477736",
+    "title": "Portfolio Analysis Report (PAR)",
+    "filename": "341477736.html",
     "topic_tags": [
-      "structured_products",
-      "k_and_e"
+      "monitoring"
     ],
     "region_scope": [
       "CH",
@@ -270,54 +1035,351 @@
       "Germany",
       "EEA"
     ],
-    "filename": "digital_assets_eligibility.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/341477736/Portfolio+Analysis+Report+PAR",
+    "text_length": 4794
   },
   {
-    "id": "post_trade_cost_disclosure",
-    "title": "Post-trade cost disclosure and delivery mode",
+    "id": "341487826",
+    "title": "How to add a New Instrument BC CH / GG",
+    "filename": "341487826.html",
     "topic_tags": [
-      "mifid_scope",
-      "kid_requirements"
+      "overview"
     ],
     "region_scope": [
       "CH",
+      "Monaco",
       "Germany",
       "EEA"
     ],
-    "filename": "post_trade_cost_disclosure.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/341487826/How+to+add+a+New+Instrument+BC+CH+GG",
+    "text_length": 1256
   },
   {
-    "id": "phone_recording_germany",
-    "title": "Phone call recording requirements - Germany (Full MiFID)",
+    "id": "342033458",
+    "title": "Orders Outside of Business Hours (valid for JB Middle East only)",
+    "filename": "342033458.html",
     "topic_tags": [
-      "mifid_scope",
-      "cross_border"
+      "solicitation_type",
+      "suitability_appropriateness"
     ],
     "region_scope": [
-      "Germany"
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
     ],
-    "filename": "phone_recording_germany.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/342033458/Orders+Outside+of+Business+Hours+valid+for+JB+Middle+East+only",
+    "text_length": 726
   },
   {
-    "id": "pir_portfolio_analysis_report",
-    "title": "Portfolio Analysis Report (PIR) - preparation and consequences",
+    "id": "343665739",
+    "title": "Handling FX limit orders in DiAS",
+    "filename": "343665739.html",
     "topic_tags": [
-      "suitability_appropriateness",
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/343665739/Handling+FX+limit+orders+in+DiAS",
+    "text_length": 3029
+  },
+  {
+    "id": "346381426",
+    "title": "Sustainable Finance",
+    "filename": "346381426.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/346381426/Sustainable+Finance",
+    "text_length": 1313
+  },
+  {
+    "id": "346381442",
+    "title": "Sustainable Finance Training Art. 6 (Jan'22)",
+    "filename": "346381442.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/346381442/Sustainable+Finance+Training+Art.+6+Jan+22",
+    "text_length": 225
+  },
+  {
+    "id": "348091002",
+    "title": "JB ESG Scores",
+    "filename": "348091002.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/348091002/JB+ESG+Scores",
+    "text_length": 1368
+  },
+  {
+    "id": "348091004",
+    "title": "Basic Screening & ESG Risk Investments",
+    "filename": "348091004.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/348091004/Basic+Screening+ESG+Risk+Investments",
+    "text_length": 1352
+  },
+  {
+    "id": "348091013",
+    "title": "Regulations",
+    "filename": "348091013.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/348091013/Regulations",
+    "text_length": 266
+  },
+  {
+    "id": "348091024",
+    "title": "The JB Sustainable Investment Rating Methodology",
+    "filename": "348091024.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/348091024/The+JB+Sustainable+Investment+Rating+Methodology",
+    "text_length": 262
+  },
+  {
+    "id": "348091027",
+    "title": "Client ESG Preferences",
+    "filename": "348091027.html",
+    "topic_tags": [
+      "cip",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/348091027/Client+ESG+Preferences",
+    "text_length": 2070
+  },
+  {
+    "id": "348091029",
+    "title": "ESG Report",
+    "filename": "348091029.html",
+    "topic_tags": [
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/348091029/ESG+Report",
+    "text_length": 3490
+  },
+  {
+    "id": "349865287",
+    "title": "Asia (Hong Kong & Singapore)",
+    "filename": "349865287.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865287/Asia+Hong+Kong+Singapore",
+    "text_length": 838
+  },
+  {
+    "id": "349865292",
+    "title": "EEA regulations",
+    "filename": "349865292.html",
+    "topic_tags": [
+      "cip",
       "mifid_scope"
     ],
     "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865292/EEA+regulations",
+    "text_length": 2544
+  },
+  {
+    "id": "349865415",
+    "title": "Corporates (Equities & Corporate Bonds)",
+    "filename": "349865415.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
       "CH",
       "Monaco",
       "Germany",
       "EEA"
     ],
-    "filename": "pir_portfolio_analysis_report.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865415/Corporates+Equities+Corporate+Bonds",
+    "text_length": 62
   },
   {
-    "id": "account_opening_documentation",
-    "title": "Account opening - documentation guide",
+    "id": "349865418",
+    "title": "Funds",
+    "filename": "349865418.html",
     "topic_tags": [
-      "overview",
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865418/Funds",
+    "text_length": 985
+  },
+  {
+    "id": "349865439",
+    "title": "Implications on Offering",
+    "filename": "349865439.html",
+    "topic_tags": [
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865439/Implications+on+Offering",
+    "text_length": 2551
+  },
+  {
+    "id": "349865444",
+    "title": "Wealth Navigator adaptations (Sustainable Finance)",
+    "filename": "349865444.html",
+    "topic_tags": [
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865444/Wealth+Navigator+adaptations+Sustainable+Finance",
+    "text_length": 2278
+  },
+  {
+    "id": "349865447",
+    "title": "ESG Suitability Check in MSD",
+    "filename": "349865447.html",
+    "topic_tags": [
+      "cip",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865447/ESG+Suitability+Check+in+MSD",
+    "text_length": 1667
+  },
+  {
+    "id": "349865452",
+    "title": "PSP adaptations (Sustainable Finance)",
+    "filename": "349865452.html",
+    "topic_tags": [
+      "cip",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349865452/PSP+adaptations+Sustainable+Finance",
+    "text_length": 3702
+  },
+  {
+    "id": "349882003",
+    "title": "JB Climate Score",
+    "filename": "349882003.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882003/JB+Climate+Score",
+    "text_length": 2318
+  },
+  {
+    "id": "349882008",
+    "title": "JB Natural Capital Score",
+    "filename": "349882008.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882008/JB+Natural+Capital+Score",
+    "text_length": 2427
+  },
+  {
+    "id": "349882014",
+    "title": "JB Human Capital Score",
+    "filename": "349882014.html",
+    "topic_tags": [
       "cip"
     ],
     "region_scope": [
@@ -326,6 +1388,4127 @@
       "Germany",
       "EEA"
     ],
-    "filename": "account_opening_documentation.html"
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882014/JB+Human+Capital+Score",
+    "text_length": 775
+  },
+  {
+    "id": "349882018",
+    "title": "JB Global Norms Score",
+    "filename": "349882018.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882018/JB+Global+Norms+Score",
+    "text_length": 783
+  },
+  {
+    "id": "349882021",
+    "title": "JB Governance Score",
+    "filename": "349882021.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882021/JB+Governance+Score",
+    "text_length": 1267
+  },
+  {
+    "id": "349882028",
+    "title": "MSCI ESG Rating & MSCI Controversy Flag",
+    "filename": "349882028.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882028/MSCI+ESG+Rating+MSCI+Controversy+Flag",
+    "text_length": 2438
+  },
+  {
+    "id": "349882036",
+    "title": "Global Norms",
+    "filename": "349882036.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882036/Global+Norms",
+    "text_length": 1214
+  },
+  {
+    "id": "349882040",
+    "title": "The JB Blacklist",
+    "filename": "349882040.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349882040/The+JB+Blacklist",
+    "text_length": 782
+  },
+  {
+    "id": "349885798",
+    "title": "Sovereigns",
+    "filename": "349885798.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/349885798/Sovereigns",
+    "text_length": 63
+  },
+  {
+    "id": "356091512",
+    "title": "ESG Suitability Checks in Wealth Navigator",
+    "filename": "356091512.html",
+    "topic_tags": [
+      "cip",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/356091512/ESG+Suitability+Checks+in+Wealth+Navigator",
+    "text_length": 10645
+  },
+  {
+    "id": "357302848",
+    "title": "Support",
+    "filename": "357302848.html",
+    "topic_tags": [
+      "cross_border",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357302848/Support",
+    "text_length": 1707
+  },
+  {
+    "id": "357303650",
+    "title": "BMO Rule Engine",
+    "filename": "357303650.html",
+    "topic_tags": [
+      "cross_border",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357303650/BMO+Rule+Engine",
+    "text_length": 1066
+  },
+  {
+    "id": "357305837",
+    "title": "FAQ",
+    "filename": "357305837.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357305837/FAQ",
+    "text_length": 1475
+  },
+  {
+    "id": "357306479",
+    "title": "Methodology and its governance",
+    "filename": "357306479.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357306479/Methodology+and+its+governance",
+    "text_length": 2573
+  },
+  {
+    "id": "357306481",
+    "title": "Offering",
+    "filename": "357306481.html",
+    "topic_tags": [
+      "cip",
+      "solicitation_type",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357306481/Offering",
+    "text_length": 2848
+  },
+  {
+    "id": "357306483",
+    "title": "The ESG Report",
+    "filename": "357306483.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357306483/The+ESG+Report",
+    "text_length": 1071
+  },
+  {
+    "id": "357309804",
+    "title": "ESG Report in OnDemand",
+    "filename": "357309804.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357309804/ESG+Report+in+OnDemand",
+    "text_length": 564
+  },
+  {
+    "id": "357334792",
+    "title": "Governance of the Methodology",
+    "filename": "357334792.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357334792/Governance+of+the+Methodology",
+    "text_length": 1384
+  },
+  {
+    "id": "357334801",
+    "title": "Greenwashing",
+    "filename": "357334801.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357334801/Greenwashing",
+    "text_length": 1836
+  },
+  {
+    "id": "357334813",
+    "title": "Other approaches to Methodologies",
+    "filename": "357334813.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/357334813/Other+approaches+to+Methodologies",
+    "text_length": 643
+  },
+  {
+    "id": "359582760",
+    "title": "Suitable Advice and Solicitation",
+    "filename": "359582760.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/359582760/Suitable+Advice+and+Solicitation",
+    "text_length": 7257
+  },
+  {
+    "id": "361532731",
+    "title": "Configuration of ESG Preferences on Portfolio Level in Wealth Navigator",
+    "filename": "361532731.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/361532731/Configuration+of+ESG+Preferences+on+Portfolio+Level+in+Wealth+Navigator",
+    "text_length": 1613
+  },
+  {
+    "id": "361560992",
+    "title": "Quick Reference Guide: Client Investment Profile - CIPLIC",
+    "filename": "361560992.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/361560992/Quick+Reference+Guide+Client+Investment+Profile+-+CIPLIC",
+    "text_length": 4806
+  },
+  {
+    "id": "361561009",
+    "title": "Restricted Number of Positions",
+    "filename": "361561009.html",
+    "topic_tags": [
+      "monitoring",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/361561009/Restricted+Number+of+Positions",
+    "text_length": 1777
+  },
+  {
+    "id": "361562002",
+    "title": "Wealth Navigator/DiAS Fall-back Scenarios",
+    "filename": "361562002.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/361562002/Wealth+Navigator+DiAS+Fall-back+Scenarios",
+    "text_length": 147
+  },
+  {
+    "id": "363791462",
+    "title": "RML CH / FIDLEG",
+    "filename": "363791462.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "cpr_alerts",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/363791462/RML+CH+FIDLEG",
+    "text_length": 2853
+  },
+  {
+    "id": "363791464",
+    "title": "RML CH / MIFID Add-on",
+    "filename": "363791464.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/363791464/RML+CH+MIFID+Add-on",
+    "text_length": 2535
+  },
+  {
+    "id": "363791466",
+    "title": "Full MIFID",
+    "filename": "363791466.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "mifid_scope",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/363791466/Full+MIFID",
+    "text_length": 2338
+  },
+  {
+    "id": "363815087",
+    "title": "Justification rationale (dropdown values) for \"client accepts risk\"",
+    "filename": "363815087.html",
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/363815087/Justification+rationale+dropdown+values+for+client+accepts+risk",
+    "text_length": 8690
+  },
+  {
+    "id": "363819435",
+    "title": "Solicitation Framework",
+    "filename": "363819435.html",
+    "topic_tags": [
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/363819435/Solicitation+Framework",
+    "text_length": 5147
+  },
+  {
+    "id": "363820086",
+    "title": "Share Class Selection Logic (SCSL)",
+    "filename": "363820086.html",
+    "topic_tags": [
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/363820086/Share+Class+Selection+Logic+SCSL",
+    "text_length": 3647
+  },
+  {
+    "id": "366052714",
+    "title": "Global Investment Universe",
+    "filename": "366052714.html",
+    "topic_tags": [
+      "mifid_scope",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/366052714/Global+Investment+Universe",
+    "text_length": 5128
+  },
+  {
+    "id": "366809610",
+    "title": "Methodology",
+    "filename": "366809610.html",
+    "topic_tags": [
+      "cpr_alerts",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/366809610/Methodology",
+    "text_length": 2403
+  },
+  {
+    "id": "366809612",
+    "title": "Framework",
+    "filename": "366809612.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/366809612/Framework",
+    "text_length": 1007
+  },
+  {
+    "id": "368744771",
+    "title": "Factual Information",
+    "filename": "368744771.html",
+    "topic_tags": [
+      "k_and_e",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/368744771/Factual+Information",
+    "text_length": 2147
+  },
+  {
+    "id": "371363518",
+    "title": "Crossborder duties for EEA clients served out of Switzerland",
+    "filename": "371363518.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "saa",
+      "solicitation_type",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/371363518/Crossborder+duties+for+EEA+clients+served+out+of+Switzerland",
+    "text_length": 12100
+  },
+  {
+    "id": "371366494",
+    "title": "Hedge Fund order placement process",
+    "filename": "371366494.html",
+    "topic_tags": [
+      "solicitation_type",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/371366494/Hedge+Fund+order+placement+process",
+    "text_length": 4209
+  },
+  {
+    "id": "371375754",
+    "title": "Documenting in Wealth Navigator/DIAS",
+    "filename": "371375754.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/371375754/Documenting+in+Wealth+Navigator+DIAS",
+    "text_length": 2688
+  },
+  {
+    "id": "371375771",
+    "title": "Advisory Session - contact note examples",
+    "filename": "371375771.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "mifid_scope",
+      "cpr_alerts",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/371375771/Advisory+Session+-+contact+note+examples",
+    "text_length": 9415
+  },
+  {
+    "id": "371375802",
+    "title": "Portfolio Configuration - contact note examples",
+    "filename": "371375802.html",
+    "topic_tags": [
+      "concentration_risk",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/371375802/Portfolio+Configuration+-+contact+note+examples",
+    "text_length": 3518
+  },
+  {
+    "id": "373724465",
+    "title": "E-Banking BC CH",
+    "filename": "373724465.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/373724465/E-Banking+BC+CH",
+    "text_length": 3034
+  },
+  {
+    "id": "373731379",
+    "title": "Alerts configuration per Advisory Location",
+    "filename": "373731379.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/373731379/Alerts+configuration+per+Advisory+Location",
+    "text_length": 21779
+  },
+  {
+    "id": "375631086",
+    "title": "Digital Assets Risk Waiver",
+    "filename": "375631086.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/375631086/Digital+Assets+Risk+Waiver",
+    "text_length": 1862
+  },
+  {
+    "id": "375631102",
+    "title": "Digital Assets Banned Domiciles",
+    "filename": "375631102.html",
+    "topic_tags": [
+      "cross_border",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/375631102/Digital+Assets+Banned+Domiciles",
+    "text_length": 2838
+  },
+  {
+    "id": "375636700",
+    "title": "Suitability Framework Asia",
+    "filename": "375636700.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/375636700/Suitability+Framework+Asia",
+    "text_length": 210
+  },
+  {
+    "id": "377953321",
+    "title": "Providing advice on Digital Asset",
+    "filename": "377953321.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "solicitation_type",
+      "structured_products",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/377953321/Providing+advice+on+Digital+Asset",
+    "text_length": 3856
+  },
+  {
+    "id": "377977139",
+    "title": "Distribution Rules",
+    "filename": "377977139.html",
+    "topic_tags": [
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/377977139/Distribution+Rules",
+    "text_length": 2144
+  },
+  {
+    "id": "380376845",
+    "title": "Solicitation FAQ",
+    "filename": "380376845.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/380376845/Solicitation+FAQ",
+    "text_length": 9598
+  },
+  {
+    "id": "382699254",
+    "title": "Client Output - Proposal Summary & Personal Investment Recommendation (PIR)",
+    "filename": "382699254.html",
+    "topic_tags": [
+      "cip",
+      "finsa_scope",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382699254/Client+Output+-+Proposal+Summary+Personal+Investment+Recommendation+PIR",
+    "text_length": 6365
+  },
+  {
+    "id": "382699548",
+    "title": "Cost Disclosure",
+    "filename": "382699548.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382699548/Cost+Disclosure",
+    "text_length": 107
+  },
+  {
+    "id": "382699606",
+    "title": "Portfolio Cost Simulation",
+    "filename": "382699606.html",
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "execution_only"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382699606/Portfolio+Cost+Simulation",
+    "text_length": 1468
+  },
+  {
+    "id": "382710003",
+    "title": "Pre-trade cost disclosure",
+    "filename": "382710003.html",
+    "topic_tags": [
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "structured_products",
+      "execution_only",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382710003/Pre-trade+cost+disclosure",
+    "text_length": 6308
+  },
+  {
+    "id": "382710039",
+    "title": "Itemized & periodic cost disclosure",
+    "filename": "382710039.html",
+    "topic_tags": [
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382710039/Itemized+periodic+cost+disclosure",
+    "text_length": 3248
+  },
+  {
+    "id": "382712017",
+    "title": "Create Proposal",
+    "filename": "382712017.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382712017/Create+Proposal",
+    "text_length": 3531
+  },
+  {
+    "id": "382716138",
+    "title": "Create Model Proposals for Prospects",
+    "filename": "382716138.html",
+    "topic_tags": [
+      "cross_border"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382716138/Create+Model+Proposals+for+Prospects",
+    "text_length": 2603
+  },
+  {
+    "id": "382719878",
+    "title": "Investment Updates",
+    "filename": "382719878.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382719878/Investment+Updates",
+    "text_length": 1316
+  },
+  {
+    "id": "382720639",
+    "title": "Advisory Equity List",
+    "filename": "382720639.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/382720639/Advisory+Equity+List",
+    "text_length": 1054
+  },
+  {
+    "id": "384347578",
+    "title": "Cost Disclosure Tools",
+    "filename": "384347578.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/384347578/Cost+Disclosure+Tools",
+    "text_length": 122
+  },
+  {
+    "id": "384351749",
+    "title": "KIDs for PRIIPs",
+    "filename": "384351749.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "structured_products",
+      "execution_only",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/384351749/KIDs+for+PRIIPs",
+    "text_length": 15761
+  },
+  {
+    "id": "388142967",
+    "title": "Bank Recovery & Resolution Directive BRRD2",
+    "filename": "388142967.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "own",
+      "execution_only",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/388142967/Bank+Recovery+Resolution+Directive+BRRD2",
+    "text_length": 5359
+  },
+  {
+    "id": "393315011",
+    "title": "Regulatory Refresher Trainings",
+    "filename": "393315011.html",
+    "topic_tags": [
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315011/Regulatory+Refresher+Trainings",
+    "text_length": 177
+  },
+  {
+    "id": "393315044",
+    "title": "06. MiFID II Refresher \u2013 November 2022",
+    "filename": "393315044.html",
+    "topic_tags": [
+      "k_and_e",
+      "mifid_scope",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315044/06.+MiFID+II+Refresher+%E2%80%93+November+2022",
+    "text_length": 244
+  },
+  {
+    "id": "393315059",
+    "title": "2022 MiFID II Refresher Trainings",
+    "filename": "393315059.html",
+    "topic_tags": [
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315059/2022+MiFID+II+Refresher+Trainings",
+    "text_length": 251
+  },
+  {
+    "id": "393315070",
+    "title": "01. MiFID II Refresher Training - January 2022",
+    "filename": "393315070.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315070/01.+MiFID+II+Refresher+Training+-+January+2022",
+    "text_length": 161
+  },
+  {
+    "id": "393315079",
+    "title": "2023 Regulatory Refresher Trainings",
+    "filename": "393315079.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315079/2023+Regulatory+Refresher+Trainings",
+    "text_length": 266
+  },
+  {
+    "id": "393315082",
+    "title": "01. Regulatory Refresher Training - February 2023",
+    "filename": "393315082.html",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315082/01.+Regulatory+Refresher+Training+-+February+2023",
+    "text_length": 450
+  },
+  {
+    "id": "393315088",
+    "title": "05. MiFID II Refresher \u2013 September 2022",
+    "filename": "393315088.html",
+    "topic_tags": [
+      "mifid_scope",
+      "solicitation_type",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315088/05.+MiFID+II+Refresher+%E2%80%93+September+2022",
+    "text_length": 278
+  },
+  {
+    "id": "393315093",
+    "title": "04. MiFID II Refresher Training - July 2022",
+    "filename": "393315093.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315093/04.+MiFID+II+Refresher+Training+-+July+2022",
+    "text_length": 167
+  },
+  {
+    "id": "393315099",
+    "title": "02. MiFID II Refresher Training - April 2022",
+    "filename": "393315099.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315099/02.+MiFID+II+Refresher+Training+-+April+2022",
+    "text_length": 167
+  },
+  {
+    "id": "393315101",
+    "title": "03. MiFID II Refresher Training - May 2022",
+    "filename": "393315101.html",
+    "topic_tags": [
+      "k_and_e",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/393315101/03.+MiFID+II+Refresher+Training+-+May+2022",
+    "text_length": 151
+  },
+  {
+    "id": "394301255",
+    "title": "Custom Instrument Solution (in Session)",
+    "filename": "394301255.html",
+    "topic_tags": [
+      "cip",
+      "client_classification",
+      "cross_border",
+      "solicitation_type",
+      "structured_products",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/394301255/Custom+Instrument+Solution+in+Session",
+    "text_length": 7844
+  },
+  {
+    "id": "394301744",
+    "title": "Custom Instrument Solution (in Proposal)",
+    "filename": "394301744.html",
+    "topic_tags": [
+      "cip",
+      "concentration_risk",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/394301744/Custom+Instrument+Solution+in+Proposal",
+    "text_length": 6468
+  },
+  {
+    "id": "396636393",
+    "title": "Where can KIDs be retrieved or created?",
+    "filename": "396636393.html",
+    "topic_tags": [
+      "own",
+      "structured_products",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/396636393/Where+can+KIDs+be+retrieved+or+created",
+    "text_length": 1275
+  },
+  {
+    "id": "400517342",
+    "title": "02. Regulatory Refresher Training - April 2023",
+    "filename": "400517342.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "cpr_alerts",
+      "saa",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/400517342/02.+Regulatory+Refresher+Training+-+April+2023",
+    "text_length": 331
+  },
+  {
+    "id": "402496875",
+    "title": "Request Proposal",
+    "filename": "402496875.html",
+    "topic_tags": [
+      "monitoring"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/402496875/Request+Proposal",
+    "text_length": 931
+  },
+  {
+    "id": "409715424",
+    "title": "Overview of cost disclosure duties for JB in Switzerland",
+    "filename": "409715424.html",
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/409715424/Overview+of+cost+disclosure+duties+for+JB+in+Switzerland",
+    "text_length": 2122
+  },
+  {
+    "id": "409716775",
+    "title": "3 - Exchange Traded Derivatives (ETDs) - exchange traded Options and Futures",
+    "filename": "409716775.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "solicitation_type",
+      "own",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/409716775/3+-+Exchange+Traded+Derivatives+ETDs+-+exchange+traded+Options+and+Futures",
+    "text_length": 9951
+  },
+  {
+    "id": "411835588",
+    "title": "03. Regulatory Refresher Training - June 2023",
+    "filename": "411835588.html",
+    "topic_tags": [
+      "cross_border"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/411835588/03.+Regulatory+Refresher+Training+-+June+2023",
+    "text_length": 244
+  },
+  {
+    "id": "414028713",
+    "title": "Structured products - disclosure of issuer and distribution fees",
+    "filename": "414028713.html",
+    "topic_tags": [
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "structured_products",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/414028713/Structured+products+-+disclosure+of+issuer+and+distribution+fees",
+    "text_length": 3657
+  },
+  {
+    "id": "419255583",
+    "title": "4 - OTC Derivatives",
+    "filename": "419255583.html",
+    "topic_tags": [
+      "client_classification",
+      "mifid_scope",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/419255583/4+-+OTC+Derivatives",
+    "text_length": 2019
+  },
+  {
+    "id": "419257122",
+    "title": "04. Regulatory Refresher Training - August 2023",
+    "filename": "419257122.html",
+    "topic_tags": [
+      "k_and_e",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/419257122/04.+Regulatory+Refresher+Training+-+August+2023",
+    "text_length": 540
+  },
+  {
+    "id": "422781127",
+    "title": "Institutional Shares Classes Of Funds Domiciled In Luxembourg",
+    "filename": "422781127.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "own"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/422781127/Institutional+Shares+Classes+Of+Funds+Domiciled+In+Luxembourg",
+    "text_length": 3247
+  },
+  {
+    "id": "424918459",
+    "title": "K&E EuroHub and BC MC",
+    "filename": "424918459.html",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918459/K+E+EuroHub+and+BC+MC",
+    "text_length": 943
+  },
+  {
+    "id": "424918463",
+    "title": "1. New K&E form and main changes",
+    "filename": "424918463.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918463/1.+New+K+E+form+and+main+changes",
+    "text_length": 5652
+  },
+  {
+    "id": "424918489",
+    "title": "3. Migration and impact on existing clients",
+    "filename": "424918489.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918489/3.+Migration+and+impact+on+existing+clients",
+    "text_length": 1897
+  },
+  {
+    "id": "424918494",
+    "title": "4. Education of a client in and outside a DiAS session",
+    "filename": "424918494.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918494/4.+Education+of+a+client+in+and+outside+a+DiAS+session",
+    "text_length": 2918
+  },
+  {
+    "id": "424918498",
+    "title": "5. Sample questions for the K&E assessment",
+    "filename": "424918498.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918498/5.+Sample+questions+for+the+K+E+assessment",
+    "text_length": 11152
+  },
+  {
+    "id": "424918500",
+    "title": "Suitability Standard (applicable to BC MC non-EEA/non-UK-domiciled clients)",
+    "filename": "424918500.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918500/Suitability+Standard+applicable+to+BC+MC+non-EEA+non-UK-domiciled+clients",
+    "text_length": 2712
+  },
+  {
+    "id": "424918505",
+    "title": "MIFID Standard (applicable to EuroHub and MC EEA/UK-domiciled clients)",
+    "filename": "424918505.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "structured_products"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918505/MIFID+Standard+applicable+to+EuroHub+and+MC+EEA+UK-domiciled+clients",
+    "text_length": 6685
+  },
+  {
+    "id": "424918711",
+    "title": "6. Client education material",
+    "filename": "424918711.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424918711/6.+Client+education+material",
+    "text_length": 1345
+  },
+  {
+    "id": "424929716",
+    "title": "7. Training material - Rollout trainings",
+    "filename": "424929716.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "Monaco"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/424929716/7.+Training+material+-+Rollout+trainings",
+    "text_length": 121
+  },
+  {
+    "id": "427297027",
+    "title": "Voice Recording Guidance",
+    "filename": "427297027.html",
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/427297027/Voice+Recording+Guidance",
+    "text_length": 9902
+  },
+  {
+    "id": "427297038",
+    "title": "FAQ's",
+    "filename": "427297038.html",
+    "topic_tags": [
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/427297038/FAQ+s",
+    "text_length": 1032
+  },
+  {
+    "id": "427308905",
+    "title": "MiFID Target Market Concept",
+    "filename": "427308905.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "mifid_scope",
+      "solicitation_type",
+      "own",
+      "structured_products"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/427308905/MiFID+Target+Market+Concept",
+    "text_length": 8061
+  },
+  {
+    "id": "427308908",
+    "title": "JB Distributor Target Market Concept",
+    "filename": "427308908.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "monitoring",
+      "solicitation_type",
+      "own",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/427308908/JB+Distributor+Target+Market+Concept",
+    "text_length": 4167
+  },
+  {
+    "id": "429474558",
+    "title": "Target Market (Product Governance)",
+    "filename": "429474558.html",
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/429474558/Target+Market+Product+Governance",
+    "text_length": 1541
+  },
+  {
+    "id": "429488845",
+    "title": "05. Regulatory Refresher Training - October 2023",
+    "filename": "429488845.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/429488845/05.+Regulatory+Refresher+Training+-+October+2023",
+    "text_length": 270
+  },
+  {
+    "id": "431162550",
+    "title": "6 - Structured Products (SP)",
+    "filename": "431162550.html",
+    "topic_tags": [
+      "client_classification",
+      "mifid_scope",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431162550/6+-+Structured+Products+SP",
+    "text_length": 2462
+  },
+  {
+    "id": "431793747",
+    "title": "K&E BC CH & GG (all RML excl. UK)",
+    "filename": "431793747.html",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793747/K+E+BC+CH+GG+all+RML+excl.+UK",
+    "text_length": 1371
+  },
+  {
+    "id": "431793762",
+    "title": "1) New K&E form and main changes",
+    "filename": "431793762.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793762/1+New+K+E+form+and+main+changes",
+    "text_length": 6964
+  },
+  {
+    "id": "431793764",
+    "title": "2) How to assess and document K&E of a new client/partner",
+    "filename": "431793764.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793764/2+How+to+assess+and+document+K+E+of+a+new+client+partner",
+    "text_length": 626
+  },
+  {
+    "id": "431793767",
+    "title": "MIFID Standard (applicable to all RML excluding RML UK)",
+    "filename": "431793767.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793767/MIFID+Standard+applicable+to+all+RML+excluding+RML+UK",
+    "text_length": 6463
+  },
+  {
+    "id": "431793773",
+    "title": "Suitability Standard (applicable to all other not mentioned under MIFID)",
+    "filename": "431793773.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793773/Suitability+Standard+applicable+to+all+other+not+mentioned+under+MIFID",
+    "text_length": 2350
+  },
+  {
+    "id": "431793777",
+    "title": "3) Migration and impact on existing clients",
+    "filename": "431793777.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793777/3+Migration+and+impact+on+existing+clients",
+    "text_length": 3007
+  },
+  {
+    "id": "431793783",
+    "title": "4) Education of a client in and outside a DiAS session",
+    "filename": "431793783.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793783/4+Education+of+a+client+in+and+outside+a+DiAS+session",
+    "text_length": 3992
+  },
+  {
+    "id": "431793785",
+    "title": "5) Sample questions for the K&E assessment",
+    "filename": "431793785.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793785/5+Sample+questions+for+the+K+E+assessment",
+    "text_length": 11152
+  },
+  {
+    "id": "431793794",
+    "title": "6) Client education material",
+    "filename": "431793794.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793794/6+Client+education+material",
+    "text_length": 1345
+  },
+  {
+    "id": "431793797",
+    "title": "7) Training material - Rollout trainings",
+    "filename": "431793797.html",
+    "topic_tags": [
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431793797/7+Training+material+-+Rollout+trainings",
+    "text_length": 196
+  },
+  {
+    "id": "431811957",
+    "title": "CIP - what is it for?",
+    "filename": "431811957.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/431811957/CIP+-+what+is+it+for",
+    "text_length": 14462
+  },
+  {
+    "id": "434115467",
+    "title": "7 - DAC-Direct Access Clients",
+    "filename": "434115467.html",
+    "topic_tags": [
+      "client_classification",
+      "mifid_scope",
+      "execution_only"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434115467/7+-+DAC-Direct+Access+Clients",
+    "text_length": 1119
+  },
+  {
+    "id": "434115542",
+    "title": "12 - Global Products and Solutions (GPS) Contact List",
+    "filename": "434115542.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434115542/12+-+Global+Products+and+Solutions+GPS+Contact+List",
+    "text_length": 166
+  },
+  {
+    "id": "434117068",
+    "title": "11 - Corrections of Error Trades",
+    "filename": "434117068.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434117068/11+-+Corrections+of+Error+Trades",
+    "text_length": 3100
+  },
+  {
+    "id": "434119640",
+    "title": "9 - Margin Grid for FX/PM and Physical Precious Metals",
+    "filename": "434119640.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434119640/9+-+Margin+Grid+for+FX+PM+and+Physical+Precious+Metals",
+    "text_length": 267
+  },
+  {
+    "id": "434119695",
+    "title": "5 - Physical Precious Metals",
+    "filename": "434119695.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434119695/5+-+Physical+Precious+Metals",
+    "text_length": 1578
+  },
+  {
+    "id": "434119708",
+    "title": "10 - Markets Tools & Applications",
+    "filename": "434119708.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434119708/10+-+Markets+Tools+Applications",
+    "text_length": 704
+  },
+  {
+    "id": "434119855",
+    "title": "8 - DvP/RvP Delivery versus payment / Receive versus payment - NO active offering - pre-approval required",
+    "filename": "434119855.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/434119855/8+-+DvP+RvP+Delivery+versus+payment+Receive+versus+payment+-+NO+active+offering+-+pre-approval+required",
+    "text_length": 3877
+  },
+  {
+    "id": "435722127",
+    "title": "KODA/KODD (Knock-Out Daily Accumulator / Knock-out Daily Decumulator) on ETFs",
+    "filename": "435722127.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/435722127/KODA+KODD+Knock-Out+Daily+Accumulator+Knock-out+Daily+Decumulator+on+ETFs",
+    "text_length": 3082
+  },
+  {
+    "id": "435723713",
+    "title": "2 - Equities, Bonds, Treasury Bills, fixed Incom, Fund Execution, Subscription (IPO, New issuing)",
+    "filename": "435723713.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/435723713/2+-+Equities+Bonds+Treasury+Bills+fixed+Incom+Fund+Execution+Subscription+IPO+New+issuing",
+    "text_length": 786
+  },
+  {
+    "id": "437886761",
+    "title": "06. Regulatory Refresher Training - November 2023",
+    "filename": "437886761.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/437886761/06.+Regulatory+Refresher+Training+-+November+2023",
+    "text_length": 296
+  },
+  {
+    "id": "440051515",
+    "title": "13 - PRIIPs",
+    "filename": "440051515.html",
+    "topic_tags": [
+      "cross_border",
+      "solicitation_type",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/440051515/13+-+PRIIPs",
+    "text_length": 1166
+  },
+  {
+    "id": "442413697",
+    "title": "Lombard Loan Costs Disclosure",
+    "filename": "442413697.html",
+    "topic_tags": [
+      "finsa_scope",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/442413697/Lombard+Loan+Costs+Disclosure",
+    "text_length": 1532
+  },
+  {
+    "id": "449973561",
+    "title": "Private Equity (PE) order placement process",
+    "filename": "449973561.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "solicitation_type",
+      "structured_products",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/449973561/Private+Equity+PE+order+placement+process",
+    "text_length": 12676
+  },
+  {
+    "id": "452955379",
+    "title": "2024 Regulatory Refresher Trainings",
+    "filename": "452955379.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/452955379/2024+Regulatory+Refresher+Trainings",
+    "text_length": 393
+  },
+  {
+    "id": "452955496",
+    "title": "01. Regulatory Refresher Training - February 2024",
+    "filename": "452955496.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/452955496/01.+Regulatory+Refresher+Training+-+February+2024",
+    "text_length": 327
+  },
+  {
+    "id": "455554961",
+    "title": "How to classify your client under FIDLEG",
+    "filename": "455554961.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "own"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/455554961/How+to+classify+your+client+under+FIDLEG",
+    "text_length": 9956
+  },
+  {
+    "id": "455558181",
+    "title": "Client Classification FAQ",
+    "filename": "455558181.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/455558181/Client+Classification+FAQ",
+    "text_length": 11712
+  },
+  {
+    "id": "455558931",
+    "title": "CLM Manual for Client Classifications",
+    "filename": "455558931.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/455558931/CLM+Manual+for+Client+Classifications",
+    "text_length": 5503
+  },
+  {
+    "id": "455558953",
+    "title": "Client Classification Country List",
+    "filename": "455558953.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/455558953/Client+Classification+Country+List",
+    "text_length": 8542
+  },
+  {
+    "id": "455559313",
+    "title": "How to classify your client under MiFID",
+    "filename": "455559313.html",
+    "topic_tags": [
+      "k_and_e",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/455559313/How+to+classify+your+client+under+MiFID",
+    "text_length": 11647
+  },
+  {
+    "id": "455566044",
+    "title": "FCR (Fondo de Capital a Riesgo)",
+    "filename": "455566044.html",
+    "topic_tags": [
+      "cross_border",
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/455566044/FCR+Fondo+de+Capital+a+Riesgo",
+    "text_length": 842
+  },
+  {
+    "id": "457576449",
+    "title": "Priorisation of Client Classification Requests",
+    "filename": "457576449.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/457576449/Priorisation+of+Client+Classification+Requests",
+    "text_length": 239
+  },
+  {
+    "id": "460471285",
+    "title": "Client Classification",
+    "filename": "460471285.html",
+    "topic_tags": [
+      "client_classification"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/460471285/Client+Classification",
+    "text_length": 299
+  },
+  {
+    "id": "460471290",
+    "title": "Global Client Classification Inventory",
+    "filename": "460471290.html",
+    "topic_tags": [
+      "client_classification",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/460471290/Global+Client+Classification+Inventory",
+    "text_length": 3159
+  },
+  {
+    "id": "460471301",
+    "title": "Client Classification (RML CH/GG)",
+    "filename": "460471301.html",
+    "topic_tags": [
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope",
+      "own"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/460471301/Client+Classification+RML+CH+GG",
+    "text_length": 577
+  },
+  {
+    "id": "460471318",
+    "title": "Client Classification (global)",
+    "filename": "460471318.html",
+    "topic_tags": [
+      "client_classification",
+      "finsa_scope",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/460471318/Client+Classification+global",
+    "text_length": 100
+  },
+  {
+    "id": "460471372",
+    "title": "Professional Treasury Confirmation Letter Templates",
+    "filename": "460471372.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/460471372/Professional+Treasury+Confirmation+Letter+Templates",
+    "text_length": 71
+  },
+  {
+    "id": "462589823",
+    "title": "Support contacts and links",
+    "filename": "462589823.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/462589823/Support+contacts+and+links",
+    "text_length": 353
+  },
+  {
+    "id": "462613728",
+    "title": "Alert overview",
+    "filename": "462613728.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/462613728/Alert+overview",
+    "text_length": 9076
+  },
+  {
+    "id": "464262844",
+    "title": "02. Regulatory Refresher Training - April 2024",
+    "filename": "464262844.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/464262844/02.+Regulatory+Refresher+Training+-+April+2024",
+    "text_length": 307
+  },
+  {
+    "id": "466028012",
+    "title": "Investment Universe",
+    "filename": "466028012.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028012/Investment+Universe",
+    "text_length": 577
+  },
+  {
+    "id": "466028301",
+    "title": "ESG Risk Instrument",
+    "filename": "466028301.html",
+    "topic_tags": [
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028301/ESG+Risk+Instrument",
+    "text_length": 2615
+  },
+  {
+    "id": "466028359",
+    "title": "ESG Category Mismatch",
+    "filename": "466028359.html",
+    "topic_tags": [
+      "cip",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028359/ESG+Category+Mismatch",
+    "text_length": 5645
+  },
+  {
+    "id": "466028401",
+    "title": "ESG Data Missing",
+    "filename": "466028401.html",
+    "topic_tags": [
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028401/ESG+Data+Missing",
+    "text_length": 3697
+  },
+  {
+    "id": "466028460",
+    "title": "ESG Discretionary Mandate",
+    "filename": "466028460.html",
+    "topic_tags": [
+      "cip",
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028460/ESG+Discretionary+Mandate",
+    "text_length": 4373
+  },
+  {
+    "id": "466028492",
+    "title": "ESG SFDR & EU Taxonomy minimum proportion",
+    "filename": "466028492.html",
+    "topic_tags": [
+      "cip",
+      "monitoring",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028492/ESG+SFDR+EU+Taxonomy+minimum+proportion",
+    "text_length": 5794
+  },
+  {
+    "id": "466028506",
+    "title": "Introduction into Alert Handling",
+    "filename": "466028506.html",
+    "topic_tags": [
+      "finsa_scope",
+      "mifid_scope",
+      "monitoring",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466028506/Introduction+into+Alert+Handling",
+    "text_length": 1406
+  },
+  {
+    "id": "466029948",
+    "title": "99 - AIFs & PEGO I FCR",
+    "filename": "466029948.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "mifid_scope",
+      "solicitation_type",
+      "own",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466029948/99+-+AIFs+PEGO+I+FCR",
+    "text_length": 3446
+  },
+  {
+    "id": "466030549",
+    "title": "Indicador de riesgo, alerta sobre liquidez y alerta sobre complejidad",
+    "filename": "466030549.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466030549/Indicador+de+riesgo+alerta+sobre+liquidez+y+alerta+sobre+complejidad",
+    "text_length": 1827
+  },
+  {
+    "id": "466030588",
+    "title": "CNMV Circulars 3/2013 and 1/2018 \u2013 \u201cPre-Trade Warning Generator\u201d XLS",
+    "filename": "466030588.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/466030588/CNMV+Circulars+3+2013+and+1+2018+%E2%80%93+%E2%80%9CPre-Trade+Warning+Generator%E2%80%9D+XLS",
+    "text_length": 5670
+  },
+  {
+    "id": "468059288",
+    "title": "Mandatory Document Disclosure (MDD)",
+    "filename": "468059288.html",
+    "topic_tags": [
+      "solicitation_type",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "Germany"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/468059288/Mandatory+Document+Disclosure+MDD",
+    "text_length": 1982
+  },
+  {
+    "id": "471317840",
+    "title": "Wealth Navigator",
+    "filename": "471317840.html",
+    "topic_tags": [
+      "monitoring"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/471317840/Wealth+Navigator",
+    "text_length": 126
+  },
+  {
+    "id": "476959542",
+    "title": "5 principles of suitable advice",
+    "filename": "476959542.html",
+    "topic_tags": [
+      "cip",
+      "solicitation_type",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/476959542/5+principles+of+suitable+advice",
+    "text_length": 1467
+  },
+  {
+    "id": "476965161",
+    "title": "03. Regulatory Refresher Training - June 2024",
+    "filename": "476965161.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/476965161/03.+Regulatory+Refresher+Training+-+June+2024",
+    "text_length": 301
+  },
+  {
+    "id": "481038043",
+    "title": "Process for adding ESG Attributes",
+    "filename": "481038043.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/481038043/Process+for+adding+ESG+Attributes",
+    "text_length": 1131
+  },
+  {
+    "id": "481040836",
+    "title": "ESG check now executed for OTC Equity Options (custom instruments)",
+    "filename": "481040836.html",
+    "topic_tags": [
+      "cross_border",
+      "execution_only",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/481040836/ESG+check+now+executed+for+OTC+Equity+Options+custom+instruments",
+    "text_length": 1209
+  },
+  {
+    "id": "481055610",
+    "title": "Mandate Solution Designer (MSD)",
+    "filename": "481055610.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "solicitation_type",
+      "own",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/481055610/Mandate+Solution+Designer+MSD",
+    "text_length": 8227
+  },
+  {
+    "id": "481055620",
+    "title": "Modular Offering Configurator (MOC)",
+    "filename": "481055620.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/481055620/Modular+Offering+Configurator+MOC",
+    "text_length": 5547
+  },
+  {
+    "id": "483136429",
+    "title": "Distribution rules Bahrain",
+    "filename": "483136429.html",
+    "topic_tags": [
+      "cross_border",
+      "structured_products"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/483136429/Distribution+rules+Bahrain",
+    "text_length": 1322
+  },
+  {
+    "id": "490670077",
+    "title": "04. Regulatory Refresher Training - August 2024",
+    "filename": "490670077.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/490670077/04.+Regulatory+Refresher+Training+-+August+2024",
+    "text_length": 313
+  },
+  {
+    "id": "490696064",
+    "title": "Solicitation Examples",
+    "filename": "490696064.html",
+    "topic_tags": [
+      "cross_border",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/490696064/Solicitation+Examples",
+    "text_length": 4907
+  },
+  {
+    "id": "495368349",
+    "title": "Fund Selling Restrictions\u200b\u200b",
+    "filename": "495368349.html",
+    "topic_tags": [
+      "cip",
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "execution_only",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/495368349/Fund+Selling+Restrictions%E2%80%8B%E2%80%8B",
+    "text_length": 8590
+  },
+  {
+    "id": "495369160",
+    "title": "Distribution and Tax rules",
+    "filename": "495369160.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/495369160/Distribution+and+Tax+rules",
+    "text_length": 686
+  },
+  {
+    "id": "509354596",
+    "title": "05. Regulatory Refresher Training - October 2024",
+    "filename": "509354596.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "monitoring"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509354596/05.+Regulatory+Refresher+Training+-+October+2024",
+    "text_length": 391
+  },
+  {
+    "id": "509363931",
+    "title": "Portfolio Configuration",
+    "filename": "509363931.html",
+    "topic_tags": [
+      "cip",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509363931/Portfolio+Configuration",
+    "text_length": 5661
+  },
+  {
+    "id": "509364381",
+    "title": "How to amend the bond rating",
+    "filename": "509364381.html",
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509364381/How+to+amend+the+bond+rating",
+    "text_length": 2870
+  },
+  {
+    "id": "509364399",
+    "title": "How to amend the issuer concentration",
+    "filename": "509364399.html",
+    "topic_tags": [
+      "cip",
+      "concentration_risk",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509364399/How+to+amend+the+issuer+concentration",
+    "text_length": 2992
+  },
+  {
+    "id": "509364445",
+    "title": "How to amend the Fund Splitting Analysis",
+    "filename": "509364445.html",
+    "topic_tags": [
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509364445/How+to+amend+the+Fund+Splitting+Analysis",
+    "text_length": 4042
+  },
+  {
+    "id": "509364493",
+    "title": "How to amend the Lombard Loan Configuration",
+    "filename": "509364493.html",
+    "topic_tags": [
+      "cpr_alerts",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509364493/How+to+amend+the+Lombard+Loan+Configuration",
+    "text_length": 3030
+  },
+  {
+    "id": "509364564",
+    "title": "Configuration of ESG Preferences on Portfolio Level in Wealth Navigator (Oct Release 2024)",
+    "filename": "509364564.html",
+    "topic_tags": [
+      "cip",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509364564/Configuration+of+ESG+Preferences+on+Portfolio+Level+in+Wealth+Navigator+Oct+Release+2024",
+    "text_length": 2993
+  },
+  {
+    "id": "509364632",
+    "title": "How to consolidate portfolios",
+    "filename": "509364632.html",
+    "topic_tags": [
+      "saa",
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509364632/How+to+consolidate+portfolios",
+    "text_length": 5844
+  },
+  {
+    "id": "509365070",
+    "title": "Advice Advanced/Exclusive, IA direct and indirect",
+    "filename": "509365070.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509365070/Advice+Advanced+Exclusive+IA+direct+and+indirect",
+    "text_length": 6231
+  },
+  {
+    "id": "509365172",
+    "title": "Advice Basic/Light and Premium",
+    "filename": "509365172.html",
+    "topic_tags": [
+      "cip",
+      "cross_border",
+      "saa",
+      "monitoring",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509365172/Advice+Basic+Light+and+Premium",
+    "text_length": 6428
+  },
+  {
+    "id": "509580467",
+    "title": "Overnight Wealth Navigator alerts / Best practices for handling",
+    "filename": "509580467.html",
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/509580467/Overnight+Wealth+Navigator+alerts+Best+practices+for+handling",
+    "text_length": 11366
+  },
+  {
+    "id": "516372262",
+    "title": "AIF Distribution Policy Refresher Training",
+    "filename": "516372262.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/516372262/AIF+Distribution+Policy+Refresher+Training",
+    "text_length": 246
+  },
+  {
+    "id": "523606229",
+    "title": "Advisory KRI Scorecard",
+    "filename": "523606229.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/523606229/Advisory+KRI+Scorecard",
+    "text_length": 5240
+  },
+  {
+    "id": "523611247",
+    "title": "Client Suitability Controls",
+    "filename": "523611247.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "monitoring",
+      "solicitation_type",
+      "execution_only",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/523611247/Client+Suitability+Controls",
+    "text_length": 3609
+  },
+  {
+    "id": "523611394",
+    "title": "Controls",
+    "filename": "523611394.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/523611394/Controls",
+    "text_length": 100
+  },
+  {
+    "id": "523611397",
+    "title": "2-6-4 Guidance",
+    "filename": "523611397.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "mifid_scope",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/523611397/2-6-4+Guidance",
+    "text_length": 2752
+  },
+  {
+    "id": "523848645",
+    "title": "Suitability Key Controls in Scope of Advisory KRI Scorecard",
+    "filename": "523848645.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "client_classification",
+      "cross_border",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/523848645/Suitability+Key+Controls+in+Scope+of+Advisory+KRI+Scorecard",
+    "text_length": 4423
+  },
+  {
+    "id": "531806321",
+    "title": "Pre-contract suitability checks in MSD",
+    "filename": "531806321.html",
+    "topic_tags": [
+      "cip",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/531806321/Pre-contract+suitability+checks+in+MSD",
+    "text_length": 1929
+  },
+  {
+    "id": "531806359",
+    "title": "Pre-contract suitability checks in MOC",
+    "filename": "531806359.html",
+    "topic_tags": [
+      "cip",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/531806359/Pre-contract+suitability+checks+in+MOC",
+    "text_length": 1917
+  },
+  {
+    "id": "531861709",
+    "title": "Webex Call Voice Recording (BJBE)",
+    "filename": "531861709.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/531861709/Webex+Call+Voice+Recording+BJBE",
+    "text_length": 1248
+  },
+  {
+    "id": "531864293",
+    "title": "Handling of control case deficiencies in CLM Task Manager",
+    "filename": "531864293.html",
+    "topic_tags": [
+      "cip",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/531864293/Handling+of+control+case+deficiencies+in+CLM+Task+Manager",
+    "text_length": 3484
+  },
+  {
+    "id": "531883124",
+    "title": "How to define a suitable investment strategy",
+    "filename": "531883124.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/531883124/How+to+define+a+suitable+investment+strategy",
+    "text_length": 4781
+  },
+  {
+    "id": "540806325",
+    "title": "EMIR - Questions & Answers",
+    "filename": "540806325.html",
+    "topic_tags": [
+      "own"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/540806325/EMIR+-+Questions+Answers",
+    "text_length": 8315
+  },
+  {
+    "id": "540815071",
+    "title": "Wealth Navigator/DiAS Documents Overview",
+    "filename": "540815071.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "monitoring",
+      "solicitation_type",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/540815071/Wealth+Navigator+DiAS+Documents+Overview",
+    "text_length": 2681
+  },
+  {
+    "id": "540818551",
+    "title": "8. K&E form - Assessment & validation checklist",
+    "filename": "540818551.html",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/540818551/8.+K+E+form+-+Assessment+validation+checklist",
+    "text_length": 1621
+  },
+  {
+    "id": "540820911",
+    "title": "06. Regulatory Refresher Training - December 2024",
+    "filename": "540820911.html",
+    "topic_tags": [
+      "k_and_e",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/540820911/06.+Regulatory+Refresher+Training+-+December+2024",
+    "text_length": 334
+  },
+  {
+    "id": "541500868",
+    "title": "Direct Private Investments (\"DPI\")",
+    "filename": "541500868.html",
+    "topic_tags": [
+      "client_classification",
+      "structured_products",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/541500868/Direct+Private+Investments+DPI",
+    "text_length": 2244
+  },
+  {
+    "id": "541507305",
+    "title": "Instrument-level 10% LNR for EAM end clients",
+    "filename": "541507305.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/541507305/Instrument-level+10+LNR+for+EAM+end+clients",
+    "text_length": 318
+  },
+  {
+    "id": "541512159",
+    "title": "Advisory KRI Scorecard India",
+    "filename": "541512159.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/541512159/Advisory+KRI+Scorecard+India",
+    "text_length": 3897
+  },
+  {
+    "id": "547101652",
+    "title": "Worsening/Improvement Concept",
+    "filename": "547101652.html",
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/547101652/Worsening+Improvement+Concept",
+    "text_length": 3272
+  },
+  {
+    "id": "565253731",
+    "title": "Quick Tips",
+    "filename": "565253731.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/565253731/Quick+Tips",
+    "text_length": 55
+  },
+  {
+    "id": "565253733",
+    "title": "How to review a prospectus to check client eligibility?",
+    "filename": "565253733.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/565253733/How+to+review+a+prospectus+to+check+client+eligibility",
+    "text_length": 389
+  },
+  {
+    "id": "565253793",
+    "title": "2025 Regulatory Refresher Trainings",
+    "filename": "565253793.html",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/565253793/2025+Regulatory+Refresher+Trainings",
+    "text_length": 462
+  },
+  {
+    "id": "565253804",
+    "title": "98. Training: Assessment & validation of K&E form of potential order givers in EFA accounts",
+    "filename": "565253804.html",
+    "topic_tags": [
+      "k_and_e"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/565253804/98.+Training+Assessment+validation+of+K+E+form+of+potential+order+givers+in+EFA+accounts",
+    "text_length": 282
+  },
+  {
+    "id": "565258816",
+    "title": "FAQ - Advisory KRI Scorecard",
+    "filename": "565258816.html",
+    "topic_tags": [
+      "monitoring",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/565258816/FAQ+-+Advisory+KRI+Scorecard",
+    "text_length": 1377
+  },
+  {
+    "id": "565280332",
+    "title": "01. Regulatory Refresher Training - February 2025",
+    "filename": "565280332.html",
+    "topic_tags": [
+      "saa"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/565280332/01.+Regulatory+Refresher+Training+-+February+2025",
+    "text_length": 289
+  },
+  {
+    "id": "576359354",
+    "title": "99. RML ES: CNMV Circulars 3/2013 & 1/2018 - Pre-trade warning generator XLS solution",
+    "filename": "576359354.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/576359354/99.+RML+ES+CNMV+Circulars+3+2013+1+2018+-+Pre-trade+warning+generator+XLS+solution",
+    "text_length": 289
+  },
+  {
+    "id": "576364734",
+    "title": "How to determine if you are providing Investment Advice",
+    "filename": "576364734.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/576364734/How+to+determine+if+you+are+providing+Investment+Advice",
+    "text_length": 1341
+  },
+  {
+    "id": "591158447",
+    "title": "Regular Portfolio Review",
+    "filename": "591158447.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/591158447/Regular+Portfolio+Review",
+    "text_length": 6760
+  },
+  {
+    "id": "592065627",
+    "title": "UK SDR Disclosure Documents",
+    "filename": "592065627.html",
+    "topic_tags": [
+      "cross_border",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/592065627/UK+SDR+Disclosure+Documents",
+    "text_length": 4684
+  },
+  {
+    "id": "603160689",
+    "title": "1. Hedge Funds",
+    "filename": "603160689.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/603160689/1.+Hedge+Funds",
+    "text_length": 615
+  },
+  {
+    "id": "603168236",
+    "title": "02. Regulatory Refresher Training - April 2025",
+    "filename": "603168236.html",
+    "topic_tags": [
+      "cip",
+      "cross_border"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/603168236/02.+Regulatory+Refresher+Training+-+April+2025",
+    "text_length": 419
+  },
+  {
+    "id": "612554077",
+    "title": "1 - Product and Services Overview",
+    "filename": "612554077.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/612554077/1+-+Product+and+Services+Overview",
+    "text_length": 175
+  },
+  {
+    "id": "626833372",
+    "title": "Hard Block Override Procedure (\"HOP\")",
+    "filename": "626833372.html",
+    "topic_tags": [
+      "cip",
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/626833372/Hard+Block+Override+Procedure+HOP",
+    "text_length": 22114
+  },
+  {
+    "id": "626837767",
+    "title": "Monitoring at multiple mandate/account level (only at BJBE)",
+    "filename": "626837767.html",
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/626837767/Monitoring+at+multiple+mandate+account+level+only+at+BJBE",
+    "text_length": 6077
+  },
+  {
+    "id": "627285349",
+    "title": "Increase severity level for the BMO rule: Less than 100k EUR for Structured Products",
+    "filename": "627285349.html",
+    "topic_tags": [
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/627285349/Increase+severity+level+for+the+BMO+rule+Less+than+100k+EUR+for+Structured+Products",
+    "text_length": 1334
+  },
+  {
+    "id": "639115366",
+    "title": "Determine Solicitation Type",
+    "filename": "639115366.html",
+    "topic_tags": [
+      "cross_border",
+      "mifid_scope",
+      "concentration_risk",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/639115366/Determine+Solicitation+Type",
+    "text_length": 8520
+  },
+  {
+    "id": "639439385",
+    "title": "03. Regulatory Refresher Training - June 2025",
+    "filename": "639439385.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/639439385/03.+Regulatory+Refresher+Training+-+June+2025",
+    "text_length": 327
+  },
+  {
+    "id": "647212482",
+    "title": "Knowledge & Experience form - \"For internal use only\" checklist",
+    "filename": "647212482.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "mifid_scope",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/647212482/Knowledge+Experience+form+-+For+internal+use+only+checklist",
+    "text_length": 2201
+  },
+  {
+    "id": "647223087",
+    "title": "Financial Instruments",
+    "filename": "647223087.html",
+    "topic_tags": [
+      "finsa_scope",
+      "mifid_scope"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/647223087/Financial+Instruments",
+    "text_length": 514
+  },
+  {
+    "id": "663750820",
+    "title": "Scoring Guidance",
+    "filename": "663750820.html",
+    "topic_tags": [
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/663750820/Scoring+Guidance",
+    "text_length": 5313
+  },
+  {
+    "id": "683249061",
+    "title": "04. Regulatory Refresher Training - August 2025",
+    "filename": "683249061.html",
+    "topic_tags": [
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/683249061/04.+Regulatory+Refresher+Training+-+August+2025",
+    "text_length": 268
+  },
+  {
+    "id": "692326064",
+    "title": "\"Client Feedback\" functionality in Wealth Navigator/DiAS",
+    "filename": "692326064.html",
+    "topic_tags": [
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/692326064/Client+Feedback+functionality+in+Wealth+Navigator+DiAS",
+    "text_length": 2214
+  },
+  {
+    "id": "718766741",
+    "title": "05. Regulatory Refresher Training - October 2025",
+    "filename": "718766741.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/718766741/05.+Regulatory+Refresher+Training+-+October+2025",
+    "text_length": 330
+  },
+  {
+    "id": "728279829",
+    "title": "One-way notification for monitoring alerts",
+    "filename": "728279829.html",
+    "topic_tags": [
+      "cip",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "own"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/728279829/One-way+notification+for+monitoring+alerts",
+    "text_length": 11382
+  },
+  {
+    "id": "728286160",
+    "title": "Managing advisory relationships after Client death",
+    "filename": "728286160.html",
+    "topic_tags": [
+      "cip",
+      "client_classification",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/728286160/Managing+advisory+relationships+after+Client+death",
+    "text_length": 11814
+  },
+  {
+    "id": "732107229",
+    "title": "Justification Options per Critical Alert",
+    "filename": "732107229.html",
+    "topic_tags": [
+      "k_and_e",
+      "cross_border",
+      "mifid_scope",
+      "cpr_alerts",
+      "concentration_risk",
+      "saa",
+      "monitoring",
+      "solicitation_type"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/732107229/Justification+Options+per+Critical+Alert",
+    "text_length": 6040
+  },
+  {
+    "id": "732122601",
+    "title": "Knowledge & Experience (K&E)",
+    "filename": "732122601.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "own",
+      "structured_products",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/732122601/Knowledge+Experience+K+E",
+    "text_length": 10364
+  },
+  {
+    "id": "732126695",
+    "title": "JB Distributor Target Market (DTM)",
+    "filename": "732126695.html",
+    "topic_tags": [
+      "cip",
+      "client_classification",
+      "solicitation_type",
+      "structured_products"
+    ],
+    "region_scope": [
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/732126695/JB+Distributor+Target+Market+DTM",
+    "text_length": 4279
+  },
+  {
+    "id": "743091715",
+    "title": "Fair value (UK Consumer Duty)",
+    "filename": "743091715.html",
+    "topic_tags": [
+      "client_classification",
+      "monitoring",
+      "solicitation_type",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/743091715/Fair+value+UK+Consumer+Duty",
+    "text_length": 10830
+  },
+  {
+    "id": "743098105",
+    "title": "E-Channel Enforcement for Client Package, PAR & PCN",
+    "filename": "743098105.html",
+    "topic_tags": [
+      "saa",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/743098105/E-Channel+Enforcement+for+Client+Package+PAR+PCN",
+    "text_length": 2108
+  },
+  {
+    "id": "745369833",
+    "title": "Luxembourg domiciled Funds limited to institutional investors",
+    "filename": "745369833.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/745369833/Luxembourg+domiciled+Funds+limited+to+institutional+investors",
+    "text_length": 2097
+  },
+  {
+    "id": "748850839",
+    "title": "06. Regulatory Refresher Training - December 2025",
+    "filename": "748850839.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/748850839/06.+Regulatory+Refresher+Training+-+December+2025",
+    "text_length": 274
+  },
+  {
+    "id": "754368765",
+    "title": "Challenge Process",
+    "filename": "754368765.html",
+    "topic_tags": [
+      "monitoring",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/754368765/Challenge+Process",
+    "text_length": 3267
+  },
+  {
+    "id": "774739829",
+    "title": "2026 Regulatory Refresher Trainings",
+    "filename": "774739829.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/774739829/2026+Regulatory+Refresher+Trainings",
+    "text_length": 191
+  },
+  {
+    "id": "774739834",
+    "title": "01. Regulatory Refresher Training - February 2026",
+    "filename": "774739834.html",
+    "topic_tags": [
+      "cip"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/774739834/01.+Regulatory+Refresher+Training+-+February+2026",
+    "text_length": 330
+  },
+  {
+    "id": "774749853",
+    "title": "Products & Services Test",
+    "filename": "774749853.html",
+    "topic_tags": [
+      "cross_border",
+      "cpr_alerts",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/774749853/Products+Services+Test",
+    "text_length": 324
+  },
+  {
+    "id": "784877962",
+    "title": "Global Client Classification Logic",
+    "filename": "784877962.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "execution_only"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/784877962/Global+Client+Classification+Logic",
+    "text_length": 2528
+  },
+  {
+    "id": "785161974",
+    "title": "Examples on how to capture a Custom Instrument in Session",
+    "filename": "785161974.html",
+    "topic_tags": [
+      "solicitation_type",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/785161974/Examples+on+how+to+capture+a+Custom+Instrument+in+Session",
+    "text_length": 2220
+  },
+  {
+    "id": "795513221",
+    "title": "Standards (FinSA, MiFID add-on; Full MiFID)",
+    "filename": "795513221.html",
+    "topic_tags": [
+      "client_classification",
+      "cross_border",
+      "finsa_scope",
+      "mifid_scope",
+      "solicitation_type",
+      "kid_requirements",
+      "suitability_appropriateness"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/795513221/Standards+FinSA+MiFID+add-on+Full+MiFID",
+    "text_length": 1852
+  },
+  {
+    "id": "796298208",
+    "title": "Advisor Register for foreign RM's",
+    "filename": "796298208.html",
+    "topic_tags": [
+      "finsa_scope"
+    ],
+    "region_scope": [
+      "CH"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/796298208/Advisor+Register+for+foreign+RM+s",
+    "text_length": 68
+  },
+  {
+    "id": "796300582",
+    "title": "Provision and storing of CIP, CIP Side Form and K&E Form at BJBE Spain branch",
+    "filename": "796300582.html",
+    "topic_tags": [
+      "k_and_e",
+      "cip",
+      "mifid_scope",
+      "execution_only"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/796300582/Provision+and+storing+of+CIP+CIP+Side+Form+and+K+E+Form+at+BJBE+Spain+branch",
+    "text_length": 2076
+  },
+  {
+    "id": "800859032",
+    "title": "BJBE Italy branch: foreign mutual funds subscription process",
+    "filename": "800859032.html",
+    "topic_tags": [
+      "client_classification",
+      "solicitation_type",
+      "kid_requirements"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/800859032/BJBE+Italy+branch+foreign+mutual+funds+subscription+process",
+    "text_length": 1883
+  },
+  {
+    "id": "809720077",
+    "title": "02. Regulatory Refresher Training - April 2026",
+    "filename": "809720077.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/809720077/02.+Regulatory+Refresher+Training+-+April+2026",
+    "text_length": 337
+  },
+  {
+    "id": "837128670",
+    "title": "EAM/EFA's (incl. end-clients)",
+    "filename": "837128670.html",
+    "topic_tags": [
+      "client_classification"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/837128670/EAM+EFA+s+incl.+end-clients",
+    "text_length": 289
+  },
+  {
+    "id": "842855961",
+    "title": "03. Regulatory Refresher Training - June 2026",
+    "filename": "842855961.html",
+    "topic_tags": [
+      "overview"
+    ],
+    "region_scope": [
+      "CH",
+      "Monaco",
+      "Germany",
+      "EEA"
+    ],
+    "source_url": "https://wiki.juliusbaer.com/spaces/fkh/pages/842855961/03.+Regulatory+Refresher+Training+-+June+2026",
+    "text_length": 335
   }
 ]

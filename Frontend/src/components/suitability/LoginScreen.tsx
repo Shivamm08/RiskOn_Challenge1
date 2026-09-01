@@ -3,15 +3,19 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { DEMO_USERS, useAuth } from "@/lib/auth";
+import { DEMO_EXPERT_USERS, DEMO_USERS, useAuth, type UserKind } from "@/lib/auth";
 import { useTheme } from "@/lib/theme";
+import { cn } from "@/lib/utils";
 
 export function LoginScreen() {
   const { signIn } = useAuth();
   const { theme, toggle } = useTheme();
+  const [kind, setKind] = useState<UserKind>("rm");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
+
+  const quick = kind === "rm" ? DEMO_USERS : DEMO_EXPERT_USERS;
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -34,10 +38,36 @@ export function LoginScreen() {
             Demo sign-in. No credentials are verified — this environment holds no client data.
           </p>
 
-          <div className="mt-6">
-            <p className="label-xs mb-2 text-muted-foreground">Quick demo sign-in</p>
+          <div className="mt-5 grid grid-cols-2 gap-1.5 rounded-sm border border-border p-1">
+            {(
+              [
+                { k: "rm" as UserKind, label: "Relationship Manager" },
+                { k: "expert" as UserKind, label: "Expert / Supervisor" },
+              ] satisfies { k: UserKind; label: string }[]
+            ).map(({ k, label }) => (
+              <button
+                key={k}
+                type="button"
+                onClick={() => setKind(k)}
+                aria-pressed={kind === k}
+                className={cn(
+                  "rounded-sm px-2 py-1.5 text-xs font-medium transition-colors",
+                  kind === k
+                    ? "bg-cream text-cream-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-5">
+            <p className="label-xs mb-2 text-muted-foreground">
+              {kind === "rm" ? "Quick demo sign-in" : "Quick sign-in from the SME roster"}
+            </p>
             <div className="space-y-1.5">
-              {DEMO_USERS.map((u) => (
+              {quick.map((u) => (
                 <button
                   key={u.name}
                   type="button"
@@ -59,7 +89,13 @@ export function LoginScreen() {
             onSubmit={(e) => {
               e.preventDefault();
               if (!name.trim()) return;
-              signIn({ name: name.trim(), role: role.trim() || "Relationship Manager" });
+              signIn({
+                name: name.trim(),
+                role:
+                  role.trim() ||
+                  (kind === "rm" ? "Relationship Manager" : "Suitability Expert"),
+                kind,
+              });
             }}
           >
             <p className="label-xs text-muted-foreground">Or sign in manually</p>
@@ -72,7 +108,7 @@ export function LoginScreen() {
             <Input
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              placeholder="Role (e.g. RM, Zurich)"
+              placeholder={kind === "rm" ? "Role (e.g. RM, Zurich)" : "Role (e.g. Senior Expert, Geneva)"}
             />
             <Input
               type="password"

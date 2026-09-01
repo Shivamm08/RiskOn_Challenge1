@@ -2,6 +2,9 @@ import { Menu, Moon, Sun } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { NotificationBell } from "@/components/experts/NotificationBell";
+import { ExpertSidebar } from "@/components/experts/ExpertSidebar";
+import { useAuth } from "@/lib/auth";
 import { useTheme } from "@/lib/theme";
 import { AppSidebar } from "./AppSidebar";
 import { SourcePreviewDialog } from "./SourcePreviewDialog";
@@ -9,11 +12,14 @@ import { SourcePreviewDialog } from "./SourcePreviewDialog";
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const { theme, toggle } = useTheme();
+  const { user } = useAuth();
+
+  const Sidebar = user?.kind === "expert" ? ExpertSidebar : AppSidebar;
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       <div className="hidden lg:block">
-        <AppSidebar />
+        <Sidebar />
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col">
@@ -27,7 +33,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </SheetTrigger>
             <SheetContent side="left" className="w-72 p-0">
               <SheetTitle className="sr-only">Navigation</SheetTitle>
-              <AppSidebar />
+              <Sidebar />
             </SheetContent>
           </Sheet>
           <span className="text-sm font-medium text-gold lg:hidden">Suitability Copilot</span>
@@ -36,6 +42,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="hidden text-[11px] text-muted-foreground sm:inline">
               {theme === "dark" ? "Gold on charcoal" : "Crimson on cream"}
             </span>
+            <NotificationBell />
             <button
               type="button"
               onClick={toggle}

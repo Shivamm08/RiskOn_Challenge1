@@ -1,5 +1,5 @@
-import { AlertTriangle, BellRing, CheckCircle2, LifeBuoy, User } from "lucide-react";
-import { useState } from "react";
+import { AlertTriangle, BellRing, CheckCircle2, LifeBuoy, Send } from "lucide-react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { EscalationLadder } from "./EscalationLadder";
 import { ReasoningTrail } from "./ReasoningTrail";
 import { SourceChip } from "./SourceCitation";
+import { ExpertRoutingCard } from "@/components/experts/ExpertRoutingCard";
+import { getExpert } from "@/lib/experts/roster";
+import { routeQuestion } from "@/lib/experts/routing";
+import { useExperts } from "@/lib/experts/store";
 import { useSuitability } from "@/lib/suitability/store";
 import type { Exchange } from "@/lib/suitability/types";
 
@@ -31,11 +35,20 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
   const { response, resolution } = exchange;
   const escalation = response.escalation;
   const { resolveExchange } = useSuitability();
+  const { messages, sendEscalation } = useExperts();
   const { user } = useAuth();
   const [resolving, setResolving] = useState(false);
   const [note, setNote] = useState("");
 
+  const decision = useMemo(
+    () => routeQuestion(exchange.context, { now: new Date(exchange.askedAt) }),
+    [exchange.context, exchange.askedAt],
+  );
+  const routedExpert = getExpert(decision.expertId);
+  const alreadySent = messages.some((m) => m.question === exchange.question);
+
   if (!escalation) return null;
+
 
   const shortQuestion =
     exchange.question.length > 60
@@ -76,21 +89,12 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
           I can't confidently answer this — here's who can help.
         </h3>
 
-        <div className="rounded-sm border border-border bg-surface-2 p-3.5">
-          <div className="flex items-start gap-3">
-            <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-cream text-cream-foreground">
-              <User className="size-4" />
-            </span>
-            <div className="min-w-0">
-              <p className="text-sm font-medium">{escalation.expert.name}</p>
-              <p className="text-xs text-muted-foreground">{escalation.expert.role}</p>
-              <p className="text-xs text-muted-foreground">{escalation.expert.team}</p>
-            </div>
-          </div>
-          <p className="mt-3 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
-            {escalation.reason}
-          </p>
-        </div>
+        <ExpertRoutingCard decision={decision} />
+
+        <p className="rounded-sm border border-border bg-surface-2 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
+          {escalation.reason}
+        </p>
+
 
         <div>
           <p className="label-xs mb-2 text-muted-foreground">Escalation tier</p>
@@ -167,9 +171,29 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
           </div>
         ) : (
           <div className="flex flex-wrap gap-2 border-t border-border pt-3">
-            <Button size="sm" asChild>
+            <Button
+              size="sm"
+              disabled={alreadySent}
+              onClick={() => {
+                sendEscalation({
+                  question: exchange.question,
+                  context: exchange.context,
+                  askedBy: user?.name ?? "Unknown user",
+                  expertId: decision.expertId,
+                  routing: decision,
+                });
+                toast.success(
+                  `Escalation sent to ${routedExpert?.name ?? escalation.expert.name} — track it under Messages`,
+                );
+              }}
+            >
+              <Send className="size-3.5" />
+              {alreadySent ? "Escalation sent" : "Send to expert"}
+            </Button>
+
+            <Button size="sm" variant="outline" asChild>
               <a href={mailto}>
-                <BellRing className="size-3.5" /> Notify this expert
+                <BellRing className="size-3.5" /> Notify by email
               </a>
             </Button>
 
@@ -177,6 +201,7 @@ export function ResponseCardEscalated({ exchange }: { exchange: Exchange }) {
               <CheckCircle2 className="size-3.5" /> Mark as resolved
             </Button>
           </div>
+
         )}
       </div>
     </article>

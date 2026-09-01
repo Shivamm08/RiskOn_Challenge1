@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "../components/ui/sonner";
 import { SuitabilityProvider } from "../lib/suitability/store";
+import { ExpertProvider } from "../lib/experts/store";
+
 import { AuthProvider, useAuth } from "../lib/auth";
 import { ThemeProvider } from "../lib/theme";
 import { LoginScreen } from "../components/suitability/LoginScreen";
@@ -130,12 +132,15 @@ function AuthGate() {
   if (!user) return <LoginScreen />;
 
   return (
-    <SuitabilityProvider>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-    </SuitabilityProvider>
+    <ExpertProvider>
+      <SuitabilityProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </SuitabilityProvider>
+    </ExpertProvider>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();

@@ -1,4 +1,4 @@
-import { createFileRoute, useRouterState } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Loader2 } from "lucide-react";
 import { useEffect, useRef } from "react";
 
@@ -47,8 +47,15 @@ function ResponseCard({ exchange }: { exchange: Exchange }) {
 function CopilotPage() {
   const { thread, pendingQuestion, activeCitation, context, viewingDemo } = useSuitability();
   const { user } = useAuth();
+  const navigate = useNavigate();
   const hash = useRouterState({ select: (s) => s.location.hash });
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Experts and supervisors land in the Expert Portal, not the RM chat.
+  useEffect(() => {
+    if (user?.kind === "expert") navigate({ to: "/expert" });
+  }, [user?.kind, navigate]);
+
 
   useEffect(() => {
     if (hash) {

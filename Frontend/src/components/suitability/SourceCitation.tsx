@@ -1,9 +1,24 @@
-import { ExternalLink, FileText, Quote, X } from "lucide-react";
+import { BadgeCheck, ExternalLink, FileText, Quote, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useExperts } from "@/lib/experts/store";
 import { useSuitability } from "@/lib/suitability/store";
 import type { SourceRef } from "@/lib/suitability/types";
 import { cn } from "@/lib/utils";
+
+/** Peer-endorsement trust indicator for KB-sourced guidance. */
+export function TrustBadge({ sourceTitle }: { sourceTitle: string }) {
+  const { kbForSource } = useExperts();
+  const entry = kbForSource(sourceTitle);
+  if (!entry || entry.endorsedBy.length === 0) return null;
+  return (
+    <span className="mt-1 inline-flex items-center gap-1 rounded-sm border border-success/40 bg-success-surface px-1 py-px text-[10px] uppercase tracking-wide text-success-foreground">
+      <BadgeCheck className="size-2.5" /> Endorsed by {entry.endorsedBy.length} expert
+      {entry.endorsedBy.length === 1 ? "" : "s"}
+    </span>
+  );
+}
+
 
 export function SourceChip({
   source,
@@ -42,7 +57,9 @@ export function SourceChip({
         <span className="mt-0.5 block truncate text-[11px] text-muted-foreground">
           {source.excerpt}
         </span>
+        <TrustBadge sourceTitle={source.page_title} />
       </span>
+
     </button>
   );
 }

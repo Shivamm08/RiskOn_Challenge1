@@ -3,16 +3,20 @@ import {
   CheckCircle2,
   ChevronDown,
   Circle,
+  Compass,
   FlaskConical,
+  Inbox,
   LogOut,
   MessageSquare,
   MessagesSquare,
   Plus,
   ScrollText,
 } from "lucide-react";
+
 import { useState, type ReactNode } from "react";
 
 import { AddSourceDialog } from "./AddSourceDialog";
+import { RmProfilePanel } from "./RmProfilePanel";
 import { useAuth } from "@/lib/auth";
 import { useSuitability } from "@/lib/suitability/store";
 import type { Exchange } from "@/lib/suitability/types";
@@ -107,6 +111,7 @@ export function AppSidebar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [demoOpen, setDemoOpen] = useState(true);
   const [chatsOpen, setChatsOpen] = useState(true);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   const orderedChats = [...chats].reverse();
 
@@ -128,6 +133,24 @@ export function AppSidebar() {
           <MessagesSquare className="size-4" /> Copilot
         </Link>
         <Link
+          to="/messages"
+          className={cn(
+            "flex items-center gap-2.5 rounded-sm px-2.5 py-2 text-sm font-medium text-gold transition-colors",
+            pathname === "/messages" ? "bg-cream border border-gold/40" : "hover:bg-surface-2",
+          )}
+        >
+          <Inbox className="size-4" /> Messages
+        </Link>
+        <Link
+          to="/routing"
+          className={cn(
+            "flex items-center gap-2.5 rounded-sm px-2.5 py-2 text-sm font-medium text-gold transition-colors",
+            pathname === "/routing" ? "bg-cream border border-gold/40" : "hover:bg-surface-2",
+          )}
+        >
+          <Compass className="size-4" /> Expert routing
+        </Link>
+        <Link
           to="/audit"
           className={cn(
             "flex items-center gap-2.5 rounded-sm px-2.5 py-2 text-sm font-medium text-gold transition-colors",
@@ -137,6 +160,7 @@ export function AppSidebar() {
           <ScrollText className="size-4" /> Audit trail
         </Link>
       </nav>
+
 
       <div className="min-h-0 flex-1 overflow-y-auto border-t border-border px-2">
         <Section
@@ -243,11 +267,21 @@ export function AppSidebar() {
       </div>
 
       <div className="flex items-center justify-between gap-2 border-t border-border px-4 py-3">
-        <span className="min-w-0 text-xs text-muted-foreground">
-          <span className="line-clamp-1">
-            {user ? `${user.name}${user.role ? ` · ${user.role}` : ""}` : "Not signed in"}
-          </span>
-        </span>
+        {user ? (
+          <button
+            type="button"
+            onClick={() => setProfileOpen(true)}
+            title="View your profile"
+            className="min-w-0 text-left text-xs text-muted-foreground transition-colors hover:text-gold"
+          >
+            <span className="line-clamp-1">
+              {user.name}
+              {user.role ? ` · ${user.role}` : ""}
+            </span>
+          </button>
+        ) : (
+          <span className="min-w-0 text-xs text-muted-foreground">Not signed in</span>
+        )}
         <button
           type="button"
           onClick={signOut}
@@ -256,6 +290,10 @@ export function AppSidebar() {
           <LogOut className="size-3" /> Log out
         </button>
       </div>
+
+      {profileOpen && user && (
+        <RmProfilePanel user={user} onClose={() => setProfileOpen(false)} />
+      )}
     </aside>
   );
 }

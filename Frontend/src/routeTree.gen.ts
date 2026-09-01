@@ -11,6 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuditRouteImport } from './routes/audit'
+import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as RoutingRouteImport } from './routes/routing'
+import { Route as ExpertIndexRouteImport } from './routes/expert.index'
+import { Route as ExpertAuditRouteImport } from './routes/expert.audit'
+import { Route as ExpertFavorabilityRouteImport } from './routes/expert.favorability'
+import { Route as ExpertKbRouteImport } from './routes/expert.kb'
+import { Route as ExpertReviewsRouteImport } from './routes/expert.reviews'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +29,122 @@ const AuditRoute = AuditRouteImport.update({
   path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoutingRoute = RoutingRouteImport.update({
+  id: '/routing',
+  path: '/routing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertIndexRoute = ExpertIndexRouteImport.update({
+  id: '/expert/',
+  path: '/expert/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertAuditRoute = ExpertAuditRouteImport.update({
+  id: '/expert/audit',
+  path: '/expert/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertFavorabilityRoute = ExpertFavorabilityRouteImport.update({
+  id: '/expert/favorability',
+  path: '/expert/favorability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertKbRoute = ExpertKbRouteImport.update({
+  id: '/expert/kb',
+  path: '/expert/kb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertReviewsRoute = ExpertReviewsRouteImport.update({
+  id: '/expert/reviews',
+  path: '/expert/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/audit': typeof AuditRoute
+  '/messages': typeof MessagesRoute
+  '/routing': typeof RoutingRoute
+  '/expert/audit': typeof ExpertAuditRoute
+  '/expert/favorability': typeof ExpertFavorabilityRoute
+  '/expert/kb': typeof ExpertKbRoute
+  '/expert/reviews': typeof ExpertReviewsRoute
+  '/expert/': typeof ExpertIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/audit': typeof AuditRoute
+  '/messages': typeof MessagesRoute
+  '/routing': typeof RoutingRoute
+  '/expert/audit': typeof ExpertAuditRoute
+  '/expert/favorability': typeof ExpertFavorabilityRoute
+  '/expert/kb': typeof ExpertKbRoute
+  '/expert/reviews': typeof ExpertReviewsRoute
+  '/expert': typeof ExpertIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/audit': typeof AuditRoute
+  '/messages': typeof MessagesRoute
+  '/routing': typeof RoutingRoute
+  '/expert/audit': typeof ExpertAuditRoute
+  '/expert/favorability': typeof ExpertFavorabilityRoute
+  '/expert/kb': typeof ExpertKbRoute
+  '/expert/reviews': typeof ExpertReviewsRoute
+  '/expert/': typeof ExpertIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/audit'
+  fullPaths:
+    | '/'
+    | '/audit'
+    | '/messages'
+    | '/routing'
+    | '/expert/audit'
+    | '/expert/favorability'
+    | '/expert/kb'
+    | '/expert/reviews'
+    | '/expert/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/audit'
-  id: '__root__' | '/' | '/audit'
+  to:
+    | '/'
+    | '/audit'
+    | '/messages'
+    | '/routing'
+    | '/expert/audit'
+    | '/expert/favorability'
+    | '/expert/kb'
+    | '/expert/reviews'
+    | '/expert'
+  id:
+    | '__root__'
+    | '/'
+    | '/audit'
+    | '/messages'
+    | '/routing'
+    | '/expert/audit'
+    | '/expert/favorability'
+    | '/expert/kb'
+    | '/expert/reviews'
+    | '/expert/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuditRoute: typeof AuditRoute
+  MessagesRoute: typeof MessagesRoute
+  RoutingRoute: typeof RoutingRoute
+  ExpertAuditRoute: typeof ExpertAuditRoute
+  ExpertFavorabilityRoute: typeof ExpertFavorabilityRoute
+  ExpertKbRoute: typeof ExpertKbRoute
+  ExpertReviewsRoute: typeof ExpertReviewsRoute
+  ExpertIndexRoute: typeof ExpertIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +163,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/routing': {
+      id: '/routing'
+      path: '/routing'
+      fullPath: '/routing'
+      preLoaderRoute: typeof RoutingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expert/': {
+      id: '/expert/'
+      path: '/expert'
+      fullPath: '/expert/'
+      preLoaderRoute: typeof ExpertIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expert/audit': {
+      id: '/expert/audit'
+      path: '/expert/audit'
+      fullPath: '/expert/audit'
+      preLoaderRoute: typeof ExpertAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expert/favorability': {
+      id: '/expert/favorability'
+      path: '/expert/favorability'
+      fullPath: '/expert/favorability'
+      preLoaderRoute: typeof ExpertFavorabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expert/kb': {
+      id: '/expert/kb'
+      path: '/expert/kb'
+      fullPath: '/expert/kb'
+      preLoaderRoute: typeof ExpertKbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expert/reviews': {
+      id: '/expert/reviews'
+      path: '/expert/reviews'
+      fullPath: '/expert/reviews'
+      preLoaderRoute: typeof ExpertReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuditRoute: AuditRoute,
+  MessagesRoute: MessagesRoute,
+  RoutingRoute: RoutingRoute,
+  ExpertAuditRoute: ExpertAuditRoute,
+  ExpertFavorabilityRoute: ExpertFavorabilityRoute,
+  ExpertKbRoute: ExpertKbRoute,
+  ExpertReviewsRoute: ExpertReviewsRoute,
+  ExpertIndexRoute: ExpertIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
