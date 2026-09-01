@@ -13,6 +13,39 @@ export type ChatMessage = {
   content: string;
 };
 
+export type EscalationMessage = {
+  id: string;
+  case_id: string;
+  sender_id: string;
+  sender_name: string;
+  sender_kind: "rm" | "expert";
+  content: string;
+  created_at: string;
+};
+
+export type KnowledgeCandidate = {
+  id: string;
+  case_id: string;
+  title: string;
+  question: string;
+  answer: string;
+  keywords: string[];
+  status: "pending" | "accepted" | "rejected";
+};
+
+export type EscalationCase = {
+  id: string;
+  request_id: string;
+  question: string;
+  requester_name: string;
+  assigned_name: string;
+  assigned_tier: string;
+  status: "open" | "answered";
+  created_at: string;
+  messages: EscalationMessage[];
+  knowledge_candidate: KnowledgeCandidate | null;
+};
+
 export type ResponseStatus = "answered" | "escalated" | "clarification_needed" | "out_of_scope";
 
 export type EscalationTier =

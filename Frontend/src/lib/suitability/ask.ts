@@ -129,13 +129,18 @@ export async function askSuitability(
   question: string,
   context: QueryContext,
   history: ChatMessage[] = [],
+  requester?: { id: string; name: string },
 ): Promise<AskResponse> {
   const apiUrl = import.meta.env["VITE_API_URL"] as string | undefined;
   if (apiUrl) {
     const response = await fetch(`${apiUrl.replace(/\/$/, "")}/ask`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question, context, history }),
+      body: JSON.stringify({
+        question, context, history,
+        requester_id: requester?.id,
+        requester_name: requester?.name,
+      }),
     });
     if (!response.ok) {
       throw new Error(`Suitability API returned ${response.status}`);

@@ -1,5 +1,5 @@
 import { Moon, ShieldCheck, Sun, UserCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,16 @@ export function LoginScreen() {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
+  const [expertUsers, setExpertUsers] = useState<typeof DEMO_USERS>([]);
+
+  useEffect(() => {
+    const apiUrl = import.meta.env["VITE_API_URL"] as string | undefined;
+    if (!apiUrl) return;
+    void fetch(`${apiUrl.replace(/\/$/, "")}/users`)
+      .then((response) => (response.ok ? response.json() : []))
+      .then((users: typeof DEMO_USERS) => setExpertUsers(users))
+      .catch(() => setExpertUsers([]));
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -54,12 +64,37 @@ export function LoginScreen() {
             </div>
           </div>
 
+          {expertUsers.length > 0 && (
+            <div className="mt-5">
+              <p className="label-xs mb-2 text-muted-foreground">Management & compliance inboxes</p>
+              <div className="max-h-48 space-y-1.5 overflow-y-auto pr-1">
+                {expertUsers.map((u) => (
+                  <button
+                    key={u.id}
+                    type="button"
+                    onClick={() => signIn(u)}
+                    className="flex w-full items-center gap-2.5 rounded-sm border border-border bg-surface-2 px-3 py-2 text-left transition-colors hover:border-gold"
+                  >
+                    <ShieldCheck className="size-4 shrink-0 text-gold" />
+                    <span className="min-w-0">
+                      <span className="block text-sm font-medium">{u.name}</span>
+                      <span className="block text-xs text-muted-foreground">{u.role}</span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           <form
             className="mt-6 space-y-2.5 border-t border-border pt-5"
             onSubmit={(e) => {
               e.preventDefault();
               if (!name.trim()) return;
-              signIn({ name: name.trim(), role: role.trim() || "Relationship Manager" });
+              signIn({
+                id: `manual_${name.trim().toLowerCase().replace(/\s+/g, "_")}`,
+                name: name.trim(), role: role.trim() || "Relationship Manager", kind: "rm",
+              });
             }}
           >
             <p className="label-xs text-muted-foreground">Or sign in manually</p>

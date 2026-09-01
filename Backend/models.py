@@ -37,6 +37,8 @@ class AskRequest(BaseModel):
     question: str
     context: QueryContext = QueryContext()
     history: list[ChatMessage] = Field(default_factory=list, max_length=20)
+    requester_id: Optional[str] = None
+    requester_name: Optional[str] = None
 
 
 class Confidence(BaseModel):
@@ -92,3 +94,15 @@ class FeedbackRequest(BaseModel):
 
 class FeedbackResponse(BaseModel):
     status: str
+
+
+class CaseMessageRequest(BaseModel):
+    sender_id: str
+    sender_name: str
+    sender_kind: Literal["rm", "expert"]
+    content: str = Field(min_length=1, max_length=10_000)
+
+
+class KnowledgeDecisionRequest(BaseModel):
+    reviewer_name: str
+    decision: Literal["accepted", "rejected"]

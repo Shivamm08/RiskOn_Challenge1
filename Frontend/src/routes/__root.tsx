@@ -16,6 +16,7 @@ import { SuitabilityProvider } from "../lib/suitability/store";
 import { AuthProvider, useAuth } from "../lib/auth";
 import { ThemeProvider } from "../lib/theme";
 import { LoginScreen } from "../components/suitability/LoginScreen";
+import { ExpertWorkspace } from "../components/suitability/ExpertWorkspace";
 
 
 function NotFoundComponent() {
@@ -128,6 +129,7 @@ function AuthGate() {
 
   if (!ready) return <div className="min-h-screen bg-background" />;
   if (!user) return <LoginScreen />;
+  if (user.kind === "expert") return <ExpertWorkspace />;
 
   return (
     <SuitabilityProvider>
@@ -151,4 +153,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

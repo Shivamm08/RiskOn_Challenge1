@@ -30,6 +30,19 @@ provider errors automatically fall back to the original question.
 Set `VITE_API_URL=http://localhost:8000` when starting the frontend to use the
 backend. Without it, the existing standalone mock behavior is preserved.
 
+## Escalation and learning demo
+
+When an RM question is escalated, the backend creates a persistent case assigned
+to the selected expert. Log out, then use that named expert's account under
+**Management & compliance inboxes**. Sending an answer delivers it to the RM and
+creates an LLM-drafted knowledge item. Accepting the draft publishes it to the
+expert-approved knowledge database; a later matching RM question checks that
+database before the wiki and escalation path.
+
+The accounts are demo identities without password verification. The workflow
+and approved knowledge are persisted in `Backend/audit_log.db`; production use
+requires integration with corporate identity and authorization controls.
+
 - API: http://localhost:8000
 - Interactive docs: http://localhost:8000/docs
 - Point the frontend's `askSuitability()` fetch call at this instead of the
@@ -78,7 +91,10 @@ matrix worth showing in the pitch, not just a confidence number on the UI.
 
 ## Confidence threshold
 
-`ANSWER_CONFIDENCE_THRESHOLD` in `main.py` (currently `0.12`) was tuned
+The answer gate in `main.py` combines TF-IDF relevance with explicit source-term
+coverage. Borderline matches must contain at least 80% of the question's
+meaningful terms; otherwise they are escalated instead of borrowing an answer
+from a merely adjacent page. The base relevance threshold (`0.12`) was tuned
 against the real evaluation set — re-run `run_eval.py` after any dataset
 change to confirm it's still calibrated, especially once the real Wiki dump
 replaces the synthetic one on Day 1.

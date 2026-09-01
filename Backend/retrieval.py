@@ -11,7 +11,7 @@ import re
 from dataclasses import dataclass
 from html.parser import HTMLParser
 
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 DATASET_DIR = os.environ.get("DATASET_DIR", os.path.join(os.path.dirname(__file__), "..", "Dataset"))
@@ -100,6 +100,21 @@ class Retriever:
         if best is None:  # fallback: no non-question sentence found at all
             best = sentences[0] if sentences else page.text
         return best[:max_len].strip()
+
+    def term_coverage(self, page: WikiPage, question: str) -> float:
+        """Share of meaningful query terms explicitly present in the source.
+
+        This prevents generic TF-IDF overlap from being treated as evidence when
+        the page omits the question's distinguishing concepts.
+        """
+        query_words = {
+            word for word in re.findall(r"[a-z0-9]+", question.lower())
+            if len(word) > 2 and word not in ENGLISH_STOP_WORDS
+        }
+        if not query_words:
+            return 0.0
+        page_words = set(re.findall(r"[a-z0-9]+", page.text.lower()))
+        return len(query_words & page_words) / len(query_words)
 
 
 _retriever: Retriever | None = None

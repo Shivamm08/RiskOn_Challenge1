@@ -10,12 +10,18 @@ import {
 
 const KEY = "sc-session";
 
-export type DemoUser = { name: string; role: string };
+export type DemoUser = {
+  id: string;
+  name: string;
+  role: string;
+  kind: "rm" | "expert";
+  tier?: string;
+};
 
 export const DEMO_USERS: DemoUser[] = [
-  { name: "A. Brunner", role: "RM, Zurich" },
-  { name: "L. Ferrari", role: "RM, Monaco" },
-  { name: "S. Keller", role: "Team Head, Geneva" },
+  { id: "rm_001", name: "A. Brunner", role: "RM, Zurich", kind: "rm" },
+  { id: "rm_002", name: "L. Ferrari", role: "RM, Monaco", kind: "rm" },
+  { id: "rm_003", name: "S. Keller", role: "Team Head, Geneva", kind: "rm" },
 ];
 
 type AuthStore = {
@@ -36,7 +42,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const raw = window.localStorage.getItem(KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as DemoUser;
-        if (parsed?.name) setUser({ name: parsed.name, role: parsed.role ?? "" });
+        if (parsed?.name) setUser({
+          id: parsed.id ?? parsed.name,
+          name: parsed.name,
+          role: parsed.role ?? "",
+          kind: parsed.kind ?? "rm",
+          ...(parsed.tier ? { tier: parsed.tier } : {}),
+        });
       }
     } catch {
       /* ignore corrupted session */

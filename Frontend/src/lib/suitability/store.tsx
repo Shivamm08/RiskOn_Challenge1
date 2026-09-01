@@ -2,6 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -72,6 +73,16 @@ function newChat(): Chat {
   };
 }
 
+function savedChats(userId: string | undefined): Chat[] {
+  if (!userId || typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(`sc-chats-${userId}`);
+    return raw ? (JSON.parse(raw) as Chat[]) : [];
+  } catch {
+    return [];
+  }
+}
+
 type Store = {
   /** Exchanges currently rendered in the Copilot view. */
   thread: Exchange[];
@@ -105,7 +116,7 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
   const [demo, setDemo] = useState<Exchange[]>(SEED_EXCHANGES);
   const [extraAudit, setExtraAudit] = useState<Exchange[]>(SEED_AUDIT);
-  const [chats, setChats] = useState<Chat[]>([]);
+  const [chats, setChats] = useState<Chat[]>(() => savedChats(user?.id));
   const [activeChatId, setActiveChatId] = useState<string | null>(null);
   const [context, setContext] = useState<QueryContext>({});
   const [pendingQuestion, setPendingQuestion] = useState<string | null>(null);
@@ -113,6 +124,11 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
   const [knowledgeSources, setKnowledgeSources] =
     useState<KnowledgeSource[]>(DEFAULT_SOURCES);
   const [previewSource, setPreviewSource] = useState<SourceRef | null>(null);
+
+  useEffect(() => {
+    if (!user || user.kind !== "rm") return;
+    window.localStorage.setItem(`sc-chats-${user.id}`, JSON.stringify(chats));
+  }, [chats, user]);
 
   const startNewChat = useCallback(() => {
     const chat = newChat();
@@ -158,7 +174,10 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
         ];
       });
       try {
-        const response = await askSuitability(trimmed, currentContext, history);
+        const response = await askSuitability(
+          trimmed, currentContext, history,
+          user ? { id: user.id, name: user.name } : undefined,
+        );
         const exchange: Exchange = {
           id: response.request_id,
           question: trimmed,
@@ -184,6 +203,67 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
     },
     [activeChatId, chats, context, user],
   );
+
+  // Expert replies are persisted by the backend. Poll the RM's cases and turn
+  // a resolved escalation into a normal answered exchange in the same chat.
+  useEffect(() => {
+    const apiUrl = import.meta.env["VITE_API_URL"] as string | undefined;
+    if (!apiUrl || !user || user.kind !== "rm") return;
+    const sync = async () => {
+      try {
+        const response = await fetch(
+          `${apiUrl.replace(/\/$/, "")}/cases?user_name=${encodeURIComponent(user.name)}&view=requested`,
+        );
+        if (!response.ok) return;
+        const cases = (await response.json()) as Array<{
+          request_id: string;
+          status: string;
+          assigned_name: string;
+          messages: Array<{ sender_kind: string; content: string }>;
+        }>;
+        const answered = new Map(
+          cases
+            .filter((item) => item.status === "answered")
+            .map((item) => [item.request_id, item]),
+        );
+        if (answered.size === 0) return;
+        setChats((previous) => previous.map((chat) => ({
+          ...chat,
+          exchanges: chat.exchanges.map((exchange) => {
+            const item = answered.get(exchange.response.request_id);
+            const expertReply = [...(item?.messages ?? [])]
+              .reverse().find((message) => message.sender_kind === "expert");
+            if (!item || !expertReply || exchange.response.status !== "escalated") return exchange;
+            return {
+              ...exchange,
+              response: {
+                ...exchange.response,
+                status: "answered" as const,
+                answer: expertReply.content,
+                escalation: null,
+                confidence: { answer_confidence: 1, routing_confidence: 1 },
+                sources: [{
+                  page_title: `Expert response — ${item.assigned_name}`,
+                  excerpt: expertReply.content,
+                  url: null,
+                  fileType: "doc" as const,
+                }],
+                reasoning: [
+                  ...(exchange.response.reasoning ?? []),
+                  `Answered by ${item.assigned_name} through the escalation inbox.`,
+                ],
+              },
+            };
+          }),
+        })));
+      } catch {
+        // Keep the current UI state and retry on the next interval.
+      }
+    };
+    void sync();
+    const interval = window.setInterval(() => void sync(), 3_000);
+    return () => window.clearInterval(interval);
+  }, [user]);
 
   const resolveExchange = useCallback((id: string, note: string, resolvedBy: string) => {
     const resolution = { resolvedBy, note, resolvedAt: new Date().toISOString() };
