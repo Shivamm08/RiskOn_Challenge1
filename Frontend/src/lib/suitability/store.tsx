@@ -9,21 +9,51 @@ import {
 
 import { askSuitability } from "./ask";
 import { SEED_AUDIT, SEED_EXCHANGES } from "./seed";
-import type { Exchange, QueryContext, SourceRef } from "./types";
+import type { Exchange, QueryContext, SourceFileType, SourceRef } from "./types";
 import { useAuth } from "@/lib/auth";
 
 type ActiveCitation = { source: SourceRef; exchangeId: string } | null;
 
-export type KnowledgeSource = { name: string; ref: string; connected: boolean };
+export type KnowledgeSource = {
+  name: string;
+  ref: string;
+  connected: boolean;
+  active?: boolean;
+  fileType?: SourceFileType;
+  url?: string | null;
+};
 
 export type Chat = { id: string; title: string; exchanges: Exchange[] };
 
 const DEFAULT_SOURCES: KnowledgeSource[] = [
-  { name: "Suitability Wiki", ref: "internal://suitability-wiki", connected: true },
+  {
+    name: "Suitability Wiki",
+    ref: "internal://suitability-wiki",
+    connected: true,
+    active: true,
+    fileType: "link",
+    url: "https://intranet.juliusbaer.com/wiki/suitability",
+  },
+  {
+    name: "Cross-Border Product Matrix",
+    ref: "internal://product-matrix.xlsx",
+    connected: true,
+    active: true,
+    fileType: "excel",
+  },
+  {
+    name: "Suitability Policy Handbook",
+    ref: "internal://suitability-policy.pdf",
+    connected: true,
+    active: false,
+    fileType: "pdf",
+  },
   {
     name: "Additional JB knowledge bases (expanding)",
     ref: "internal://pending",
     connected: false,
+    active: false,
+    fileType: "doc",
   },
 ];
 
@@ -63,6 +93,10 @@ type Store = {
   resolveExchange: (id: string, note: string, resolvedBy: string) => void;
   knowledgeSources: KnowledgeSource[];
   addKnowledgeSource: (source: KnowledgeSource) => void;
+  toggleKnowledgeSource: (ref: string) => void;
+  previewSource: SourceRef | null;
+  openSource: (source: SourceRef) => void;
+  closePreview: () => void;
 };
 
 const StoreContext = createContext<Store | null>(null);
@@ -78,6 +112,7 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
   const [activeCitation, setActiveCitation] = useState<ActiveCitation>(null);
   const [knowledgeSources, setKnowledgeSources] =
     useState<KnowledgeSource[]>(DEFAULT_SOURCES);
+  const [previewSource, setPreviewSource] = useState<SourceRef | null>(null);
 
   const startNewChat = useCallback(() => {
     const chat = newChat();
@@ -149,7 +184,22 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const addKnowledgeSource = useCallback((source: KnowledgeSource) => {
-    setKnowledgeSources((prev) => [...prev, source]);
+    setKnowledgeSources((prev) => [...prev, { active: true, ...source }]);
+  }, []);
+
+  const toggleKnowledgeSource = useCallback((ref: string) => {
+    setKnowledgeSources((prev) =>
+      prev.map((s) => (s.ref === ref ? { ...s, active: !s.active } : s)),
+    );
+  }, []);
+
+  const openSource = useCallback((source: SourceRef) => {
+    const type: SourceFileType = source.fileType ?? (source.url ? "link" : "doc");
+    if (type === "link" && source.url) {
+      window.open(source.url, "_blank", "noopener,noreferrer");
+      return;
+    }
+    setPreviewSource(source);
   }, []);
 
   const auditRecords = useMemo(
@@ -186,6 +236,10 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
       resolveExchange,
       knowledgeSources,
       addKnowledgeSource,
+      toggleKnowledgeSource,
+      previewSource,
+      openSource,
+      closePreview: () => setPreviewSource(null),
     }),
     [
       thread,
@@ -203,6 +257,9 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
       resolveExchange,
       knowledgeSources,
       addKnowledgeSource,
+      toggleKnowledgeSource,
+      previewSource,
+      openSource,
     ],
   );
 

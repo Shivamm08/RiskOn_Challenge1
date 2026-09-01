@@ -59,12 +59,14 @@ function researchNoteAnswer(serviceModel: string): AskResponse {
         excerpt:
           "Material distributed on a non-personalised basis to a client segment constitutes generic information. Any reference to the individual client's portfolio, risk profile or objectives converts the communication into a personal recommendation, which requires a suitability record prior to transmission.",
         url: null,
+        fileType: "doc",
       },
       {
         page_title: "Suitability Wiki — Research Distribution Disclaimers",
         excerpt:
           "Research notes must carry the standard generic-information disclaimer when sent without a suitability assessment.",
         url: null,
+        fileType: "excel",
       },
     ],
     scope_flags: [

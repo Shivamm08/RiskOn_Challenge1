@@ -17,10 +17,13 @@ export type EscalationTier =
   | "brm_suitability_lead"
   | "suitability_expert";
 
+export type SourceFileType = "link" | "excel" | "csv" | "doc" | "pdf";
+
 export type SourceRef = {
   page_title: string;
   excerpt: string;
   url: string | null;
+  fileType?: SourceFileType;
 };
 
 export type Escalation = {

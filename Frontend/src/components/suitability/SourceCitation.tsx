@@ -1,4 +1,4 @@
-import { FileText, Quote, X } from "lucide-react";
+import { ExternalLink, FileText, Quote, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useSuitability } from "@/lib/suitability/store";
@@ -14,7 +14,7 @@ export function SourceChip({
   exchangeId: string;
   index: number;
 }) {
-  const { openCitation, activeCitation } = useSuitability();
+  const { openCitation, activeCitation, openSource } = useSuitability();
   const isActive =
     activeCitation?.exchangeId === exchangeId &&
     activeCitation.source.page_title === source.page_title;
@@ -22,7 +22,10 @@ export function SourceChip({
   return (
     <button
       type="button"
-      onClick={() => openCitation(source, exchangeId)}
+      onClick={() => {
+        openCitation(source, exchangeId);
+        openSource(source);
+      }}
       title={source.excerpt}
       className={cn(
         "group flex max-w-full items-start gap-2 rounded-sm border px-2.5 py-2 text-left transition-colors",
@@ -45,7 +48,7 @@ export function SourceChip({
 }
 
 export function CitationPanel() {
-  const { activeCitation, closeCitation } = useSuitability();
+  const { activeCitation, closeCitation, openSource } = useSuitability();
   if (!activeCitation) return null;
   const { source } = activeCitation;
 
@@ -64,6 +67,23 @@ export function CitationPanel() {
           <Quote className="mb-2 size-3.5 text-gold" />
           <p className="font-display text-[15px] leading-relaxed">{source.excerpt}</p>
         </div>
+        <Button
+          variant="outline"
+          size="sm"
+          className="mt-4 w-full text-xs"
+          onClick={() => openSource(source)}
+        >
+          {(source.fileType ?? (source.url ? "link" : "doc")) === "link" ? (
+            <>
+              <ExternalLink className="size-3.5" /> Open in new tab
+            </>
+          ) : (
+            <>
+              <FileText className="size-3.5" /> Open {(source.fileType ?? "doc").toUpperCase()}{" "}
+              preview
+            </>
+          )}
+        </Button>
         <dl className="mt-5 space-y-2.5 border-t border-border pt-4 text-xs">
           <div className="flex justify-between gap-4">
             <dt className="text-muted-foreground">Knowledge base</dt>

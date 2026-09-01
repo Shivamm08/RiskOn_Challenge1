@@ -4,6 +4,7 @@ import { useState, type ReactNode } from "react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/lib/theme";
 import { AppSidebar } from "./AppSidebar";
+import { SourcePreviewDialog } from "./SourcePreviewDialog";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -47,6 +48,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </header>
 
         {children}
+        <SourcePreviewDialog />
       </div>
     </div>
   );

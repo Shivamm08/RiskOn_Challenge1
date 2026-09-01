@@ -25,9 +25,25 @@ export function AddSourceDialog() {
 
   const ref = url.trim() || fileName;
 
+  const fileTypeOf = (): "link" | "excel" | "csv" | "doc" | "pdf" => {
+    if (url.trim()) return "link";
+    const ext = fileName.split(".").pop()?.toLowerCase();
+    if (ext === "csv") return "csv";
+    if (ext === "xls" || ext === "xlsx") return "excel";
+    if (ext === "pdf") return "pdf";
+    return "doc";
+  };
+
   const submit = () => {
     if (!name.trim() || !ref) return;
-    addKnowledgeSource({ name: name.trim(), ref, connected: true });
+    addKnowledgeSource({
+      name: name.trim(),
+      ref,
+      connected: true,
+      active: true,
+      fileType: fileTypeOf(),
+      url: url.trim() || null,
+    });
     toast.success(`${name.trim()} added as a knowledge source`);
     setName("");
     setUrl("");

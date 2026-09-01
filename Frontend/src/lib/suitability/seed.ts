@@ -36,12 +36,14 @@ export const SEED_EXCHANGES: Exchange[] = [
           excerpt:
             "Structured products may be recommended to clients classified as Professional without a separate Knowledge & Experience assessment, provided the instrument appears on the booking centre's approved distribution list and the client risk profile permits exposure to issuer credit risk.",
           url: null,
+          fileType: "pdf",
         },
         {
           page_title: "Suitability Wiki — Booking Centre Monaco: Product Scope",
           excerpt:
             "Monaco-booked relationships follow the Monaco approved distribution list. Products absent from that list must not be recommended even where approved in Switzerland.",
           url: null,
+          fileType: "excel",
         },
       ],
       scope_flags: ["in_scope:advisory", "in_scope:monaco", "kande:presumed_professional"],
@@ -74,12 +76,14 @@ export const SEED_EXCHANGES: Exchange[] = [
           excerpt:
             "For Private/Retail clients, the appropriateness, concentration and complex-product alerts must be cleared or explicitly overridden with a documented client instruction prior to order release.",
           url: null,
+          fileType: "doc",
         },
         {
           page_title: "Suitability Wiki — Alert Override Documentation Standard",
           excerpt:
             "An overridden alert requires the client's instruction to be recorded in the advisory log, including date, channel and the alert reference overridden.",
           url: null,
+          fileType: "csv",
         },
       ],
       scope_flags: ["in_scope:pre_trade", "in_scope:ch", "documentation_required"],
@@ -110,7 +114,8 @@ export const SEED_EXCHANGES: Exchange[] = [
           page_title: "Suitability Wiki — Cross-Border Country Manual: Switzerland",
           excerpt:
             "The applicable country rules are determined by the client's domicile. Where domicile and correspondence country diverge, the stricter regime applies pending confirmation by Business Risk Management.",
-          url: null,
+          url: "https://intranet.juliusbaer.com/wiki/suitability",
+          fileType: "link",
         },
       ],
       scope_flags: [
@@ -183,12 +188,14 @@ export const SEED_EXCHANGES: Exchange[] = [
           excerpt:
             "A Knowledge & Experience assessment is mandatory for Private/Retail clients prior to any personal recommendation and must be refreshed at intervals not exceeding 24 months, or earlier upon a material change in client circumstances.",
           url: null,
+          fileType: "pdf",
         },
         {
           page_title: "Suitability Wiki — Booking Centre Germany: Annex (under review)",
           excerpt:
             "For Execution-only order flow, the assessment is limited to an appropriateness test applied to complex financial instruments. This annex is under review; the general refresh cycle remains binding.",
           url: null,
+          fileType: "excel",
         },
       ],
       scope_flags: ["in_scope:kande", "in_scope:germany", "source_under_review"],
@@ -224,6 +231,7 @@ export const SEED_AUDIT: Exchange[] = [
           excerpt:
             "A change of service model requires a new suitability record from the effective date. Mid-period transitions are handled case by case.",
           url: null,
+          fileType: "doc",
         },
       ],
       scope_flags: ["wiki_gap:mid_period_transition"],
@@ -273,6 +281,7 @@ export const SEED_AUDIT: Exchange[] = [
           excerpt:
             "Clients classified as Institutional are exempt from the appropriateness test and the Knowledge & Experience assessment across all service models.",
           url: null,
+          fileType: "csv",
         },
       ],
       scope_flags: ["in_scope:execution_only", "exempt:institutional"],

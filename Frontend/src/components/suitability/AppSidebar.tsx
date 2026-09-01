@@ -100,6 +100,8 @@ export function AppSidebar() {
     selectChat,
     showDemo,
     knowledgeSources,
+    toggleKnowledgeSource,
+    openSource,
   } = useSuitability();
   const { user, signOut } = useAuth();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -202,16 +204,38 @@ export function AppSidebar() {
         <p className="label-xs pb-2 text-muted-foreground">Knowledge sources connected</p>
         <ul className="space-y-1.5 text-xs">
           {knowledgeSources.map((source) => (
-            <li
-              key={source.ref + source.name}
-              className={cn("flex items-center gap-2", !source.connected && "text-muted-foreground")}
-            >
-              {source.connected ? (
-                <CheckCircle2 className="size-3.5 shrink-0 text-success" />
-              ) : (
-                <Circle className="size-3.5 shrink-0" />
-              )}
-              <span className="line-clamp-1">{source.name}</span>
+            <li key={source.ref + source.name} className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => toggleKnowledgeSource(source.ref)}
+                aria-pressed={!!source.active}
+                aria-label={`${source.active ? "Deactivate" : "Activate"} ${source.name}`}
+                title={source.active ? "Active for this session" : "Not used for answers"}
+                className="shrink-0 rounded-full text-gold transition-colors hover:opacity-80"
+              >
+                {source.active ? (
+                  <CheckCircle2 className="size-3.5 fill-gold/20 text-gold" />
+                ) : (
+                  <Circle className="size-3.5 text-muted-foreground" />
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  openSource({
+                    page_title: source.name,
+                    excerpt: `Connected knowledge source · ${source.ref}`,
+                    url: source.url ?? null,
+                    ...(source.fileType ? { fileType: source.fileType } : {}),
+                  })
+                }
+                className={cn(
+                  "min-w-0 flex-1 text-left transition-colors hover:text-gold",
+                  source.active ? "text-foreground" : "text-muted-foreground",
+                )}
+              >
+                <span className="line-clamp-1">{source.name}</span>
+              </button>
             </li>
           ))}
         </ul>
