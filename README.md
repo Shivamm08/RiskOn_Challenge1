@@ -14,7 +14,7 @@ instead of guessing.
 | Frontend | Built in Lovable. Login/logout (demo), Copilot chat, Audit trail, chat sessions, source previews, light/dark theme (Julius Baer navy / crimson) |
 | Backend | Built and tested. FastAPI, retrieval + reasoning + escalation, SQLite audit log |
 | Dataset | Built and verified against the real evaluation set and official challenge materials |
-| Real Wiki data | Not yet available — arrives Day 1 of the event via secure transfer. Everything currently runs on a synthetic stand-in, structured to swap in with no code changes |
+| Real Wiki data | Integrated locally from the confidential `pages/` export. The folder is gitignored and is never committed. |
 
 ## Repo structure
 
@@ -42,9 +42,12 @@ npm run dev
 # → http://localhost:5173
 ```
 
-Wire them together: uncomment the real `fetch("/ask")` call already sketched in
-`Frontend/src/lib/suitability/ask.ts` and point it at `http://localhost:8000/ask`.
-Until that's done, the frontend runs standalone against seeded mock data.
+The frontend calls `http://localhost:8000/ask` by default. Set
+`VITE_API_BASE_URL` to use a different backend.
+
+The backend reads local competition Wiki pages from `pages/*.html`. Numeric
+filenames are retained as Confluence page IDs, and source links open through the
+offline route `http://localhost:8000/wiki/<page_id>`.
 
 ## How it decides answer vs. escalate
 
@@ -114,15 +117,11 @@ what should anchor the pitch.
   better spent on the reasoning logic and the pitch's extensibility argument
   than on infrastructure nobody is scoring.
 
-## Day 1 checklist (once the real Wiki arrives)
+## Competition Wiki configuration
 
-1. Replace `Dataset/wiki/*.html` with the real HTML dump.
-2. Regenerate `Dataset/page_index.json` — the real dump won't include
-   `topic_tags`/`region_scope` metadata, so this needs to be inferred (this is
-   itself part of what the challenge is scoring — treat it as a feature, not a
-   chore).
-3. Re-run `backend/run_eval.py` against JB's real evaluation set for real,
-   final pitch numbers.
-4. Re-check the synthetic SME directory's topic tags still cover whatever new
-   topics show up in the real Wiki (`Dataset/verify_dataset.py` checks this
-   automatically).
+- Default local source: `pages/*.html`.
+- Override it with `WIKI_DIR`; override citation URLs with `WIKI_URL_BASE`.
+- `Dataset/wiki` and `Dataset/page_index.json` remain synthetic fixtures and are
+  no longer used by the running API.
+- Remap the evaluation set to real page IDs and retune the confidence threshold
+  before publishing a real-corpus accuracy figure.
