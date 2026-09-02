@@ -20,6 +20,7 @@ To enable conversation-aware query rewriting, set `OPENAI_API_KEY`. Optional:
 
 ```bash
 export QUERY_REWRITE_MODEL=gpt-4.1-mini
+export ANSWER_MODEL=gpt-4.1-mini  # optional; defaults to QUERY_REWRITE_MODEL
 export QUERY_REWRITE_ENABLED=true
 ```
 
@@ -82,6 +83,7 @@ matrix worth showing in the pitch, not just a confidence number on the UI.
 | File | Role |
 |---|---|
 | `retrieval.py` | Loads the real `pages/*.html` Confluence export, derives titles/scopes from each document, strips markup, and runs TF-IDF + cosine similarity search. Set `WIKI_DIR` to override the source directory. |
+| `answer_generator.py` | Verifies with a structured LLM response that retrieved pages contain the answer, then formulates it using only those sources. Insufficient evidence fails closed to escalation. |
 | `reasoning.py` | Ambiguity detection (4 pages encoded from the real eval set's documented "needs clarification" cases) and scope/jurisdiction checking. |
 | `escalation.py` | Picks tier + SME from `Dataset/synthetic_smes.json` based on topic-tag overlap, following the real 1&2LoD tier order. |
 | `audit.py` | SQLite logging — every request and its eventual SME resolution. |

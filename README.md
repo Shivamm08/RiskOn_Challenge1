@@ -41,6 +41,7 @@ pip install -r requirements.txt
 # Keep this key on the backend only.
 export OPENAI_API_KEY="your-openai-api-key"
 export QUERY_REWRITE_MODEL="gpt-4.1-mini"
+export ANSWER_MODEL="gpt-4.1-mini" # optional; defaults to QUERY_REWRITE_MODEL
 
 uvicorn main:app --reload
 # API:  http://localhost:8000
@@ -75,8 +76,9 @@ changes, stop and restart the corresponding process. Never expose
 4. **Scope check** — if the best-matching page is scoped to one jurisdiction (e.g.
    Switzerland-only) but the question involves another, that limitation is stated
    explicitly rather than silently overreached.
-5. **Confidence gate** — only answers if relevance is above a tuned threshold.
-   Below it, the question is routed to the right tier of the real 1&2LoD support
+5. **Grounded LLM gate** — the answer model checks whether the retrieved pages
+   contain a sufficient answer and formulates it using only those pages. Missing,
+   conflicting, or insufficient evidence is routed to the right tier of the real 1&2LoD support
    model (Suitability Champion → Business Front Support → BRM Suitability Lead →
    Suitability Expert), using the synthetic SME directory to pick a specific
    person and explain why.

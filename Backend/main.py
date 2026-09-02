@@ -18,13 +18,14 @@ from models import (
     FallbackContact, FeedbackRequest, FeedbackResponse,
     CaseMessageRequest, KnowledgeDecisionRequest,
 )
-from retrieval import WIKI_DIR, get_retriever
+from retrieval import WIKI_DIR, WikiPage, get_retriever
 from query_rewriter import get_query_rewriter
 from reasoning import check_ambiguity, check_scope
 from escalation import get_router
 import audit
 import workflow
 from knowledge import draft_knowledge
+from answer_generator import get_answer_generator
 
 app = FastAPI(title="RiskON Suitability Copilot API")
 
@@ -37,9 +38,7 @@ app.add_middleware(
 
 # Tune based on eval_harness.py results against Dataset/evaluation_set.json —
 # see README.md for how to re-run and re-tune this.
-ANSWER_CONFIDENCE_THRESHOLD = 0.12
-STRONG_ANSWER_CONFIDENCE_THRESHOLD = 0.18
-MIN_SOURCE_TERM_COVERAGE = 0.8
+MIN_GENERATED_ANSWER_CONFIDENCE = 0.65
 
 # Browser-facing URL for locally served source documents.
 WIKI_URL_BASE = os.environ.get("WIKI_URL_BASE", "http://localhost:8000/wiki/").rstrip("/")
@@ -47,6 +46,23 @@ WIKI_URL_BASE = os.environ.get("WIKI_URL_BASE", "http://localhost:8000/wiki/").r
 
 def _page_url(page_id: str) -> str:
     return f"{WIKI_URL_BASE}/{page_id}"
+
+
+def _contextual_case_question(req: AskRequest, rewritten_question: str) -> str:
+    """Give the expert a self-contained question, not an isolated follow-up."""
+    if rewritten_question.strip() and rewritten_question.strip() != req.question.strip():
+        question = rewritten_question.strip()
+    else:
+        prior_user_messages = [message.content.strip() for message in req.history if message.role == "user"]
+        question = "\n".join([*prior_user_messages[-3:], req.question.strip()])
+
+    context_parts = [
+        f"Booking centre: {req.context.booking_centre}" if req.context.booking_centre else None,
+        f"Client category: {req.context.client_category}" if req.context.client_category else None,
+        f"Service model: {req.context.service_model}" if req.context.service_model else None,
+    ]
+    context = "; ".join(part for part in context_parts if part)
+    return f"{question}\n\nContext: {context}" if context else question
 
 
 @app.get("/health")
@@ -70,6 +86,7 @@ def ask(req: AskRequest) -> AskResponse:
     request_id = str(uuid.uuid4())
     retriever = get_retriever()
     query_rewriter = get_query_rewriter()
+    answer_generator = get_answer_generator()
     router = get_router()
 
     reasoning: list[str] = []
@@ -90,6 +107,7 @@ def ask(req: AskRequest) -> AskResponse:
     # Downstream checks need the context resolved by the rewriter too. Keep the
     # original wording alongside it so jurisdiction/scope details cannot be lost.
     contextual_question = f"{question} {retrieval_query}".strip()
+    case_question = _contextual_case_question(req, rewrite.query)
     if rewrite.used_llm:
         reasoning.append(f'Prepared the retrieval query as: "{rewrite.query}".')
     elif rewrite.fallback_reason not in {"no_history", "disabled"}:
@@ -116,23 +134,49 @@ def ask(req: AskRequest) -> AskResponse:
     if learned_match:
         learned, learned_score = learned_match
         reasoning.append(
-            f'Matched expert-approved knowledge: "{learned["title"]}" '
-            f'(relevance {learned_score:.2f}).'
+            f'Found potentially relevant expert-approved knowledge: "{learned["title"]}" '
+            f'(lexical relevance {learned_score:.2f}); validating it against the current question.'
         )
-        response = AskResponse(
-            request_id=request_id,
-            status="answered",
-            answer=learned["answer"],
-            confidence=Confidence(answer_confidence=min(0.95, 0.65 + learned_score / 3)),
-            sources=[SourceRef(
-                page_title=f'Expert Knowledge — {learned["title"]}',
-                excerpt=learned["answer"][:320], fileType="doc",
-            )],
-            scope_flags=["expert_approved_knowledge"],
-            reasoning=reasoning,
+        learned_page = WikiPage(
+            id=f'expert-{learned["id"]}',
+            title=f'Expert Knowledge — {learned["title"]}',
+            topic_tags=[],
+            region_scope=[],
+            filename="",
+            text=(
+                f'Original question: {learned["question"]}\n'
+                f'Expert-approved answer: {learned["answer"]}'
+            ),
         )
-        audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
-        return response
+        learned_validation = answer_generator.generate(case_question, [learned_page])
+        reasoning.append(learned_validation.reason)
+        if (
+            learned_validation.can_answer
+            and learned_validation.confidence >= MIN_GENERATED_ANSWER_CONFIDENCE
+        ):
+            reasoning.append(
+                "The grounded answer model confirmed that the expert-approved knowledge "
+                "applies to the current question."
+            )
+            response = AskResponse(
+                request_id=request_id,
+                status="answered",
+                answer=learned_validation.answer,
+                confidence=Confidence(answer_confidence=round(learned_validation.confidence, 2)),
+                sources=[SourceRef(
+                    page_title=learned_page.title,
+                    excerpt=learned["answer"][:320],
+                    fileType="doc",
+                )],
+                scope_flags=["expert_approved_knowledge"],
+                reasoning=reasoning,
+            )
+            audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
+            return response
+        reasoning.append(
+            "The expert-approved knowledge does not safely apply to this question; "
+            "continuing with the wiki and escalation flow."
+        )
 
     matches = retriever.retrieve(retrieval_query, top_k=3)
     reasoning.append(
@@ -162,7 +206,7 @@ def ask(req: AskRequest) -> AskResponse:
         )
         audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
         workflow.create_case(
-            request_id, question, req.requester_id, req.requester_name,
+            request_id, case_question, req.requester_id, req.requester_name,
             routing.expert_name, routing.tier,
         )
         return response
@@ -194,17 +238,13 @@ def ask(req: AskRequest) -> AskResponse:
     scope = check_scope(top_page, contextual_question)
     reasoning.append(scope.scope_note if scope.scope_note else "No scope/jurisdiction mismatch detected.")
 
-    # --- Confidence gate: answer only if genuinely confident ---
+    # --- Grounded LLM gate: verify the sources contain the answer, then formulate it. ---
     term_coverage = retriever.term_coverage(top_page, retrieval_query)
-    grounded_enough = (
-        top_score >= STRONG_ANSWER_CONFIDENCE_THRESHOLD
-        or (
-            top_score >= ANSWER_CONFIDENCE_THRESHOLD
-            and term_coverage >= MIN_SOURCE_TERM_COVERAGE
-        )
-    )
     reasoning.append(f"The source explicitly covers {term_coverage:.0%} of the question's meaningful terms.")
-    if grounded_enough:
+    generated = answer_generator.generate(case_question, [page for page, _ in matches])
+    reasoning.append(generated.reason)
+    if generated.can_answer and generated.confidence >= MIN_GENERATED_ANSWER_CONFIDENCE:
+        supporting_ids = set(generated.supporting_page_ids)
         sources = [
             SourceRef(
                 page_title=p.title,
@@ -212,14 +252,14 @@ def ask(req: AskRequest) -> AskResponse:
                 url=_page_url(p.id),
                 fileType="link",
             )
-            for p, s in matches[:2] if s > 0
+            for p, _ in matches if p.id in supporting_ids
         ]
-        answer = retriever.excerpt(top_page, retrieval_query)
+        answer = generated.answer
         if scope.scope_note:
             answer = f"{answer} {scope.scope_note}"
 
-        confidence_score = min(0.97, 0.55 + top_score)
-        reasoning.append("Relevance and source-term coverage passed the answer gate — answering.")
+        confidence_score = min(0.97, generated.confidence)
+        reasoning.append("The grounded answer model confirmed that the cited sources contain the answer.")
         response = AskResponse(
             request_id=request_id,
             status="answered",
@@ -234,12 +274,15 @@ def ask(req: AskRequest) -> AskResponse:
 
     # --- Not confident enough: escalate, but show what was checked ---
     routing = router.route(topic_tags=top_page.topic_tags, low_confidence=True, no_source_at_all=False)
-    reasoning.append("Relevance or source-term coverage did not pass the answer gate — escalating rather than guessing.")
+    reasoning.append("The retrieved sources did not support a sufficiently confident grounded answer — escalating rather than guessing.")
     reasoning.append(f"Routed to {routing.expert_role} ({routing.tier}).")
     response = AskResponse(
         request_id=request_id,
         status="escalated",
-        confidence=Confidence(answer_confidence=round(top_score, 2), routing_confidence=routing.routing_confidence),
+        confidence=Confidence(
+            answer_confidence=round(generated.confidence, 2),
+            routing_confidence=routing.routing_confidence,
+        ),
         sources=[SourceRef(page_title=top_page.title, excerpt=retriever.excerpt(top_page, retrieval_query),
                             url=_page_url(top_page.id), fileType="link")],
         scope_flags=scope.scope_flags,
@@ -254,7 +297,7 @@ def ask(req: AskRequest) -> AskResponse:
     )
     audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
     workflow.create_case(
-        request_id, question, req.requester_id, req.requester_name,
+        request_id, case_question, req.requester_id, req.requester_name,
         routing.expert_name, routing.tier,
     )
     return response
