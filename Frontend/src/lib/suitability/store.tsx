@@ -146,12 +146,8 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
 
       setPendingQuestion(trimmed);
       const currentContext = context;
-      const history = (chats.find((c) => c.id === chatId)?.exchanges ?? []).flatMap((exchange) => [
-        { role: "user" as const, content: exchange.question },
-        { role: "assistant" as const, content: exchange.response.answer ?? exchange.response.escalation?.reason ?? "Escalated." },
-      ]);
       try {
-        const response = await askSuitability(trimmed, currentContext, history);
+        const response = await askSuitability(trimmed, currentContext);
         const exchange: Exchange = {
           id: response.request_id,
           question: trimmed,
@@ -175,7 +171,7 @@ export function SuitabilityProvider({ children }: { children: ReactNode }) {
         setPendingQuestion(null);
       }
     },
-    [activeChatId, chats, context, user],
+    [activeChatId, context, user],
   );
 
   const resolveExchange = useCallback((id: string, note: string, resolvedBy: string) => {

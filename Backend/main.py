@@ -6,18 +6,15 @@ types.ts exactly (see models.py).
 import sys
 import os
 import uuid
-from html import escape
 from pathlib import Path
+from html import escape
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from dotenv import load_dotenv
-
-load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
-
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
+from fastapi import HTTPException
 from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from models import (
     AskRequest, AskResponse, Confidence, SourceRef, Escalation, Expert,
@@ -26,7 +23,6 @@ from models import (
 from retrieval import get_retriever
 from reasoning import check_ambiguity, check_scope
 from escalation import get_router
-from llm_client import answer_with_context, is_insufficient_evidence
 import audit
 
 app = FastAPI(title="RiskON Suitability Copilot API")
@@ -40,8 +36,10 @@ app.add_middleware(
 
 # Tune based on eval_harness.py results against Dataset/evaluation_set.json —
 # see README.md for how to re-run and re-tune this.
+# Provisional floor for the 339-page competition corpus. Similarity scores are
+# naturally lower than in the former 25-page synthetic corpus; re-tune this
+# against the remapped real evaluation set before quoting accuracy externally.
 ANSWER_CONFIDENCE_THRESHOLD = 0.04
-
 
 @app.get("/health")
 def health():
@@ -51,7 +49,7 @@ def health():
 
 @app.get("/wiki/{page_id}", response_class=HTMLResponse)
 def local_wiki_page(page_id: str):
-    """Serve a competition Wiki export page locally for offline citations."""
+    """Serve an exported Wiki page locally so citations work off-network."""
     if not page_id.isdigit():
         raise HTTPException(status_code=400, detail="Invalid Wiki page ID")
     retriever = get_retriever()
@@ -60,13 +58,16 @@ def local_wiki_page(page_id: str):
         raise HTTPException(status_code=404, detail="Wiki page not found")
     body = path.read_text(encoding="utf-8", errors="replace")
     title = next((p.title for p in retriever.pages if p.id == page_id), f"Wiki page {page_id}")
+    # The export contains Confluence storage-format fragments rather than full
+    # HTML documents. Wrapping them makes them readable in a normal browser;
+    # unknown ac:/ri: macro elements remain harmless text containers.
     return HTMLResponse(
         "<!doctype html><html><head><meta charset='utf-8'>"
         f"<title>{escape(title)}</title>"
         "<style>body{font:15px/1.55 Arial,sans-serif;max-width:1000px;margin:32px auto;padding:0 24px;color:#172b4d}"
         "table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd2d8;padding:8px;vertical-align:top}"
         "img,ac\\:image{max-width:100%}h1,h2,h3{color:#1b365d}</style></head><body>"
-        f"<p><strong>Local competition Wiki export - page {page_id}</strong></p>{body}</body></html>"
+        f"<p><strong>Local competition Wiki export · page {page_id}</strong></p>{body}</body></html>"
     )
 
 
@@ -97,7 +98,7 @@ def ask(req: AskRequest) -> AskResponse:
 
     # --- No matching page at all: straight to escalation ---
     if not matches:
-        routing = router.route(topic_tags=[], low_confidence=True, no_source_at_all=True, region=req.context.booking_centre)
+        routing = router.route(topic_tags=[], low_confidence=True, no_source_at_all=True)
         reasoning.append("No wiki page was retrieved above the relevance threshold for this question.")
         reasoning.append(f"Escalating to {routing.expert_role} ({routing.tier}).")
         response = AskResponse(
@@ -110,10 +111,6 @@ def ask(req: AskRequest) -> AskResponse:
                 required=True,
                 tier=routing.tier,
                 expert=Expert(name=routing.expert_name, role=routing.expert_role, team=routing.expert_team),
-                experts=[
-                    Expert(name=entry["name"], role=entry["role"], team=entry["team"])
-                    for entry in routing.experts
-                ],
                 reason=routing.reason,
                 fallback_contact=FallbackContact(name=routing.fallback_name, role=routing.fallback_role),
             ),
@@ -158,50 +155,17 @@ def ask(req: AskRequest) -> AskResponse:
                 url=p.url,
                 fileType="link",
             )
-            for p, s in matches[:2] if s > 0
+            # The current answer is extracted from the top page, so cite that
+            # exact evidence only. Additional hits remain visible in reasoning
+            # once multi-source synthesis is introduced.
+            for p, s in matches[:1]
         ]
-        history = [
-            {"role": turn.role, "content": turn.content}
-            for turn in req.conversation
-        ]
-        retrieved_pages = [p for p, _ in matches[:5]]
-        answer = answer_with_context(question, retrieved_pages, conversation_history=history)
-        if is_insufficient_evidence(answer):
-            routing = router.route(
-                topic_tags=top_page.topic_tags,
-                low_confidence=True,
-                no_source_at_all=False,
-                region=req.context.booking_centre,
-            )
-            reasoning.append("The retrieved sources were not strong enough to support a grounded answer, so the request was escalated.")
-            reasoning.append(f"Routed to {routing.expert_role} ({routing.tier}).")
-            response = AskResponse(
-                request_id=request_id,
-                status="escalated",
-                confidence=Confidence(answer_confidence=round(top_score, 2), routing_confidence=routing.routing_confidence),
-                sources=sources,
-                scope_flags=scope.scope_flags,
-                escalation=Escalation(
-                    required=True,
-                    tier=routing.tier,
-                    expert=Expert(name=routing.expert_name, role=routing.expert_role, team=routing.expert_team),
-                    experts=[
-                        Expert(name=entry["name"], role=entry["role"], team=entry["team"])
-                        for entry in routing.experts
-                    ],
-                    reason=routing.reason,
-                    fallback_contact=FallbackContact(name=routing.fallback_name, role=routing.fallback_role),
-                ),
-                reasoning=reasoning,
-            )
-            audit.log_request(request_id, question, req.context.model_dump(), response.model_dump())
-            return response
-
+        answer = retriever.excerpt(top_page, question)
         if scope.scope_note:
             answer = f"{answer} {scope.scope_note}"
 
         confidence_score = min(0.97, 0.55 + top_score)
-        reasoning.append(f"Relevance {top_score:.2f} is above the answer threshold ({ANSWER_CONFIDENCE_THRESHOLD}) — answering with grounded source support.")
+        reasoning.append(f"Relevance {top_score:.2f} is above the answer threshold ({ANSWER_CONFIDENCE_THRESHOLD}) — answering.")
         response = AskResponse(
             request_id=request_id,
             status="answered",
@@ -215,12 +179,7 @@ def ask(req: AskRequest) -> AskResponse:
         return response
 
     # --- Not confident enough: escalate, but show what was checked ---
-    routing = router.route(
-        topic_tags=top_page.topic_tags,
-        low_confidence=True,
-        no_source_at_all=False,
-        region=req.context.booking_centre,
-    )
+    routing = router.route(topic_tags=top_page.topic_tags, low_confidence=True, no_source_at_all=False)
     reasoning.append(f"Relevance {top_score:.2f} is below the answer threshold ({ANSWER_CONFIDENCE_THRESHOLD}) — escalating rather than guessing.")
     reasoning.append(f"Routed to {routing.expert_role} ({routing.tier}).")
     response = AskResponse(
@@ -234,10 +193,6 @@ def ask(req: AskRequest) -> AskResponse:
             required=True,
             tier=routing.tier,
             expert=Expert(name=routing.expert_name, role=routing.expert_role, team=routing.expert_team),
-            experts=[
-                Expert(name=entry["name"], role=entry["role"], team=entry["team"])
-                for entry in routing.experts
-            ],
             reason=routing.reason,
             fallback_contact=FallbackContact(name=routing.fallback_name, role=routing.fallback_role),
         ),

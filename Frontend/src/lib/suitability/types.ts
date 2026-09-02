@@ -30,7 +30,6 @@ export type Escalation = {
   required: boolean;
   tier: EscalationTier;
   expert: { name: string; role: string; team: string };
-  experts?: { name: string; role: string; team: string }[];
   reason: string;
   fallback_contact: { name: string; role: string };
 };

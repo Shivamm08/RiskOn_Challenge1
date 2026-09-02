@@ -7,6 +7,15 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Keep local development separate from the API on port 8000 and aligned
+  // with the repository quickstart. The Lovable wrapper otherwise defaults
+  // to 8080, which can collide with other local services.
+  vite: {
+    server: {
+      port: 5173,
+      strictPort: true,
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

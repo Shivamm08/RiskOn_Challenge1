@@ -97,7 +97,8 @@ def check_ambiguity(top_page: WikiPage, question: str) -> ReasoningResult:
         )
 
     rule = AMBIGUOUS_PAGES.get(top_page.id)
-    # Real export files use numeric Confluence IDs rather than synthetic names.
+    # Competition pages have numeric Confluence IDs, so carry the ambiguity
+    # rules over using inferred topic metadata instead of synthetic filenames.
     if not rule and "issuer_concentration" in top_page.topic_tags:
         rule = AMBIGUOUS_PAGES["issuer_concentration_risk"]
     if not rule and "k_and_e" in top_page.topic_tags and re.search(r"update|amend|change", q_lower):

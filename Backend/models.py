@@ -27,15 +27,9 @@ class QueryContext(BaseModel):
     service_model: Optional[ServiceModel] = Field(default=None, alias="serviceModel")
 
 
-class ChatTurn(BaseModel):
-    role: Literal["user", "assistant"]
-    content: str
-
-
 class AskRequest(BaseModel):
     question: str
     context: QueryContext = QueryContext()
-    conversation: list[ChatTurn] = Field(default_factory=list)
 
 
 class Confidence(BaseModel):
@@ -65,7 +59,6 @@ class Escalation(BaseModel):
     required: bool = False
     tier: EscalationTier = "wiki"
     expert: Optional[Expert] = None
-    experts: list[Expert] = Field(default_factory=list)
     reason: str = ""
     fallback_contact: Optional[FallbackContact] = None
 

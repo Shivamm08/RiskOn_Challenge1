@@ -14,7 +14,7 @@ instead of guessing.
 | Frontend | Built in Lovable. Login/logout (demo), Copilot chat, Audit trail, chat sessions, source previews, light/dark theme (Julius Baer navy / crimson) |
 | Backend | Built and tested. FastAPI, retrieval + reasoning + escalation, SQLite audit log |
 | Dataset | Built and verified against the real evaluation set and official challenge materials |
-| Real Wiki data | Integrated locally from the confidential `pages/` export. The folder is gitignored and is never committed. |
+| Real Wiki data | Not yet available — arrives Day 1 of the event via secure transfer. Everything currently runs on a synthetic stand-in, structured to swap in with no code changes |
 
 ## Repo structure
 
@@ -43,11 +43,10 @@ npm run dev
 ```
 
 The frontend calls `http://localhost:8000/ask` by default. Set
-`VITE_API_BASE_URL` to use a different backend.
+`VITE_API_BASE_URL` before starting Vite to use a different backend.
 
-The backend reads local competition Wiki pages from `pages/*.html`. Numeric
-filenames are retained as Confluence page IDs, and source links open through the
-offline route `http://localhost:8000/wiki/<page_id>`.
+The backend ingests the competition export directly from `pages/*.html`. Numeric
+filenames are preserved as real Confluence page IDs, so citations use real links.
 
 ## How it decides answer vs. escalate
 
@@ -119,9 +118,10 @@ what should anchor the pitch.
 
 ## Competition Wiki configuration
 
-- Default local source: `pages/*.html`.
-- Override it with `WIKI_DIR`; override citation URLs with `WIKI_URL_BASE`.
-- `Dataset/wiki` and `Dataset/page_index.json` remain synthetic fixtures and are
-  no longer used by the running API.
-- Remap the evaluation set to real page IDs and retune the confidence threshold
-  before publishing a real-corpus accuracy figure.
+- Default source: `pages/*.html` (currently 339 pages).
+- Override the folder with `WIKI_DIR`; override citation prefix with `WIKI_URL_BASE`.
+  By default citations open the offline local route `http://localhost:8000/wiki/<page_id>`.
+- `Dataset/wiki` and `Dataset/page_index.json` are historical synthetic fixtures
+  and are no longer used by the running API.
+- The old 28-case result was calibrated on synthetic IDs. Remap expected sources
+  and retune `ANSWER_CONFIDENCE_THRESHOLD` before publishing a real-data score.
