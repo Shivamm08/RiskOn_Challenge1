@@ -6,6 +6,12 @@ import os
 import psycopg2
 import psycopg2.extras
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # loads .env if present; harmless no-op if it isn't
+except ImportError:
+    pass
+
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 

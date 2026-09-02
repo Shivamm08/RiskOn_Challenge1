@@ -130,7 +130,13 @@ def mentioned_regions(question: str) -> list[str]:
     return [r for r, kws in REGION_KEYWORDS.items() if any(kw in q for kw in kws)]
 
 
-def check_ambiguity(doc: RetrievedDoc, question: str, ambiguous_ids: dict) -> ReasoningResult:
+def check_ambiguity(docs: list, question: str, ambiguous_ids: dict) -> ReasoningResult:
+    """Checks the top-N retrieved docs (not just #1) against the known
+    ambiguous-topic map. A closely related general page (e.g. "Knowledge &
+    Experience (K&E)") can outrank the specific ambiguous page (e.g. "How
+    to update K&E-levels...") in raw text similarity while the question is
+    still genuinely about that ambiguous topic — checking only the top-1
+    match misses this."""
     if NO_ANSWER_TRIGGER.search(question):
         return ReasoningResult(
             needs_clarification=True,
@@ -140,10 +146,11 @@ def check_ambiguity(doc: RetrievedDoc, question: str, ambiguous_ids: dict) -> Re
                 "point you in the right direction once I know which one applies."
             ),
         )
-    rule = ambiguous_ids.get(doc.id)
-    if rule and not any(kw in question.lower() for kw in rule["resolves_if_any"]):
-        return ReasoningResult(needs_clarification=True, clarify_question=rule["clarify_question"],
-                                quick_replies=rule["quick_replies"])
+    for doc in docs:
+        rule = ambiguous_ids.get(doc.id)
+        if rule and not any(kw in question.lower() for kw in rule["resolves_if_any"]):
+            return ReasoningResult(needs_clarification=True, clarify_question=rule["clarify_question"],
+                                    quick_replies=rule["quick_replies"])
     return ReasoningResult()
 
 

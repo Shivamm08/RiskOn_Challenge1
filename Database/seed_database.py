@@ -10,7 +10,7 @@ This parser specifically unwraps the common macros into readable text
 instead of dropping or garbling them.
 
 Usage:
-    export DATABASE_URL=postgresql://postgres.qobelhcafnawoaisanir:cAszo0-xehgaq-zysqyf@aws-1-eu-west-1.pooler.supabase.com:5432/postgres
+    export DATABASE_URL="postgresql://postgres.[project-ref]:[password]@[host]:5432/postgres"
     pip install psycopg2-binary openpyxl --break-system-packages
     python3 seed_database.py
 """
@@ -19,6 +19,12 @@ import re
 import sys
 import json
 from html.parser import HTMLParser
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 import openpyxl
 import psycopg2
@@ -143,6 +149,14 @@ def main():
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
 
+    schema_path = os.path.join(os.path.dirname(__file__), "schema.sql")
+    print(f"Applying schema.sql (fresh rebuild — drops and recreates every table)...")
+    with open(schema_path) as f:
+        schema_sql = f.read()
+    cur.execute(schema_sql)
+    conn.commit()
+    print("  Schema applied.\n")
+
     print("Loading real, cleaned, tagged wiki pages...")
     pages = load_wiki_pages()
     execute_values(
@@ -162,7 +176,11 @@ def main():
     for name, office, region_tier, rank, utc_off, specialty, has_login in EXPERTS:
         cur.execute(
             """INSERT INTO experts (name, office, region_tier, rank, utc_offset_minutes, specialty, has_login)
-               VALUES (%s, %s, %s, %s, %s, %s, %s)""",
+               VALUES (%s, %s, %s, %s, %s, %s, %s)
+               ON CONFLICT (name) DO UPDATE SET
+                 office = excluded.office, region_tier = excluded.region_tier, rank = excluded.rank,
+                 utc_offset_minutes = excluded.utc_offset_minutes, specialty = excluded.specialty,
+                 has_login = excluded.has_login""",
             (name, office, region_tier, rank, utc_off, specialty, has_login),
         )
     print(f"  Inserted {len(EXPERTS)} experts.")
@@ -171,7 +189,11 @@ def main():
     for name, office, years, segment, langs, spec in RMS:
         cur.execute(
             """INSERT INTO rms (name, office, years_at_jb, client_segment, languages, specialization)
-               VALUES (%s, %s, %s, %s, %s, %s)""",
+               VALUES (%s, %s, %s, %s, %s, %s)
+               ON CONFLICT (name) DO UPDATE SET
+                 office = excluded.office, years_at_jb = excluded.years_at_jb,
+                 client_segment = excluded.client_segment, languages = excluded.languages,
+                 specialization = excluded.specialization""",
             (name, office, years, segment, langs, spec),
         )
     print(f"  Inserted {len(RMS)} RMs.")

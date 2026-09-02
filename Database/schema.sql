@@ -43,7 +43,7 @@ create index idx_wiki_pages_text_trgm on wiki_pages using gin (plain_text gin_tr
 -- ----------------------------------------------------------------------------
 create table experts (
     id                  uuid primary key default uuid_generate_v4(),
-    name                text not null,
+    name                text not null unique,
     office              text not null,
     region_tier         text not null,
     rank                expert_rank not null,
@@ -65,7 +65,7 @@ create index idx_experts_rank on experts (rank);
 -- ----------------------------------------------------------------------------
 create table rms (
     id                  uuid primary key default uuid_generate_v4(),
-    name                text not null,
+    name                text not null unique,
     office              text not null,
     years_at_jb         integer,
     client_segment      text,

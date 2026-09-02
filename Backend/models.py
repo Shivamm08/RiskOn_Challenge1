@@ -13,8 +13,8 @@ ClientCategory = Literal["Private/Retail", "Professional", "Institutional"]
 ServiceModel = Literal["Advisory", "Execution-only", "Portfolio Management"]
 ResponseStatus = Literal["answered", "escalated", "clarification_needed"]
 EscalationTier = Literal[
-    "wiki", "suitability_champion", "business_front_support",
-    "brm_suitability_lead", "suitability_expert",
+    "suitability_champion", "business_front_support", "expert",
+    "senior_expert", "brm_suitability_lead",
 ]
 SourceFileType = Literal["link", "excel", "csv", "doc", "pdf"]
 
@@ -60,7 +60,7 @@ class FallbackContact(BaseModel):
 
 class Escalation(BaseModel):
     required: bool = False
-    tier: EscalationTier = "wiki"
+    tier: EscalationTier = "suitability_champion"
     expert: Optional[Expert] = None
     reason: str = ""
     fallback_contact: Optional[FallbackContact] = None

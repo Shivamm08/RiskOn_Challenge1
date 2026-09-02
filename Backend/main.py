@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 from models import (
     AskRequest, AskResponse, Confidence, SourceRef, Escalation, Expert,
@@ -22,7 +23,7 @@ from models import (
 )
 from retrieval import get_retriever
 from reasoning import normalize_question, check_ambiguity, check_scope, verify_grounded, _load_ambiguous_ids
-from escalation import get_router
+from escalation import get_router, RANK_LABEL
 import audit
 import monitoring
 import db
@@ -33,7 +34,7 @@ app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],
 )
 
-ANSWER_CONFIDENCE_THRESHOLD = 0.12
+ANSWER_CONFIDENCE_THRESHOLD = 0.10
 _ambiguous_ids_cache = None
 
 
@@ -75,6 +76,23 @@ def _create_escalation_thread(rm_id: str, question: str, context: dict, routing,
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/auth/available-users")
+def available_users():
+    """Real, database-backed login identities — replaces any hardcoded
+    frontend user list. RMs are all login-able (they're the primary users);
+    experts are login-able only where has_login = true (the curated subset
+    that lets the RM -> expert -> answer -> KB-publish demo flow work
+    end-to-end, per the routing preference above)."""
+    rms = db.query("SELECT id, name, office FROM rms ORDER BY name")
+    experts = db.query(
+        "SELECT id, name, office, rank FROM experts WHERE has_login = true ORDER BY name"
+    )
+    return {
+        "rms": [{"id": str(r["id"]), "name": r["name"], "role": f"RM, {r['office']}", "kind": "rm"} for r in rms],
+        "experts": [{"id": str(e["id"]), "name": e["name"], "role": f"{RANK_LABEL.get(e['rank'], e['rank'])}, {e['office']}", "kind": "expert"} for e in experts],
+    }
 
 
 @app.post("/ask", response_model=AskResponse)
@@ -131,7 +149,7 @@ def ask(req: AskRequest) -> AskResponse:
     reasoning.append(f"Top match: \"{top_doc.title}\" ({top_doc.source_type}, relevance {top_score:.2f}).")
 
     # --- Ambiguity check ---
-    ambiguity = check_ambiguity(top_doc, raw_question, _ambiguous_ids())
+    ambiguity = check_ambiguity([d for d, s in matches[:2]], raw_question, _ambiguous_ids())
     if ambiguity.needs_clarification:
         reasoning.append("Multiple correct answers exist depending on unstated context — asking rather than guessing.")
         response = AskResponse(
@@ -255,3 +273,196 @@ def reload_kb():
     without restarting the process."""
     get_retriever(force_reload=True)
     return {"status": "reloaded"}
+
+
+# ---------------------------------------------------------------------------
+# Messages — RM <-> expert escalation threads
+# ---------------------------------------------------------------------------
+
+@app.get("/messages")
+def list_messages(rm_id: str = None, expert_id: str = None):
+    """Only shows what's relevant to the requesting user — pass rm_id for an
+    RM's own sent escalations, or expert_id for an expert's own inbox.
+    Neither is real auth, just correct scoping — matches the 'RM should
+    only see their own chats' requirement."""
+    if expert_id:
+        rows = db.query(
+            """SELECT m.*, r.name as rm_name, e.name as expert_name FROM messages m
+               JOIN rms r ON r.id = m.rm_id JOIN experts e ON e.id = m.expert_id
+               WHERE m.expert_id = %s ORDER BY m.created_at DESC""",
+            (expert_id,),
+        )
+    elif rm_id:
+        rows = db.query(
+            """SELECT m.*, r.name as rm_name, e.name as expert_name FROM messages m
+               JOIN rms r ON r.id = m.rm_id JOIN experts e ON e.id = m.expert_id
+               WHERE m.rm_id = %s ORDER BY m.created_at DESC""",
+            (rm_id,),
+        )
+    else:
+        rows = db.query(
+            """SELECT m.*, r.name as rm_name, e.name as expert_name FROM messages m
+               JOIN rms r ON r.id = m.rm_id JOIN experts e ON e.id = m.expert_id
+               ORDER BY m.created_at DESC"""
+        )
+    return rows
+
+
+@app.get("/messages/{message_id}")
+def get_message(message_id: str):
+    rows = db.query(
+        """SELECT m.*, r.name as rm_name, e.name as expert_name, e.email as expert_email
+           FROM messages m JOIN rms r ON r.id = m.rm_id JOIN experts e ON e.id = m.expert_id
+           WHERE m.id = %s""",
+        (message_id,),
+    )
+    if not rows:
+        return {"error": "not found"}
+    thread = db.query(
+        "SELECT * FROM message_events WHERE message_id = %s ORDER BY created_at ASC",
+        (message_id,),
+    )
+    return {**rows[0], "thread": thread}
+
+
+class ReplyRequest(BaseModel):
+    body: str
+
+
+@app.post("/messages/{message_id}/reply")
+def reply_to_message(message_id: str, req: ReplyRequest):
+    """Expert answers an escalated question. Sets status to 'answered' and
+    fires a notification back to the RM who asked."""
+    db.execute(
+        "INSERT INTO message_events (message_id, sender, body) VALUES (%s, 'expert', %s)",
+        (message_id, req.body),
+    )
+    db.execute("UPDATE messages SET status = 'answered' WHERE id = %s", (message_id,))
+    rows = db.query("SELECT rm_id, question FROM messages WHERE id = %s", (message_id,))
+    if rows:
+        db.execute(
+            """INSERT INTO notifications (recipient_kind, recipient_id, kind, title, body, related_message_id)
+               VALUES ('rm', %s, 'message', 'Your question was answered', %s, %s)""",
+            (rows[0]["rm_id"], rows[0]["question"][:100], message_id),
+        )
+    return {"status": "replied"}
+
+
+@app.post("/messages/{message_id}/publish-to-kb")
+def publish_to_kb(message_id: str):
+    """The 'add this answer to the knowledge base?' -> Yes flow. Creates a
+    real kb_entries row, marks the message as added_to_kb, notifies everyone,
+    and hot-reloads the retriever so it's searchable immediately."""
+    rows = db.query("SELECT * FROM messages WHERE id = %s", (message_id,))
+    if not rows:
+        return {"error": "not found"}
+    msg = rows[0]
+    events = db.query(
+        "SELECT body FROM message_events WHERE message_id = %s AND sender = 'expert' ORDER BY created_at DESC LIMIT 1",
+        (message_id,),
+    )
+    if not events:
+        return {"error": "no expert reply yet — nothing to publish"}
+    answer = events[0]["body"]
+
+    kb_row = db.execute_returning(
+        """INSERT INTO kb_entries (question, answer, contributed_by, source_message_id, status)
+           VALUES (%s, %s, %s, %s, 'published') RETURNING id""",
+        (msg["question"], answer, msg["expert_id"], message_id),
+    )
+    db.execute("UPDATE messages SET status = 'added_to_kb' WHERE id = %s", (message_id,))
+    db.execute(
+        """INSERT INTO notifications (recipient_kind, recipient_id, kind, title, body, related_kb_entry_id)
+           VALUES ('all', NULL, 'kb_update', 'New info added to the knowledge base', %s, %s)""",
+        (msg["question"][:100], kb_row["id"]),
+    )
+    get_retriever(force_reload=True)
+    return {"status": "published", "kb_entry_id": str(kb_row["id"])}
+
+
+@app.post("/messages/{message_id}/decline-kb")
+def decline_kb(message_id: str):
+    db.execute("UPDATE messages SET status = 'declined_kb' WHERE id = %s", (message_id,))
+    return {"status": "declined"}
+
+
+# ---------------------------------------------------------------------------
+# Chat-based knowledge base — browsing + Reddit-thread-style review
+# ---------------------------------------------------------------------------
+
+@app.get("/kb/entries")
+def list_kb_entries():
+    return db.query(
+        """SELECT k.*, e.name as contributor_name FROM kb_entries k
+           JOIN experts e ON e.id = k.contributed_by
+           WHERE k.status != 'removed' ORDER BY k.created_at DESC"""
+    )
+
+
+@app.get("/kb/entries/{entry_id}")
+def get_kb_entry(entry_id: str):
+    rows = db.query(
+        """SELECT k.*, e.name as contributor_name FROM kb_entries k
+           JOIN experts e ON e.id = k.contributed_by WHERE k.id = %s""",
+        (entry_id,),
+    )
+    if not rows:
+        return {"error": "not found"}
+    reviews = db.query(
+        """SELECT r.*, e.name as reviewer_name FROM kb_entry_reviews r
+           JOIN experts e ON e.id = r.reviewer_id WHERE r.kb_entry_id = %s
+           ORDER BY r.created_at ASC""",
+        (entry_id,),
+    )
+    return {**rows[0], "reviews": reviews}
+
+
+class ReviewRequest(BaseModel):
+    reviewer_id: str
+    verdict: str  # "endorse" or "flag"
+    note: str = ""
+
+
+@app.post("/kb/entries/{entry_id}/review")
+def review_kb_entry(entry_id: str, req: ReviewRequest):
+    """The Reddit-thread-style right/wrong-with-a-reason flow. One review
+    per expert per entry (re-reviewing updates their prior verdict+note).
+    The database trigger (schema.sql) automatically updates trust_score and
+    the contributor's favorability_score on endorse; a flag routes to
+    'flagged' status for supervisor review."""
+    db.execute(
+        """INSERT INTO kb_entry_reviews (kb_entry_id, reviewer_id, verdict, note)
+           VALUES (%s, %s, %s, %s)
+           ON CONFLICT (kb_entry_id, reviewer_id) DO UPDATE SET
+             verdict = excluded.verdict, note = excluded.note, created_at = now()""",
+        (entry_id, req.reviewer_id, req.verdict, req.note),
+    )
+    return {"status": "reviewed"}
+
+
+# ---------------------------------------------------------------------------
+# Notifications
+# ---------------------------------------------------------------------------
+
+@app.get("/notifications")
+def list_notifications(kind: str = None, recipient_id: str = None):
+    """kind = 'rm' or 'expert'. Returns that user's own notifications plus
+    any 'all'-recipient ones (like KB updates)."""
+    if kind and recipient_id:
+        return db.query(
+            """SELECT * FROM notifications WHERE recipient_kind = 'all'
+               OR (recipient_kind = %s AND recipient_id = %s)
+               ORDER BY created_at DESC LIMIT 50""",
+            (kind, recipient_id),
+        )
+    return db.query("SELECT * FROM notifications ORDER BY created_at DESC LIMIT 50")
+
+
+class MarkReadRequest(BaseModel):
+    notification_id: str
+
+
+@app.post("/notifications/mark-read")
+def mark_read(req: MarkReadRequest):
+    db.execute("UPDATE notifications SET read = true WHERE id = %s", (req.notification_id,))
+    return {"status": "ok"}

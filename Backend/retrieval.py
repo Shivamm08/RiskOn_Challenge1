@@ -40,7 +40,7 @@ class Retriever:
                 "No documents loaded from the database. Did you run "
                 "database/seed_database.py against your Supabase project?"
             )
-        corpus = [f"{d.title} {d.text}" for d in self.docs]
+        corpus = [f"{d.title} {d.title} {d.title} {d.title} {d.text}" for d in self.docs]
         self.vectorizer = TfidfVectorizer(stop_words="english", ngram_range=(1, 2))
         self.matrix = self.vectorizer.fit_transform(corpus)
 
@@ -74,7 +74,7 @@ class Retriever:
         self.docs = []
         self._load_wiki()
         self._load_chat_kb()
-        corpus = [f"{d.title} {d.text}" for d in self.docs]
+        corpus = [f"{d.title} {d.title} {d.title} {d.title} {d.text}" for d in self.docs]
         self.vectorizer = TfidfVectorizer(stop_words="english", ngram_range=(1, 2))
         self.matrix = self.vectorizer.fit_transform(corpus)
 
@@ -83,13 +83,31 @@ class Retriever:
         weighted by their trust_score (0-100) — a low-trust or flagged
         contribution ranks lower even with a strong text match, and a
         heavily-endorsed one gets a small boost. Wiki pages are always
-        full-trust (100) since they're the fixed official source."""
+        full-trust (100) since they're the fixed official source.
+
+        A doc only counts as a real match if at least 2 distinct
+        significant (4+ letter) words are shared with the question — a
+        single coincidental shared word (e.g. "capital" matching both
+        "capital of France" and "JB Natural Capital Score") isn't enough
+        on its own, even with a title-boosted score. Caught by testing a
+        deliberately nonsense question against the real system."""
+        import re
+        from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
         q_vec = self.vectorizer.transform([question])
         raw_scores = cosine_similarity(q_vec, self.matrix).flatten()
-        weighted = [
-            (doc, float(raw_scores[i]) * (0.5 + 0.5 * doc.trust_score / 100))
-            for i, doc in enumerate(self.docs)
-        ]
+        q_words = {w.lower() for w in re.findall(r"\w+", question)
+                   if len(w) >= 4 and w.lower() not in ENGLISH_STOP_WORDS}
+
+        weighted = []
+        for i, doc in enumerate(self.docs):
+            doc_words = {w.lower() for w in re.findall(r"\w+", f"{doc.title} {doc.text}")
+                         if len(w) >= 4 and w.lower() not in ENGLISH_STOP_WORDS}
+            shared = len(q_words & doc_words)
+            score = float(raw_scores[i]) * (0.5 + 0.5 * doc.trust_score / 100)
+            if shared < 2:
+                score = 0.0  # hard exclude — a single shared word (even title-boosted) isn't a real match
+            weighted.append((doc, score))
+
         ranked = sorted(weighted, key=lambda x: x[1], reverse=True)
         return [(doc, score) for doc, score in ranked[:top_k] if score > 0]
 

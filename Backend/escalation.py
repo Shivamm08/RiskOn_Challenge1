@@ -71,6 +71,12 @@ def _score(expert: dict, rm_region: str, topic_tags: list[str]) -> tuple[float, 
         + (15 if available else -10)
         + float(expert["favorability_score"]) / 10
         + float(expert["accuracy_pct"]) / 10
+        + (40 if expert.get("has_login") else 0)  # strongly prefer demo-able experts,
+        # so a real login-able person receives the escalation and the full
+        # RM -> expert -> answer -> KB-publish flow can actually be demoed.
+        # Not a hardcoded person, just a preference weight — a non-login
+        # expert can still win if no login-enabled expert is remotely
+        # relevant (e.g. wrong region + wrong rank + unavailable all at once).
     )
     breakdown = {
         "name": expert["name"], "office": expert["office"], "rank": expert["rank"],
