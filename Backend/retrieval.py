@@ -1,11 +1,11 @@
-"""Ingestion & retrieval — loads the wiki HTML pages, strips markup, and
+"""Ingestion & retrieval — loads the real wiki HTML pages, strips markup, and
 retrieves the best-matching page(s) for a question via TF-IDF cosine
 similarity. Swap this module's internals for a real embedding model /
 vector store later without touching main.py — retrieve() is the only
 contract the rest of the app depends on.
 """
 from __future__ import annotations
-import json
+import glob
 import os
 import re
 from dataclasses import dataclass
@@ -14,9 +14,15 @@ from html.parser import HTMLParser
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-DATASET_DIR = os.environ.get("DATASET_DIR", os.path.join(os.path.dirname(__file__), "..", "Dataset"))
-WIKI_DIR = os.path.join(DATASET_DIR, "wiki")
-PAGE_INDEX_PATH = os.path.join(DATASET_DIR, "page_index.json")
+PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+WIKI_DIR = os.path.abspath(os.environ.get("WIKI_DIR", os.path.join(PROJECT_DIR, "pages")))
+
+REGION_PATTERNS = {
+    "CH": ("switzerland", "swiss", "booking centre ch", "bc ch"),
+    "Monaco": ("monaco", "mc_local"),
+    "Germany": ("germany", "german"),
+    "EEA": ("eea", "european economic area", "european union"),
+}
 
 
 class _TextExtractor(HTMLParser):
@@ -26,18 +32,44 @@ class _TextExtractor(HTMLParser):
     def __init__(self):
         super().__init__()
         self.chunks: list[str] = []
+        self.title_chunks: list[str] = []
+        self._heading_depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() in {"h1", "title"} and not self.title_chunks:
+            self._heading_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag.lower() in {"h1", "title"} and self._heading_depth:
+            self._heading_depth -= 1
 
     def handle_data(self, data):
         self.chunks.append(data)
+        if self._heading_depth:
+            self.title_chunks.append(data)
 
     def text(self) -> str:
         return re.sub(r"\s+", " ", " ".join(self.chunks)).strip()
 
+    def title(self) -> str:
+        return re.sub(r"\s+", " ", " ".join(self.title_chunks)).strip()
 
-def _html_to_text(html: str) -> str:
+
+def _parse_html(html: str) -> tuple[str, str]:
     parser = _TextExtractor()
     parser.feed(html)
-    return parser.text()
+    return parser.title(), parser.text()
+
+
+def _infer_regions(text: str) -> list[str]:
+    lowered = text.lower()
+    return [region for region, terms in REGION_PATTERNS.items() if any(term in lowered for term in terms)]
+
+
+def _infer_topic_tags(title: str) -> list[str]:
+    """Provide useful routing tags without relying on the synthetic index."""
+    words = re.findall(r"[a-z0-9]+", title.lower())
+    return [word for word in words if len(word) > 2 and word not in ENGLISH_STOP_WORDS]
 
 
 @dataclass
@@ -52,22 +84,26 @@ class WikiPage:
 
 class Retriever:
     def __init__(self):
-        with open(PAGE_INDEX_PATH) as f:
-            index = json.load(f)
-
         self.pages: list[WikiPage] = []
-        for entry in index:
-            path = os.path.join(WIKI_DIR, entry["filename"])
-            with open(path, encoding="utf-8") as f:
+        paths = sorted(glob.glob(os.path.join(WIKI_DIR, "*.html")))
+        if not paths:
+            raise RuntimeError(f"No HTML knowledge documents found in {WIKI_DIR}")
+
+        for path in paths:
+            filename = os.path.basename(path)
+            page_id = os.path.splitext(filename)[0]
+            with open(path, encoding="utf-8", errors="replace") as f:
                 html = f.read()
+            title, page_text = _parse_html(html)
+            title = title or page_id
             self.pages.append(
                 WikiPage(
-                    id=entry["id"],
-                    title=entry["title"],
-                    topic_tags=entry["topic_tags"],
-                    region_scope=entry["region_scope"],
-                    filename=entry["filename"],
-                    text=_html_to_text(html),
+                    id=page_id,
+                    title=title,
+                    topic_tags=_infer_topic_tags(title),
+                    region_scope=_infer_regions(page_text),
+                    filename=filename,
+                    text=page_text,
                 )
             )
 

@@ -108,7 +108,9 @@ def check_ambiguity(top_page: WikiPage, question: str) -> ReasoningResult:
 
 
 def check_scope(top_page: WikiPage, question: str) -> ReasoningResult:
-    if len(top_page.region_scope) > 1:
+    # No inferred region means the real document did not declare a scope that
+    # can safely be checked here. Multiple regions means it is not single-scope.
+    if len(top_page.region_scope) != 1:
         return ReasoningResult()
 
     page_region = top_page.region_scope[0]

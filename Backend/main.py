@@ -11,13 +11,14 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 from models import (
     AskRequest, AskResponse, Confidence, SourceRef, Escalation, Expert,
     FallbackContact, FeedbackRequest, FeedbackResponse,
     CaseMessageRequest, KnowledgeDecisionRequest,
 )
-from retrieval import get_retriever
+from retrieval import WIKI_DIR, get_retriever
 from query_rewriter import get_query_rewriter
 from reasoning import check_ambiguity, check_scope
 from escalation import get_router
@@ -40,21 +41,28 @@ ANSWER_CONFIDENCE_THRESHOLD = 0.12
 STRONG_ANSWER_CONFIDENCE_THRESHOLD = 0.18
 MIN_SOURCE_TERM_COVERAGE = 0.8
 
-# Confluence-style URL prefix, matching the real JB wiki URL pattern
-# (https://wiki.juliusbaer.com/pages/viewpage.action?pageId=...) referenced
-# in the challenge materials. Swap for the real page IDs once the real
-# Wiki dump is ingested.
-WIKI_URL_BASE = "https://wiki.juliusbaer.com/pages/viewpage.action?pageId="
+# Browser-facing URL for locally served source documents.
+WIKI_URL_BASE = os.environ.get("WIKI_URL_BASE", "http://localhost:8000/wiki/").rstrip("/")
 
 
 def _page_url(page_id: str) -> str:
-    # Deterministic fake pageId per page so links are stable across requests.
-    return f"{WIKI_URL_BASE}{abs(hash(page_id)) % 900000000 + 100000000}"
+    return f"{WIKI_URL_BASE}/{page_id}"
 
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/wiki/{page_id}", response_class=FileResponse)
+def wiki_page(page_id: str):
+    """Serve an ingested source page without exposing arbitrary filesystem paths."""
+    if not page_id.isdigit():
+        raise HTTPException(status_code=404, detail="Wiki page not found")
+    path = os.path.join(WIKI_DIR, f"{page_id}.html")
+    if not os.path.isfile(path):
+        raise HTTPException(status_code=404, detail="Wiki page not found")
+    return FileResponse(path, media_type="text/html")
 
 
 @app.post("/ask", response_model=AskResponse)

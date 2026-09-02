@@ -81,7 +81,7 @@ matrix worth showing in the pitch, not just a confidence number on the UI.
 
 | File | Role |
 |---|---|
-| `retrieval.py` | Loads `Dataset/wiki/*.html`, strips markup, TF-IDF + cosine similarity search. Swap for embeddings/a real vector store later — `retrieve()` is the only contract the rest of the app depends on. |
+| `retrieval.py` | Loads the real `pages/*.html` Confluence export, derives titles/scopes from each document, strips markup, and runs TF-IDF + cosine similarity search. Set `WIKI_DIR` to override the source directory. |
 | `reasoning.py` | Ambiguity detection (4 pages encoded from the real eval set's documented "needs clarification" cases) and scope/jurisdiction checking. |
 | `escalation.py` | Picks tier + SME from `Dataset/synthetic_smes.json` based on topic-tag overlap, following the real 1&2LoD tier order. |
 | `audit.py` | SQLite logging — every request and its eventual SME resolution. |
@@ -101,8 +101,10 @@ replaces the synthetic one on Day 1.
 
 ## Swapping in the real Wiki dump on Day 1
 
-1. Replace `Dataset/wiki/*.html` with the real files.
-2. Regenerate `Dataset/page_index.json` — the real dump won't have
-   `topic_tags`/`region_scope` metadata, so this needs inference logic
-   (exactly the kind of reasoning the challenge is scoring).
+1. Put the real HTML files in `pages/` (already configured as the default).
+2. No generated page index is required; filenames are treated as Confluence page IDs and titles are read from the HTML.
 3. Re-run `run_eval.py` against JB's real evaluation set for real pitch numbers.
+
+Source citations open the corresponding document at
+`http://localhost:8000/wiki/<page-id>`. Set `WIKI_URL_BASE` when the backend is
+served at a different public URL.

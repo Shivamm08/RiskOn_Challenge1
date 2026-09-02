@@ -8,3 +8,4 @@ Backend/audit_log.db
 Backend/eval_results.json
 Frontend/.env.local
 .env
+pages/

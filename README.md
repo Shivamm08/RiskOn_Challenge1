@@ -13,15 +13,16 @@ instead of guessing.
 |---|---|
 | Frontend | Built in Lovable. Login/logout (demo), Copilot chat, Audit trail, chat sessions, source previews, light/dark theme (Julius Baer navy / crimson) |
 | Backend | Built and tested. FastAPI, retrieval + reasoning + escalation, SQLite audit log |
-| Dataset | Built and verified against the real evaluation set and official challenge materials |
-| Real Wiki data | Not yet available — arrives Day 1 of the event via secure transfer. Everything currently runs on a synthetic stand-in, structured to swap in with no code changes |
-v
+| Dataset | Real HTML documents in `pages/`; synthetic evaluation and SME routing data remain in `Dataset/` |
+| Real Wiki data | Connected — the backend scans `pages/*.html` and uses the numeric filenames as Confluence page IDs |
+
 ## Repo structure
 
 ```
 Frontend/    React chat UI — RM co-pilot, audit trail, login, source previews
 backend/     FastAPI service — retrieval, reasoning, escalation, audit logging
-Dataset/     Synthetic Suitability Wiki + evaluation set + SME directory
+pages/       Real Suitability Wiki HTML documents
+Dataset/     Evaluation set + synthetic SME directory and legacy synthetic wiki
 ```
 
 Each folder has its own README with full detail — this file is the map, not the manual.
@@ -51,7 +52,7 @@ uvicorn main:app --reload
 cd Frontend
 npm install
 
-# Connect the UI to the backend instead of the seeded mock responses.
+# Optional; this is already the frontend default.
 export VITE_API_URL="http://localhost:8000"
 
 npm run dev
